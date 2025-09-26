@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         '/private/',
       ],
     },
-    sitemap: 'https://qalaa.com/sitemap.xml',
+    sitemap: 'https://qalaaoliveoil.com/sitemap.xml',
   }
 }
 

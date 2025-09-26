@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://qalaa.com"),
+  metadataBase: new URL("https://qalaaoliveoil.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Qalaa - Premium Tunisian Olive Oil",
     description:
       "Guardians of the Olive, Keepers of the Gold. Premium extra virgin olive oils from Tunisia's ancient groves.",
-    url: "https://qalaa.com",
+    url: "https://qalaaoliveoil.com",
     siteName: "Qalaa",
     images: [
       {
