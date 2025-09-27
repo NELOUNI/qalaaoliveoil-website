@@ -4,6 +4,7 @@ import { Inter, Crimson_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { LanguageProvider } from "@/components/language-provider"
+import { DevelopmentBanner } from "@/components/development-banner"
 import "./globals.css"
 import { Suspense } from "react"
 
@@ -106,6 +107,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-stone-50 text-stone-900">
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
           <LanguageProvider>
+            <DevelopmentBanner />
             <Navigation />
             <main className="min-h-screen pt-20">{children}</main>
           </LanguageProvider>
