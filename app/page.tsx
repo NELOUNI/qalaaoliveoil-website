@@ -9,7 +9,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
-  description: "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves. Guardians of the Olive, Keepers of the Gold.",
+  description: "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves. Guardians of the Olive, Keepers of the Gold. Now available worldwide!",
   keywords: "premium olive oil, Tunisian olive oil, extra virgin, Mediterranean, luxury food, artisanal, organic, ancient groves",
   openGraph: {
     title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
