@@ -15,8 +15,8 @@ export default function LocationsPage() {
       id: 1,
       name: t("locations.main-grove"),
       type: "Olive Grove & Production",
-      address: "Route de Tunis, Sfax 3000, Tunisia",
-      phone: "+216 74 123 456",
+      address: "Avenue 14 Janvier, 4000 Sousse, Tunisia",
+      phone: "+216 58 737 106",
       hours: "Monday - Saturday: 8:00 AM - 5:00 PM",
       description:
         "Visit our historic olive groves where our family has been producing premium olive oil for over 200 years.",

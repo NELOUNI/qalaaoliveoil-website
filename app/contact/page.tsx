@@ -31,17 +31,17 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: t("contact.info.address"),
-      details: ["Sfax Olive Groves", "Route de Tunis, Sfax 3000", "Tunisia"],
+      details: ["Avenue 14 Janvier", "4000 Sousse, Tunisia"],
     },
     {
       icon: Phone,
       title: t("contact.info.phone"),
-      details: ["+216 74 123 456", "+216 98 765 432"],
+      details: ["+216 58 737 106"],
     },
     {
       icon: Mail,
       title: t("contact.info.email"),
-      details: ["info@zaytouna.tn", "wholesale@zaytouna.tn"],
+      details: ["contact@tunevoo.com"],
     },
     {
       icon: Clock,
