@@ -13,12 +13,13 @@ interface LanguageContextType {
 const translations = {
   en: {
     // Navigation
-    "nav.olive-oil": "Olive Oil",
+    "nav.our-olive-oil": "Our Olive Oil",
+    "nav.our-locations": "Our Locations",
     "nav.gifting": "Gifting",
-    "nav.story": "Story",
+    "nav.our-story": "Our Story",
     "nav.recipes": "Recipes",
-    "nav.contact": "Contact",
-    "nav.locations": "Locations",
+    "nav.learn": "Learn",
+    "nav.contact-us": "Contact Us",
     "nav.faq": "FAQ",
     "nav.account": "Account",
     "nav.cart": "Cart",
@@ -131,12 +132,13 @@ const translations = {
   },
   ar: {
     // Navigation
-    "nav.olive-oil": "زيت الزيتون",
+    "nav.our-olive-oil": "زيوت الزيتون لدينا",
+    "nav.our-locations": "مواقعنا",
     "nav.gifting": "الهدايا",
-    "nav.story": "القصة",
+    "nav.our-story": "قصتنا",
     "nav.recipes": "الوصفات",
-    "nav.contact": "اتصل بنا",
-    "nav.locations": "المواقع",
+    "nav.learn": "تعلم",
+    "nav.contact-us": "اتصل بنا",
     "nav.faq": "الأسئلة الشائعة",
     "nav.account": "الحساب",
     "nav.cart": "السلة",

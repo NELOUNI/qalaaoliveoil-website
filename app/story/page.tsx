@@ -4,6 +4,7 @@ import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { Leaf, Award, Users, Clock } from "lucide-react"
 import Image from "next/image"
+import { Footer } from "@/components/footer"
 
 export default function StoryPage() {
   const { t } = useLanguage()
@@ -129,6 +130,7 @@ export default function StoryPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

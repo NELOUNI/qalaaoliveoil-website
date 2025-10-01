@@ -5,7 +5,7 @@ import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { StructuredData } from "@/components/structured-data"
-import { Breadcrumbs } from "@/components/breadcrumbs"
+import { Footer } from "@/components/footer"
 
 export function FAQClient() {
   const { t } = useLanguage()
@@ -62,11 +62,6 @@ export function FAQClient() {
     <>
       <StructuredData type="faq" data={faqs} />
       <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-        {/* Breadcrumbs */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <Breadcrumbs items={[{ name: "FAQ", url: "/faq" }]} />
-        </div>
-
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -105,6 +100,7 @@ export function FAQClient() {
         </div>
       </section>
       </div>
+      <Footer />
     </>
   )
 }

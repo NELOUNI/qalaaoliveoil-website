@@ -9,12 +9,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 // import { AuthButton } from "./auth-button"
 
 const navigationItems = [
-  { key: "nav.olive-oil", href: "/products" },
-  { key: "nav.gifting", href: "/gifting" },
-  { key: "nav.story", href: "/story" },
-  { key: "nav.recipes", href: "/recipes" },
-  { key: "nav.contact", href: "/contact" },
-  { key: "nav.locations", href: "/locations" },
+  { key: "nav.our-story", href: "/story" },
+  { key: "nav.contact-us", href: "/contact" },
   { key: "nav.faq", href: "/faq" },
 ]
 
@@ -27,17 +23,75 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-3">
-            <img src="/qalaa-logo.png" alt="Qalaa Logo" className="w-10 h-10 object-contain" />
+            <img src="/qalaa-logo.svg" alt="Qalaa Logo" className="w-10 h-10 object-contain" />
             <div className="flex flex-col">
               <span className="font-serif font-bold text-xl text-yellow-600 leading-none tracking-wide text-center">
                 {t("brand.name")}
               </span>
-              <span className="text-xs text-stone-400 leading-none font-medium">{t("brand.tagline")}</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
+            {/* Our Olive Oil Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-sm font-medium text-stone-700 hover:text-yellow-600 transition-colors duration-200 tracking-wide whitespace-nowrap">
+                  {t("nav.our-olive-oil")}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white border-stone-200">
+                <DropdownMenuItem asChild>
+                  <Link href="/products" className="text-stone-700 hover:text-yellow-600">
+                    {t("nav.our-olive-oil")}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/locations" className="text-stone-700 hover:text-yellow-600">
+                    {t("nav.our-locations")}
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Gifting Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-sm font-medium text-stone-700 hover:text-yellow-600 transition-colors duration-200 tracking-wide whitespace-nowrap">
+                  {t("nav.gifting")}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white border-stone-200">
+                <DropdownMenuItem asChild>
+                  <Link href="/gifting" className="text-stone-700 hover:text-yellow-600">
+                    {t("nav.gifting")}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/wholesale" className="text-stone-700 hover:text-yellow-600">
+                    {t("nav.wholesale")}
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Learn Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-sm font-medium text-stone-700 hover:text-yellow-600 transition-colors duration-200 tracking-wide whitespace-nowrap">
+                  {t("nav.learn")}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white border-stone-200">
+                <DropdownMenuItem asChild>
+                  <Link href="/recipes" className="text-stone-700 hover:text-yellow-600">
+                    {t("nav.recipes")}
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Regular Navigation Items */}
             {navigationItems.map((item) => (
               <Link
                 key={item.key}

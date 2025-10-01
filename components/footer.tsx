@@ -57,7 +57,7 @@ export function Footer() {
                 className="w-10 h-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 19c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7zm-1.5-11.5c-1.933 0-3.5 1.567-3.5 3.5s1.567 3.5 3.5 3.5c.19 0 .37-.02.55-.05-.1-.6-.15-1.2-.15-1.8 0-2.5 1.5-4.5 4-4.5s4 2 4 4.5c0 2.5-1.5 4.5-4 4.5-.6 0-1.2-.05-1.8-.15.03.18.05.36.05.55 0 1.933-1.567 3.5-3.5 3.5z"/>
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.219-5.162 1.219-5.162s-.279-.558-.279-1.379c0-1.279.74-2.237 1.658-2.237.783 0 1.16.588 1.16 1.299 0 .787-.501 1.968-.759 3.063-.219.919.461 1.668 1.36 1.668 1.639 0 2.898-1.719 2.898-4.201 0-2.198-1.579-3.736-3.837-3.736-2.617 0-4.15 1.96-4.15 3.988 0 .787.301 1.631.679 2.088.078.099.099.179.079.279-.08.301-.24 1.04-.28 1.178-.04.179-.139.219-.321.139-1.199-.559-1.939-2.298-1.939-3.697 0-2.897 2.099-5.556 6.077-5.556 3.198 0 5.675 2.278 5.675 5.321 0 3.177-2.001 5.734-4.777 5.734-.939 0-1.818-.499-2.118-1.099 0 0-.479 1.838-.599 2.277-.219.859-.8 1.919-1.199 2.577C9.197 23.814 10.566 24.001 12.017 24.001c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
                 </svg>
               </a>
               <a
@@ -85,7 +85,7 @@ export function Footer() {
             <h3 className="font-semibold text-white">Products</h3>
             <div className="space-y-2">
               <Link href="/products" className="block text-sm hover:text-amber-400 transition-colors">
-                {t("nav.olive-oil")}
+                Our Olive Oil
               </Link>
               <Link href="/gifting" className="block text-sm hover:text-amber-400 transition-colors">
                 {t("nav.gifting")}
@@ -100,13 +100,13 @@ export function Footer() {
             <h3 className="font-semibold text-white">Company</h3>
             <div className="space-y-2">
               <Link href="/story" className="block text-sm hover:text-amber-400 transition-colors">
-                {t("nav.story")}
+                Our Story
               </Link>
               <Link href="/locations" className="block text-sm hover:text-amber-400 transition-colors">
-                {t("nav.locations")}
+                Our Locations
               </Link>
               <Link href="/contact" className="block text-sm hover:text-amber-400 transition-colors">
-                {t("nav.contact")}
+                Contact Us
               </Link>
               <Link href="/faq" className="block text-sm hover:text-amber-400 transition-colors">
                 {t("nav.faq")}

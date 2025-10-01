@@ -1,6 +1,7 @@
 import { ProductsGrid } from "@/components/products-grid"
 import { ProductFilters } from "@/components/product-filters"
 import { Suspense } from "react"
+import { Footer } from "@/components/footer"
 
 export default async function ProductsPage({
   searchParams,
@@ -96,6 +97,7 @@ export default async function ProductsPage({
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

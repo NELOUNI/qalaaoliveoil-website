@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Clock, Phone, Calendar } from "lucide-react"
 import Image from "next/image"
+import { Footer } from "@/components/footer"
 
 export default function LocationsPage() {
   const { t } = useLanguage()
@@ -119,6 +120,7 @@ export default function LocationsPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

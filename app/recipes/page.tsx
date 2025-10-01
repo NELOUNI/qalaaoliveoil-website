@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, ChefHat } from "lucide-react"
 import Image from "next/image"
+import { Footer } from "@/components/footer"
 
 export default function RecipesPage() {
   const { t } = useLanguage()
@@ -156,6 +157,7 @@ export default function RecipesPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
