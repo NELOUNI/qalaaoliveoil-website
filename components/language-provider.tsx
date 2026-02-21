@@ -57,7 +57,8 @@ const translations = {
     "products.filter.premium": "Premium",
     "products.filter.organic": "Organic",
     "products.filter.limited": "Limited Edition",
-    "products.add-to-cart": "Add to Cart",
+    "products.add-to-cart": "Know More",
+    "products.know-more": "Know More",
     "products.view-details": "View Details",
 
     // Story Page
@@ -65,7 +66,7 @@ const translations = {
     "story.subtitle": "A Legacy of Excellence Spanning Generations",
     "story.heritage.title": "Ancient Heritage",
     "story.heritage.text":
-      "Our olive groves have been in our family for over 200 years, passed down through generations of master cultivators who understood the sacred art of olive oil production.",
+      "Our olive groves have been in our family for over 50 years, passed down through generations of master cultivators who understood the sacred art of olive oil production.",
     "story.tradition.title": "Traditional Methods",
     "story.tradition.text":
       "We honor time-tested techniques while embracing modern quality standards, ensuring each bottle captures the authentic taste of Tunisia.",
@@ -175,7 +176,8 @@ const translations = {
     "products.filter.premium": "فاخر",
     "products.filter.organic": "عضوي",
     "products.filter.limited": "إصدار محدود",
-    "products.add-to-cart": "أضف إلى السلة",
+    "products.add-to-cart": "اعرف المزيد",
+    "products.know-more": "اعرف المزيد",
     "products.view-details": "عرض التفاصيل",
 
     // Story Page
@@ -183,7 +185,7 @@ const translations = {
     "story.subtitle": "إرث من التميز يمتد عبر الأجيال",
     "story.heritage.title": "التراث العريق",
     "story.heritage.text":
-      "بساتين الزيتون لدينا في عائلتنا لأكثر من 200 عام، تم تناقلها عبر أجيال من المزارعين الخبراء الذين فهموا فن إنتاج زيت الزيتون المقدس.",
+      "بساتين الزيتون لدينا في عائلتنا لأكثر من 50 عاماً، تم تناقلها عبر أجيال من المزارعين الخبراء الذين فهموا فن إنتاج زيت الزيتون المقدس.",
     "story.tradition.title": "الطرق التقليدية",
     "story.tradition.text":
       "نحن نكرم التقنيات المجربة مع احتضان معايير الجودة الحديثة، مما يضمن أن كل زجاجة تلتقط الطعم الأصيل لتونس.",

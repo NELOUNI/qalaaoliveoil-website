@@ -12,7 +12,7 @@ INSERT INTO products (
   tasting_notes_en, tasting_notes_ar, stock_quantity, is_premium
 ) VALUES
 (
-  'Sfax Gold Reserve', 'احتياطي صفاقس الذهبي',
+  'Gold Reserve of Qalaa', 'احتياطي قلاع الذهبي',
   'Premium extra virgin olive oil from the ancient groves of Sfax, cold-pressed within hours of harvest.',
   'زيت زيتون بكر ممتاز من بساتين صفاقس العريقة، معصور على البارد خلال ساعات من القطف.',
   'Our Sfax Gold Reserve comes from olive trees that have stood for over 800 years in the fertile plains of Sfax. Each tree tells a story of generations of Tunisian farmers who have perfected the art of olive cultivation, passing down their knowledge through centuries of tradition.',
@@ -23,7 +23,7 @@ INSERT INTO products (
   50, true
 ),
 (
-  'Monastir Heritage', 'تراث المنستير',
+  'Heritage of Djerba', 'تراث جربة',
   'Artisanal olive oil from coastal groves, featuring a delicate balance of sea breeze and Mediterranean sun.',
   'زيت زيتون حرفي من البساتين الساحلية، يتميز بتوازن رقيق بين نسيم البحر وشمس البحر المتوسط.',
   'The olive groves of Monastir have been kissed by Mediterranean breezes for millennia. Our Heritage blend captures the essence of this coastal terroir, where the proximity to the sea creates a unique microclimate that produces olives with exceptional character.',
@@ -34,7 +34,7 @@ INSERT INTO products (
   75, false
 ),
 (
-  'Kairouan Sacred Grove', 'بستان القيروان المقدس',
+  'Sacred Grove of Maktar', 'بستان مكتار المقدس',
   'Single-estate olive oil from the spiritual heart of Tunisia, where tradition meets divine inspiration.',
   'زيت زيتون من مزرعة واحدة من القلب الروحي لتونس، حيث يلتقي التقليد بالإلهام الإلهي.',
   'In the shadow of the Great Mosque of Kairouan, our sacred grove has been tended by the same family for 12 generations. This oil carries the blessings of centuries of prayer and the wisdom of ancient cultivation methods passed down through Islamic tradition.',
@@ -49,11 +49,11 @@ INSERT INTO products (
 INSERT INTO product_categories (product_id, category_id)
 SELECT p.id, c.id 
 FROM products p, categories c 
-WHERE (p.name_en = 'Sfax Gold Reserve' AND c.slug = 'extra-virgin')
-   OR (p.name_en = 'Sfax Gold Reserve' AND c.slug = 'limited-edition')
-   OR (p.name_en = 'Monastir Heritage' AND c.slug = 'extra-virgin')
-   OR (p.name_en = 'Kairouan Sacred Grove' AND c.slug = 'extra-virgin')
-   OR (p.name_en = 'Kairouan Sacred Grove' AND c.slug = 'limited-edition');
+WHERE (p.name_en = 'Gold Reserve of Qalaa' AND c.slug = 'extra-virgin')
+   OR (p.name_en = 'Gold Reserve of Qalaa' AND c.slug = 'limited-edition')
+   OR (p.name_en = 'Heritage of Djerba' AND c.slug = 'extra-virgin')
+   OR (p.name_en = 'Sacred Grove of Maktar' AND c.slug = 'extra-virgin')
+   OR (p.name_en = 'Sacred Grove of Maktar' AND c.slug = 'limited-edition');
 
 -- Insert gift configurations
 INSERT INTO gift_configurations (

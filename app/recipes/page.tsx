@@ -15,7 +15,7 @@ export default function RecipesPage() {
       id: 1,
       title: "Mediterranean Bruschetta",
       description: "Classic Italian appetizer with our Heritage Gold olive oil",
-      image: "/mediterranean-bruschetta-with-olive-oil.jpg",
+      image: "/bruschetta.png",
       prepTime: "15 min",
       cookTime: "5 min",
       servings: 4,
@@ -40,7 +40,7 @@ export default function RecipesPage() {
       id: 2,
       title: "Tunisian Mechouia Salad",
       description: "Traditional grilled vegetable salad with premium olive oil",
-      image: "/tunisian-mechouia-salad-with-vegetables.jpg",
+      image: "/salata-mechouia.png",
       prepTime: "20 min",
       cookTime: "30 min",
       servings: 6,
@@ -67,7 +67,7 @@ export default function RecipesPage() {
       id: 3,
       title: "Olive Oil Lemon Cake",
       description: "Moist Mediterranean cake made with our Coastal Breeze blend",
-      image: "/lemon-olive-oil-cake-mediterranean-style.jpg",
+      image: "/lemon-cake.png",
       prepTime: "15 min",
       cookTime: "45 min",
       servings: 8,
@@ -94,12 +94,12 @@ export default function RecipesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[var(--blush-clay)]/25 via-[var(--matte-black)] to-[var(--sage-olive)]/25">
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6 text-balance">{t("recipes.title")}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">{t("recipes.subtitle")}</p>
+          <h1 className="text-5xl font-serif font-bold text-[var(--antique-gold)] mb-6 text-balance">{t("recipes.title")}</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">{t("recipes.subtitle")}</p>
         </div>
       </section>
 
@@ -109,16 +109,16 @@ export default function RecipesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {recipes.map((recipe) => (
               <Card key={recipe.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video bg-gradient-to-br from-amber-100 to-amber-200">
+                <div className="relative aspect-video bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)]">
                   <Image src={recipe.image || "/placeholder.svg"} alt={recipe.title} fill className="object-cover" />
-                  <Badge className="absolute top-4 left-4 bg-amber-600 text-white">{recipe.difficulty}</Badge>
+                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">{recipe.difficulty}</Badge>
                 </div>
 
                 <CardHeader>
                   <CardTitle className="text-xl">{recipe.title}</CardTitle>
-                  <p className="text-gray-600 text-sm">{recipe.description}</p>
+                  <p className="text-muted-foreground text-sm">{recipe.description}</p>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-500 pt-2">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       <span>{recipe.prepTime}</span>
@@ -137,16 +137,16 @@ export default function RecipesPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">{t("recipes.ingredients")}</h4>
-                      <ul className="space-y-1 text-sm text-gray-600">
+                      <h4 className="font-semibold text-foreground mb-2">{t("recipes.ingredients")}</h4>
+                      <ul className="space-y-1 text-sm text-muted-foreground">
                         {recipe.ingredients.slice(0, 4).map((ingredient, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2 mr-2 flex-shrink-0" />
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
                             {ingredient}
                           </li>
                         ))}
                         {recipe.ingredients.length > 4 && (
-                          <li className="text-amber-600 text-sm">+{recipe.ingredients.length - 4} more ingredients</li>
+                          <li className="text-primary text-sm">+{recipe.ingredients.length - 4} more ingredients</li>
                         )}
                       </ul>
                     </div>

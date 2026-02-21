@@ -19,7 +19,7 @@ export function FAQClient() {
     {
       question: "What makes your olive oil premium quality?",
       answer:
-        "Our olive oil is made from hand-picked olives from trees that are over 200 years old. We use traditional cold-pressing methods within 24 hours of harvest to ensure maximum flavor and nutritional value. Each batch is tested for acidity levels and meets strict extra virgin standards.",
+        "Our olive oil is made from hand-picked olives from trees that are over 50 years old. We use traditional cold-pressing methods within 24 hours of harvest to ensure maximum flavor and nutritional value. Each batch is tested for acidity levels and meets strict extra virgin standards.",
     },
     {
       question: "How should I store my olive oil?",
@@ -61,12 +61,12 @@ export function FAQClient() {
   return (
     <>
       <StructuredData type="faq" data={faqs} />
-      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-[var(--matte-black)] to-background">
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6 text-balance">{t("faq.title")}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">{t("faq.subtitle")}</p>
+            <h1 className="text-5xl font-serif font-bold text-foreground mb-6 text-balance">{t("faq.title")}</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">{t("faq.subtitle")}</p>
           </div>
         </section>
 
@@ -79,18 +79,18 @@ export function FAQClient() {
                 <CardContent className="p-0">
                   <button
                     onClick={() => toggleItem(index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-amber-50 transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between hover:bg-accent/20 transition-colors"
                   >
-                    <h3 className="font-semibold text-gray-900 pr-4">{faq.question}</h3>
+                    <h3 className="font-semibold text-foreground pr-4">{faq.question}</h3>
                     {openItems.includes(index) ? (
-                      <ChevronUp className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-primary flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-primary flex-shrink-0" />
                     )}
                   </button>
                   {openItems.includes(index) && (
                     <div className="px-6 pb-6">
-                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                     </div>
                   )}
                 </CardContent>

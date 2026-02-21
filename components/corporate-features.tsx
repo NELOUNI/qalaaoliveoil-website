@@ -45,8 +45,8 @@ export function CorporateFeatures() {
   return (
     <section className="mt-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Corporate Services</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Corporate Services</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
           Comprehensive solutions for businesses, from small companies to Fortune 500 enterprises
         </p>
       </div>
@@ -57,8 +57,8 @@ export function CorporateFeatures() {
           return (
             <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-amber-600" />
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <CardTitle className="text-lg">{service.title}</CardTitle>
               </CardHeader>

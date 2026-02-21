@@ -9,7 +9,7 @@ const pricingTiers = [
     maxQuantity: 199,
     discount: 0,
     features: ["Bulk pricing", "Standard shipping", "Basic support"],
-    color: "bg-gray-100 text-gray-800",
+    color: "bg-muted text-foreground",
   },
   {
     name: "Volume",
@@ -17,7 +17,7 @@ const pricingTiers = [
     maxQuantity: 499,
     discount: 5,
     features: ["5% volume discount", "Priority shipping", "Dedicated support"],
-    color: "bg-blue-100 text-blue-800",
+    color: "bg-[var(--sage-olive)]/20 text-[var(--sage-olive)]",
   },
   {
     name: "Enterprise",
@@ -25,7 +25,7 @@ const pricingTiers = [
     maxQuantity: 999,
     discount: 10,
     features: ["10% volume discount", "Free shipping", "Account manager"],
-    color: "bg-amber-100 text-amber-800",
+    color: "bg-[var(--antique-gold)]/20 text-[var(--antique-gold)]",
   },
   {
     name: "Corporate",
@@ -33,7 +33,7 @@ const pricingTiers = [
     maxQuantity: null,
     discount: 15,
     features: ["15% volume discount", "White-glove delivery", "Custom packaging"],
-    color: "bg-green-100 text-green-800",
+    color: "bg-[var(--blush-clay)]/30 text-[var(--blush-clay)]",
   },
 ]
 
@@ -74,17 +74,17 @@ export function BulkPricingTiers() {
           {pricingTiers.map((tier, index) => (
             <div key={index} className="border rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-gray-900">{tier.name}</h3>
+                <h3 className="font-semibold text-foreground">{tier.name}</h3>
                 <Badge className={tier.color}>{tier.discount > 0 ? `${tier.discount}% OFF` : "Standard"}</Badge>
               </div>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm text-muted-foreground mb-3">
                 {tier.minQuantity}
                 {tier.maxQuantity ? `-${tier.maxQuantity}` : "+"} bottles
               </p>
               <ul className="space-y-1">
                 {tier.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="text-sm text-gray-600 flex items-center">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full mr-2" />
+                  <li key={featureIndex} className="text-sm text-muted-foreground flex items-center">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                     {feature}
                   </li>
                 ))}
@@ -103,12 +103,12 @@ export function BulkPricingTiers() {
             const Icon = benefit.icon
             return (
               <div key={index} className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4 text-amber-600" />
+                <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 text-sm">{benefit.title}</h4>
-                  <p className="text-xs text-gray-600">{benefit.description}</p>
+                  <h4 className="font-medium text-foreground text-sm">{benefit.title}</h4>
+                  <p className="text-xs text-muted-foreground">{benefit.description}</p>
                 </div>
               </div>
             )

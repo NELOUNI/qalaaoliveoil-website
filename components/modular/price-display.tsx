@@ -23,11 +23,11 @@ export function PriceDisplay({
 
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
-      <span className={`font-semibold text-stone-900 ${sizeClasses[size]}`}>${price.toFixed(2)}</span>
+      <span className={`font-semibold text-foreground font-numeric ${sizeClasses[size]}`}>${price.toFixed(2)}</span>
       {originalPrice && originalPrice > price && (
-        <span className={`text-stone-500 line-through ${sizeClasses.sm}`}>${originalPrice.toFixed(2)}</span>
+        <span className={`text-muted-foreground line-through font-numeric ${sizeClasses.sm}`}>${originalPrice.toFixed(2)}</span>
       )}
-      <span className="text-xs text-stone-600 uppercase tracking-wide">{currency}</span>
+      <span className="text-xs text-muted-foreground uppercase tracking-wide">{currency}</span>
     </div>
   )
 }

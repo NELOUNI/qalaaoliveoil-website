@@ -15,7 +15,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "name": "Qalaa",
           "description": "Premium Tunisian olive oil company specializing in extra virgin olive oils from ancient groves",
           "url": "https://qalaa.com",
-          "logo": "https://qalaa.com/qalaa-logo.png",
+          "logo": "https://qalaa.com/qalaa-logo.white.svg",
           "foundingDate": "1800",
           "founder": {
             "@type": "Person",

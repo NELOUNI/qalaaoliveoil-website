@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Package, Plus, Minus, Gift, MessageSquare, Truck, Check, Heart } from "lucide-react"
+import { Package, Plus, Minus, Gift, MessageSquare, Truck, Check } from "lucide-react"
 import Image from "next/image"
 
 interface GiftProduct {
@@ -31,21 +31,15 @@ interface GiftConfiguration {
 const availableProducts = [
   {
     id: "1",
-    name: "Heritage Gold Extra Virgin",
-    price: 45,
-    image: "/premium-olive-oil-bottle-gold-label.jpg",
+    name: "Gold Reserve of Qalaa",
+    price: 89.99,
+    image: "/QALAA%20500ml%20no%20background.png",
   },
   {
     id: "2",
-    name: "Coastal Breeze Blend",
-    price: 38,
-    image: "/elegant-olive-oil-bottle-coastal-design.jpg",
-  },
-  {
-    id: "3",
-    name: "Sacred Grove Reserve",
-    price: 52,
-    image: "/luxury-olive-oil-bottle-sacred-design.jpg",
+    name: "Sacred Grove of Beja",
+    price: 125.99,
+    image: "/organic-bottle.png",
   },
 ]
 
@@ -132,8 +126,8 @@ export function GiftingConfigurator() {
     <section id="configurator" className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Configure Your Perfect Gift</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Configure Your Perfect Gift</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Follow our simple steps to create a personalized gift that will delight your recipient
           </p>
         </div>
@@ -153,17 +147,17 @@ export function GiftingConfigurator() {
                       isCompleted
                         ? "bg-green-500 border-green-500 text-white"
                         : isActive
-                          ? "bg-amber-600 border-amber-600 text-white"
+                          ? "bg-primary border-primary text-primary-foreground"
                           : "border-gray-300 text-gray-400"
                     }`}
                   >
                     {isCompleted ? <Check className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
                   </div>
                   <div className="ml-3 hidden sm:block">
-                    <p className={`text-sm font-medium ${isActive ? "text-amber-600" : "text-gray-500"}`}>
+                    <p className={`text-sm font-medium ${isActive ? "text-primary" : "text-muted-foreground"}`}>
                       Step {stepItem.number}
                     </p>
-                    <p className={`text-xs ${isActive ? "text-gray-900" : "text-gray-400"}`}>{stepItem.title}</p>
+                    <p className={`text-xs ${isActive ? "text-foreground" : "text-muted-foreground"}`}>{stepItem.title}</p>
                   </div>
                   {index < steps.length - 1 && (
                     <div className={`w-8 h-0.5 mx-4 ${step > stepItem.number ? "bg-green-500" : "bg-gray-300"}`} />
@@ -186,19 +180,19 @@ export function GiftingConfigurator() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {availableProducts.map((product) => (
                         <div key={product.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                          <div className="aspect-square bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg mb-4 relative overflow-hidden">
+                          <div className="aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg mb-4 relative overflow-hidden flex items-center justify-center">
                             <Image
                               src={product.image || "/placeholder.svg"}
                               alt={product.name}
                               fill
-                              className="object-cover"
+                              className="object-contain object-center"
                             />
                           </div>
-                          <h4 className="font-semibold text-gray-900 mb-2">{product.name}</h4>
-                          <p className="text-lg font-bold text-amber-600 mb-3">${product.price}</p>
+                          <h4 className="font-semibold text-foreground mb-2">{product.name}</h4>
+                          <p className="text-lg font-bold text-primary mb-3 font-numeric">${product.price}</p>
                           <Button
                             onClick={() => addProduct(product)}
-                            className="w-full bg-amber-600 hover:bg-amber-700"
+                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                           >
                             <Plus className="w-4 h-4 mr-2" />
                             Add to Gift
@@ -219,18 +213,18 @@ export function GiftingConfigurator() {
                           key={option.id}
                           className={`border rounded-lg p-6 cursor-pointer transition-all ${
                             config.packaging === option.id
-                              ? "border-amber-600 bg-amber-50"
-                              : "border-gray-200 hover:border-amber-300"
+                              ? "border-primary bg-primary/10"
+                              : "border-border hover:border-primary/50"
                           }`}
                           onClick={() => setConfig({ ...config, packaging: option.id })}
                         >
                           <div className="flex justify-between items-start">
                             <div>
-                              <h4 className="font-semibold text-gray-900 mb-2">{option.name}</h4>
-                              <p className="text-gray-600 mb-2">{option.description}</p>
-                              <Badge variant="secondary">+${option.price}</Badge>
+                              <h4 className="font-semibold text-foreground mb-2">{option.name}</h4>
+                              <p className="text-muted-foreground mb-2">{option.description}</p>
+                              <Badge variant="secondary" className="font-numeric">+${option.price}</Badge>
                             </div>
-                            {config.packaging === option.id && <Check className="w-6 h-6 text-amber-600" />}
+                            {config.packaging === option.id && <Check className="w-6 h-6 text-primary" />}
                           </div>
                         </div>
                       ))}
@@ -310,7 +304,7 @@ export function GiftingConfigurator() {
                             <span>
                               {product.name} x{product.quantity}
                             </span>
-                            <span>${product.price * product.quantity}</span>
+                            <span className="font-numeric">${product.price * product.quantity}</span>
                           </div>
                         ))}
                       </div>
@@ -327,7 +321,7 @@ export function GiftingConfigurator() {
                           <Separator />
                           <div>
                             <h4 className="font-semibold mb-2">Message for {config.recipientName}</h4>
-                            <p className="text-gray-600 italic">"{config.message}"</p>
+                            <p className="text-muted-foreground italic">"{config.message}"</p>
                           </div>
                         </>
                       )}
@@ -344,14 +338,14 @@ export function GiftingConfigurator() {
                   {step < 5 ? (
                     <Button
                       onClick={() => setStep(Math.min(5, step + 1))}
-                      className="bg-amber-600 hover:bg-amber-700"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
                       disabled={(step === 1 && config.products.length === 0) || (step === 2 && !config.packaging)}
                     >
                       Next Step
                     </Button>
                   ) : (
                     <Button className="bg-green-600 hover:bg-green-700">
-                      <Heart className="w-4 h-4 mr-2" />
+                      <Check className="w-4 h-4 mr-2" />
                       Complete Gift Order
                     </Button>
                   )}
@@ -365,7 +359,7 @@ export function GiftingConfigurator() {
             <Card className="sticky top-24">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Gift className="w-5 h-5 text-amber-600" />
+                  <Gift className="w-5 h-5 text-primary" />
                   Gift Summary
                 </CardTitle>
               </CardHeader>
@@ -376,12 +370,12 @@ export function GiftingConfigurator() {
                       {config.products.map((product) => (
                         <div key={product.id} className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-amber-200 rounded relative overflow-hidden">
+                            <div className="w-12 h-12 bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded relative overflow-hidden flex items-center justify-center">
                               <Image
                                 src={product.image || "/placeholder.svg"}
                                 alt={product.name}
                                 fill
-                                className="object-cover"
+                                className="object-contain object-center"
                               />
                             </div>
                             <div>
@@ -408,7 +402,7 @@ export function GiftingConfigurator() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <p className="font-medium">${product.price * product.quantity}</p>
+                            <p className="font-medium font-numeric">${product.price * product.quantity}</p>
                           </div>
                         </div>
                       ))}
@@ -418,7 +412,7 @@ export function GiftingConfigurator() {
                           <Separator />
                           <div className="flex justify-between">
                             <span>Packaging</span>
-                            <span>${packagingOptions.find((p) => p.id === config.packaging)?.price}</span>
+                            <span className="font-numeric">${packagingOptions.find((p) => p.id === config.packaging)?.price}</span>
                           </div>
                         </>
                       )}
@@ -426,7 +420,7 @@ export function GiftingConfigurator() {
                       <Separator />
                       <div className="flex justify-between font-bold text-lg">
                         <span>Total</span>
-                        <span className="text-amber-600">${getTotalPrice()}</span>
+                        <span className="text-primary font-numeric">${getTotalPrice()}</span>
                       </div>
                     </>
                   ) : (

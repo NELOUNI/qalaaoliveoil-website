@@ -4,7 +4,7 @@ import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Clock, Phone, Calendar } from "lucide-react"
+import { MapPin } from "lucide-react"
 import Image from "next/image"
 import { Footer } from "@/components/footer"
 
@@ -20,8 +20,8 @@ export default function LocationsPage() {
       phone: "+216 58 737 106",
       hours: "Monday - Saturday: 8:00 AM - 5:00 PM",
       description:
-        "Visit our historic olive groves where our family has been producing premium olive oil for over 200 years.",
-      image: "/ancient-tunisian-olive-grove-with-traditional-ston.jpg",
+        "Visit our historic olive groves where our family has been producing premium olive oil for over 50 years.",
+      image: "/olive-grove-story.png",
       features: ["Guided Tours", "Oil Tasting", "Production Viewing", "Gift Shop"],
     },
     {
@@ -32,86 +32,66 @@ export default function LocationsPage() {
       phone: "+216 71 987 654",
       hours: "Tuesday - Sunday: 10:00 AM - 7:00 PM",
       description: "Experience our premium olive oils through guided tastings in the heart of Tunis.",
-      image: "/elegant-olive-oil-tasting-room.jpg",
+      image: "/tasting room.png",
       features: ["Professional Tastings", "Educational Sessions", "Premium Selection", "Corporate Events"],
     },
     {
       id: 3,
       name: t("locations.retail-store"),
       type: "Retail Store",
-      address: "Sousse Medina, Sousse 4000, Tunisia",
-      phone: "+216 73 456 789",
+      address: "Al Saad , near Tarek Ibn Ziyed School, Doha",
+      phone: "+974 33551131",
       hours: "Daily: 9:00 AM - 8:00 PM",
-      description: "Our flagship retail location offering the complete range of Zaytouna olive oils and gift sets.",
-      image: "/premium-olive-oil-retail-store.jpg",
+      description:
+        'You find us in our Flagship Authentic Tunisian Products Store in Doha "Khayrat Bledi"',
+      image: "/Retail%20Store.jpg",
       features: ["Full Product Range", "Gift Wrapping", "Shipping Services", "Expert Advice"],
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[var(--sage-olive)]/30 via-[var(--matte-black)] to-[var(--blush-clay)]/20 overflow-x-hidden">
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6 text-balance">{t("locations.title")}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">{t("locations.subtitle")}</p>
+          <h1 className="text-5xl font-serif font-bold text-[var(--antique-gold)] mb-6 text-balance">{t("locations.title")}</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">{t("locations.subtitle")}</p>
         </div>
       </section>
 
       {/* Locations Grid */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
             {locations.map((location) => (
-              <Card key={location.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video bg-gradient-to-br from-amber-100 to-amber-200">
+              <Card key={location.id} className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <div className="relative aspect-video bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)]">
                   <Image src={location.image || "/placeholder.svg"} alt={location.name} fill className="object-cover" />
-                  <Badge className="absolute top-4 left-4 bg-amber-600 text-white">{location.type}</Badge>
                 </div>
 
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <CardTitle className="text-xl">{location.name}</CardTitle>
-                  <p className="text-gray-600 text-sm">{location.description}</p>
+                  <p className="text-muted-foreground text-sm font-display">{location.description}</p>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
-                  {/* Contact Info */}
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-2 text-sm text-gray-600">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                      <span>{location.address}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Phone className="w-4 h-4 flex-shrink-0" />
-                      <span>{location.phone}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Clock className="w-4 h-4 flex-shrink-0" />
-                      <span>{location.hours}</span>
-                    </div>
-                  </div>
-
+                <CardContent className="flex flex-col flex-1 flex-grow">
                   {/* Features */}
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Available Services</h4>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-foreground mb-2">Available Services</h4>
                     <div className="flex flex-wrap gap-2">
                       {location.features.map((feature, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
+                        <Badge key={index} variant="secondary" className="text-xs bg-[var(--soft-sand)] text-[var(--matte-black)] cursor-default transition-colors font-display">
                           {feature}
                         </Badge>
                       ))}
                     </div>
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex gap-2 pt-2">
-                    <Button size="sm" className="flex-1 bg-amber-600 hover:bg-amber-700">
+                  {/* Visit Us - aligned to bottom across all cards */}
+                  <div className="flex justify-center pt-4 mt-auto">
+                    <Button size="sm" className="bg-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/90 text-[var(--matte-black)]">
                       <MapPin className="w-4 h-4 mr-1" />
                       {t("locations.visit-us")}
-                    </Button>
-                    <Button size="sm" variant="outline" className="flex-1 bg-transparent">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {t("locations.book-tour")}
                     </Button>
                   </div>
                 </CardContent>

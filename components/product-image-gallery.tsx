@@ -23,12 +23,12 @@ export function ProductImageGallery({ images }: ProductImageGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative aspect-square bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg overflow-hidden group">
+      <div className="relative aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg overflow-hidden group">
         <Image
           src={images[currentImage] || "/placeholder.svg?height=600&width=600&query=premium olive oil bottle"}
           alt="Product image"
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain transition-transform duration-300 group-hover:scale-105"
         />
 
         {images.length > 1 && (
@@ -60,7 +60,7 @@ export function ProductImageGallery({ images }: ProductImageGalleryProps) {
             <button
               key={index}
               className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                index === currentImage ? "border-amber-600" : "border-gray-200"
+                index === currentImage ? "border-primary" : "border-border"
               }`}
               onClick={() => setCurrentImage(index)}
             >

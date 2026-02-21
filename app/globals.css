@@ -1,48 +1,90 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@300;400;500&family=Cinzel:wght@400;500&display=swap');
+
+/* Local fonts: place files in public/fonts/ (see public/fonts/README.md). Loaded at runtime so build never fails. */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Aurellio Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Aurellio-Regular.ttf") format("truetype"),
+       url("/fonts/Aurellio-Regular.woff2") format("woff2"),
+       url("/fonts/Aurellio-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Alsalam-light";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/ALSALAM-LIGHT.ttf") format("truetype"),
+       url("/fonts/ALSALAM-LIGHT.woff2") format("woff2"),
+       url("/fonts/ALSALAM-LIGHT.woff") format("woff"),
+       url("/fonts/Alsalam-Light.ttf") format("truetype");
+}
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.98 0.005 85); /* Warm off-white background */
-  --foreground: oklch(0.15 0.02 85); /* Rich dark text */
-  --card: oklch(1 0 0); /* Pure white cards */
-  --card-foreground: oklch(0.15 0.02 85);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 85);
-  --primary: oklch(0.45 0.12 85); /* Refined antique gold */
-  --primary-foreground: oklch(0.98 0.005 85);
-  --secondary: oklch(0.95 0.01 85);
-  --secondary-foreground: oklch(0.15 0.02 85);
-  --muted: oklch(0.92 0.01 85);
-  --muted-foreground: oklch(0.45 0.02 85);
-  --accent: oklch(0.25 0.05 120); /* Deep olive green accent */
-  --accent-foreground: oklch(0.98 0.005 85);
+  /* Qalaa brand palette */
+  --matte-black: #000000;
+  --antique-gold: #b8a066; /* Pantone Metallics 10121 C */
+  --sage-olive: #A8AE91;
+  --blush-clay: #D7A89A;
+  --soft-sand: #EAE4D8;
+
+  --background: var(--matte-black);
+  --foreground: var(--antique-gold);
+  --card: #1a1a1a;
+  --card-foreground: var(--antique-gold);
+  --popover: #1a1a1a;
+  --popover-foreground: var(--antique-gold);
+  --primary: var(--antique-gold);
+  --primary-foreground: var(--matte-black);
+  --secondary: var(--sage-olive);
+  --secondary-foreground: var(--antique-gold);
+  --muted: #2a2a2a;
+  --muted-foreground: var(--antique-gold);
+  --accent: var(--blush-clay);
+  --accent-foreground: var(--antique-gold);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.01 85);
-  --input: oklch(0.95 0.01 85);
-  --ring: oklch(0.45 0.12 85);
+  --border: var(--sage-olive);
+  --input: #2a2a2a;
+  --ring: var(--antique-gold);
   --radius: 0.5rem;
-  --sidebar: oklch(0.12 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.7 0.15 85);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.7 0.15 85);
-  --qalaa-gold: #b8860b; /* Refined antique gold */
-  --qalaa-black: #2c2c2c; /* Softer black for accents */
-  --qalaa-green: #556b2f; /* Elegant olive green */
-  --qalaa-stone: #faf9f7; /* Warm stone white */
+  --sidebar: var(--matte-black);
+  --sidebar-foreground: var(--antique-gold);
+  --sidebar-primary: var(--antique-gold);
+  --sidebar-primary-foreground: var(--matte-black);
+  --sidebar-accent: var(--sage-olive);
+  --sidebar-accent-foreground: var(--matte-black);
+  --sidebar-border: rgba(168, 174, 145, 0.3);
+  --sidebar-ring: var(--antique-gold);
+  --qalaa-gold: var(--antique-gold);
+  --qalaa-black: var(--matte-black);
+  --qalaa-green: var(--sage-olive);
+  --qalaa-stone: var(--soft-sand);
+  /* Typography: Poppins replaces Visby CF and Blacker Sans; Aurellio (accent), Alsalam (Arabic) */
+  --font-primary: "Poppins", var(--font-inter), ui-sans-serif, sans-serif;
+  --font-heading: "Poppins", var(--font-primary);
+  --font-accent-type: "Aurellio Regular", var(--font-crimson), Georgia, serif;
+  --font-arabic: "Alsalam-light", "Noto Sans Arabic", var(--font-inter), sans-serif;
   --font-crimson: "Crimson Text", Georgia, serif;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-crimson);
-  --font-display: var(--font-crimson);
+  --font-sans: var(--font-primary);
+  --font-serif: var(--font-accent-type);
+  --font-display: var(--font-heading);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -81,20 +123,29 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    font-family: var(--font-primary);
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "lnum" 1, "onum" 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }
 
 body {
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings: "rlig" 1, "calt" 1, "lnum" 1, "onum" 0;
 }
 
 .text-balance {
@@ -105,8 +156,18 @@ body {
   text-wrap: pretty;
 }
 
+.font-accent {
+  font-family: var(--font-accent-type);
+}
+
+/* Use fallback font for numbers when primary font shows symbols (e.g. prices, stats) */
+.font-numeric {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
 [dir="rtl"] {
-  font-family: "Noto Sans Arabic", var(--font-sans);
+  font-family: var(--font-arabic);
 }
 
 * {
@@ -114,19 +175,19 @@ body {
 }
 
 .gradient-olive {
-  background: linear-gradient(135deg, var(--qalaa-gold) 0%, var(--qalaa-black) 100%);
+  background: linear-gradient(135deg, var(--antique-gold) 0%, var(--matte-black) 100%);
 }
 
 .gradient-olive-subtle {
-  background: linear-gradient(135deg, var(--qalaa-stone) 0%, #f0ede8 100%);
+  background: linear-gradient(135deg, var(--matte-black) 0%, var(--blush-clay) 100%);
 }
 
 .gradient-qalaa {
-  background: linear-gradient(135deg, var(--qalaa-gold) 0%, #d4af37 100%);
+  background: linear-gradient(135deg, var(--antique-gold) 0%, var(--sage-olive) 100%);
 }
 
 .gradient-qalaa-subtle {
-  background: linear-gradient(135deg, var(--qalaa-stone) 0%, #f5f2ed 100%);
+  background: linear-gradient(135deg, var(--matte-black) 0%, var(--sage-olive) 100%);
 }
 
 .section-padding {
@@ -142,10 +203,10 @@ body {
 }
 
 .elegant-border {
-  border: 1px solid var(--qalaa-gold);
-  box-shadow: 0 1px 3px rgba(184, 134, 11, 0.1);
+  border: 1px solid var(--antique-gold);
+  box-shadow: 0 1px 3px rgba(184, 160, 102, 0.15);
 }
 
 .premium-card {
-  @apply bg-white border border-stone-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
+  @apply bg-card border border-[var(--sage-olive)] rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
 }

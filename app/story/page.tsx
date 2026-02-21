@@ -11,28 +11,28 @@ export default function StoryPage() {
 
   const milestones = [
     {
-      year: "1820",
+      year: "1972",
       title: "Family Legacy Begins",
       description:
         "Our ancestors planted the first olive trees in the hills of Sfax, establishing what would become a generational tradition.",
     },
     {
-      year: "1950",
+      year: "1985",
       title: "Traditional Methods Perfected",
       description:
         "The family perfected cold-pressing techniques, ensuring the purest extraction of olive oil while preserving nutritional value.",
     },
     {
-      year: "1985",
+      year: "2000",
       title: "International Recognition",
       description:
         "Our olive oils began winning international competitions, bringing Tunisian excellence to the global stage.",
     },
     {
-      year: "2020",
+      year: "2026",
       title: "Modern Innovation",
       description:
-        "We embraced sustainable farming practices and modern quality control while maintaining our traditional craftsmanship.",
+        "We embrace sustainable farming practices and modern quality control while maintaining our traditional craftsmanship.",
     },
   ]
 
@@ -55,29 +55,29 @@ export default function StoryPage() {
     {
       icon: Clock,
       title: "Tradition",
-      description: "Over 200 years of family knowledge guides every aspect of our production.",
+      description: "Over 50 years of family knowledge guides every aspect of our production.",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[var(--sage-olive)]/20 via-[var(--matte-black)] to-[var(--blush-clay)]/30">
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6 text-balance">{t("story.title")}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">{t("story.subtitle")}</p>
+            <h1 className="text-5xl font-serif font-bold text-[var(--antique-gold)] mb-6 text-balance">{t("story.title")}</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">{t("story.subtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">{t("story.heritage.title")}</h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">{t("story.heritage.text")}</p>
-              <p className="text-gray-700 text-lg leading-relaxed">{t("story.tradition.text")}</p>
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{t("story.heritage.title")}</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">{t("story.heritage.text")}</p>
+              <p className="text-muted-foreground text-lg leading-relaxed">{t("story.tradition.text")}</p>
             </div>
-            <div className="relative aspect-square bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg overflow-hidden">
+            <div className="relative aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg overflow-hidden">
               <Image
-                src="/ancient-tunisian-olive-grove-with-traditional-ston.jpg"
+                src="/olive-grove-story.png"
                 alt="Ancient olive grove"
                 fill
                 className="object-cover"
@@ -88,19 +88,19 @@ export default function StoryPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[var(--sage-olive)]/10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 text-center mb-12">Our Journey Through Time</h2>
+          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">Our Journey Through Time</h2>
           <div className="space-y-8">
             {milestones.map((milestone, index) => (
               <div key={index} className="flex items-start gap-8">
                 <div className="flex-shrink-0 w-24 text-right">
-                  <span className="text-2xl font-bold text-amber-600">{milestone.year}</span>
+                  <span className="text-2xl font-bold text-primary font-numeric">{milestone.year}</span>
                 </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-amber-600 rounded-full mt-2"></div>
+                <div className="flex-shrink-0 w-4 h-4 bg-primary rounded-full mt-2"></div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
-                  <p className="text-gray-600">{milestone.description}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{milestone.title}</h3>
+                  <p className="text-muted-foreground">{milestone.description}</p>
                 </div>
               </div>
             ))}
@@ -111,18 +111,18 @@ export default function StoryPage() {
       {/* Values */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 text-center mb-12">Our Values</h2>
+          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
               const Icon = value.icon
               return (
                 <Card key={index} className="text-center border-0 shadow-sm hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-amber-600" />
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{value.title}</h3>
-                    <p className="text-gray-600 text-sm">{value.description}</p>
+                    <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
+                    <p className="text-muted-foreground text-sm">{value.description}</p>
                   </CardContent>
                 </Card>
               )

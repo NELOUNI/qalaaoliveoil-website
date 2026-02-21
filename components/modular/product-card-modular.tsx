@@ -35,7 +35,7 @@ export function ProductCardModular({
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-sm border border-stone-200 overflow-hidden hover:shadow-md transition-shadow duration-300 ${className}`}
+      className={`bg-white rounded-lg shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow duration-300 ${className}`}
     >
       <Link href={`/products/${product.id}`}>
         <div className="aspect-square relative overflow-hidden">
@@ -46,25 +46,24 @@ export function ProductCardModular({
             className="object-cover hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          {product.is_premium && <Badge className="absolute top-3 left-3 bg-yellow-600 text-white">Premium</Badge>}
           {product.is_organic && <Badge className="absolute top-3 right-3 bg-green-600 text-white">Organic</Badge>}
         </div>
       </Link>
 
       <div className="p-4 space-y-3">
         <div>
-          <h3 className="font-serif font-semibold text-lg text-stone-900 line-clamp-1">{name}</h3>
-          <p className="text-sm text-stone-600 mt-1">{product.region_en}</p>
+          <h3 className="font-serif font-semibold text-lg text-foreground line-clamp-1">{name}</h3>
+          <p className="text-sm text-muted-foreground mt-1">{product.region_en}</p>
         </div>
 
-        <p className="text-sm text-stone-700 line-clamp-2 leading-relaxed">{description}</p>
+        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{description}</p>
 
         <div className="flex items-center justify-between pt-2">
-          <span className="font-semibold text-lg text-stone-900">${product.price}</span>
+          <span className="font-semibold text-lg text-foreground font-numeric">${product.price}</span>
 
           {showAddToCart && (
             <div className="w-24 h-9 bg-stone-100 rounded border-2 border-dashed border-stone-300 flex items-center justify-center">
-              <span className="text-xs text-stone-500">Cart Soon</span>
+              <span className="text-xs text-muted-foreground">Cart Soon</span>
             </div>
           )}
         </div>

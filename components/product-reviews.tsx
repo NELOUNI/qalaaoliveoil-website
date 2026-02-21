@@ -35,24 +35,24 @@ export function ProductReviews({ productId }: ProductReviewsProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Customer Reviews</h2>
+      <h2 className="text-2xl font-bold text-foreground">Customer Reviews</h2>
 
       <div className="grid gap-4">
         {reviews.map((review) => (
           <Card key={review.id}>
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                  <User className="w-5 h-5 text-amber-600" />
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <h4 className="font-semibold text-gray-900">{review.name}</h4>
+                    <h4 className="font-semibold text-foreground">{review.name}</h4>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < review.rating ? "fill-amber-400 text-amber-400" : "text-gray-300"}`}
+                          className={`w-4 h-4 ${i < review.rating ? "fill-primary text-primary" : "text-muted"}`}
                         />
                       ))}
                     </div>
