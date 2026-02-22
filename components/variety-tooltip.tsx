@@ -11,10 +11,6 @@ const VARIETY_DATA: Record<
     origin: string
     character: string
     taste: string
-    notes: string[]
-    profile: { fruitiness: number; bitterness: number; pungency: number }
-    harvest: string
-    polyphenols: string
     color: string
   }
 > = {
@@ -23,12 +19,7 @@ const VARIETY_DATA: Record<
     arabic: "شتوي",
     origin: "Northern Tunisia · Bizerte & Béja",
     character: "Bold & Intense",
-    taste:
-      "Intensely grassy and peppery with a sharp, bitter bite and a lingering spicy finish. The hallmark catch at the back of the throat is a sign of high polyphenols — nature's signal of exceptional freshness and antioxidant richness. Best experienced raw, drizzled.",
-    notes: ["Fresh-cut grass", "Green tomato", "Black pepper", "Bitter almond"],
-    profile: { fruitiness: 85, bitterness: 90, pungency: 95 },
-    harvest: "Early harvest · October–November",
-    polyphenols: "Very High",
+    taste: "Grassy, peppery, alive. The oil that announces itself.",
     color: "#8B9E6B",
   },
   chemlali: {
@@ -36,65 +27,12 @@ const VARIETY_DATA: Record<
     arabic: "شملالي",
     origin: "Central & Southern Tunisia · Sfax",
     character: "Elegant & Refined",
-    taste:
-      "Soft and approachable with delicate almond and artichoke notes, gentle fruitiness, and a smooth, buttery finish. Tunisia's most beloved variety — balanced and effortlessly versatile.",
-    notes: ["Ripe almond", "Artichoke", "Wildflower", "Soft butter"],
-    profile: { fruitiness: 75, bitterness: 45, pungency: 50 },
-    harvest: "Mid harvest · November–December",
-    polyphenols: "Medium–High",
+    taste: "Soft almond, gentle fruitiness, a buttery whisper at the finish.",
     color: "#C9A84C",
   },
 }
 
-function ProfileBar({
-  label,
-  value,
-  color,
-}: {
-  label: string
-  value: number
-  color: string
-}) {
-  return (
-    <div style={{ marginBottom: "0.5rem" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "0.25rem",
-          fontFamily: "'Cinzel', serif",
-          fontSize: "0.48rem",
-          letterSpacing: "0.18em",
-          color: "rgba(180,165,130,0.7)",
-          textTransform: "uppercase",
-        }}
-      >
-        <span>{label}</span>
-        <span style={{ color }}>{value}%</span>
-      </div>
-      <div
-        style={{
-          height: "1.5px",
-          background: "rgba(255,255,255,0.06)",
-          borderRadius: "2px",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            height: "100%",
-            width: `${value}%`,
-            background: `linear-gradient(90deg, ${color}66, ${color})`,
-            borderRadius: "2px",
-            transition: "width 0.8s cubic-bezier(0.16,1,0.3,1)",
-          }}
-        />
-      </div>
-    </div>
-  )
-}
-
-const TOOLTIP_HEIGHT_ESTIMATE = 420
+const TOOLTIP_HEIGHT_ESTIMATE = 180
 
 function TooltipPanel({
   variety,
@@ -166,24 +104,24 @@ function TooltipPanel({
         }}
       />
 
-      <div style={{ padding: "1.4rem" }}>
+      <div style={{ padding: "1.25rem 1.4rem" }}>
         {/* Header */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            marginBottom: "1rem",
+            marginBottom: "0.75rem",
           }}
         >
           <div>
             <div
               style={{
                 fontFamily: "'Cinzel', serif",
-                fontSize: "0.5rem",
+                fontSize: "0.45rem",
                 letterSpacing: "0.25em",
                 color: data.color,
-                marginBottom: "0.3rem",
+                marginBottom: "0.25rem",
                 textTransform: "uppercase",
               }}
             >
@@ -192,7 +130,7 @@ function TooltipPanel({
             <div
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "1.5rem",
+                fontSize: "1.4rem",
                 fontWeight: 300,
                 color: "#F5EDD8",
                 lineHeight: 1,
@@ -204,7 +142,7 @@ function TooltipPanel({
           <div
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "1.2rem",
+              fontSize: "1.1rem",
               color: "rgba(201,168,76,0.25)",
               fontStyle: "italic",
               lineHeight: 1,
@@ -214,138 +152,36 @@ function TooltipPanel({
           </div>
         </div>
 
-        {/* Origin pill */}
+        {/* Origin */}
         <div
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.4rem",
-            padding: "0.25rem 0.6rem",
-            border: "1px solid rgba(201,168,76,0.15)",
-            marginBottom: "1rem",
+            fontFamily: "'Cinzel', serif",
+            fontSize: "0.42rem",
+            letterSpacing: "0.15em",
+            color: "rgba(180,165,130,0.5)",
+            marginBottom: "0.85rem",
           }}
         >
-          <svg
-            width="8"
-            height="8"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke={data.color}
-            strokeWidth="2"
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <span
-            style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: "0.45rem",
-              letterSpacing: "0.18em",
-              color: "rgba(180,165,130,0.7)",
-            }}
-          >
-            {data.origin}
-          </span>
+          {data.origin}
         </div>
 
-        {/* Taste description */}
+        {/* Divider */}
+        <div style={{ height: "1px", background: "rgba(201,168,76,0.1)", marginBottom: "0.85rem" }} />
+
+        {/* Taste — single crisp line */}
         <p
           style={{
-            fontSize: "0.75rem",
-            color: "rgba(180,165,130,0.8)",
-            lineHeight: 1.75,
-            marginBottom: "1rem",
-            fontFamily: "'Instrument Sans', sans-serif",
+            fontSize: "0.78rem",
+            color: "rgba(245,237,216,0.7)",
+            lineHeight: 1.6,
+            fontFamily: "'Cormorant Garamond', serif",
+            fontStyle: "italic",
             fontWeight: 300,
+            margin: 0,
           }}
         >
           {data.taste}
         </p>
-
-        {/* Tasting notes */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.35rem",
-            marginBottom: "1rem",
-          }}
-        >
-          {data.notes.map((note) => (
-            <span
-              key={note}
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: "0.42rem",
-                letterSpacing: "0.15em",
-                color: data.color,
-                padding: "0.2rem 0.5rem",
-                border: `1px solid ${data.color}33`,
-                background: `${data.color}0A`,
-              }}
-            >
-              {note}
-            </span>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div
-          style={{
-            height: "1px",
-            background: "rgba(201,168,76,0.1)",
-            marginBottom: "1rem",
-          }}
-        />
-
-        {/* Taste profile bars */}
-        <ProfileBar
-          label="Fruitiness"
-          value={data.profile.fruitiness}
-          color={data.color}
-        />
-        <ProfileBar
-          label="Bitterness"
-          value={data.profile.bitterness}
-          color={data.color}
-        />
-        <ProfileBar
-          label="Pungency"
-          value={data.profile.pungency}
-          color={data.color}
-        />
-
-        {/* Footer meta */}
-        <div
-          style={{
-            marginTop: "1rem",
-            paddingTop: "0.75rem",
-            borderTop: "1px solid rgba(201,168,76,0.1)",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: "0.42rem",
-              letterSpacing: "0.15em",
-              color: "rgba(180,165,130,0.5)",
-            }}
-          >
-            {data.harvest}
-          </div>
-          <div
-            style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: "0.42rem",
-              letterSpacing: "0.15em",
-              color: data.color,
-            }}
-          >
-            Polyphenols: {data.polyphenols}
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ export const products = [
     origin_story_ar:
       "محصود من بساتين الزيتون القديمة في تلال النغر، يمثل هذا الزيت الممتاز أجيال من الحرفية التونسية. عائلتنا تعتني بهذه الأشجار المقدسة لأكثر من 50 عاماً، مستخدمة الطرق التقليدية المنقولة عبر الأجيال.",
     volume_ml: 500,
-    acidity_level: 0.3,
+    acidity_level: 0.16,
     tasting_notes_en: ["Fruity", "Green apple", "Fresh grass"],
     tasting_notes_ar: ["فواكي", "تفاح أخضر", "عشب طازج"],
     harvest_year: 2023,

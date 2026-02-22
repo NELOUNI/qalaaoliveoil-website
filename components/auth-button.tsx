@@ -45,9 +45,9 @@ export function AuthButton() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuItem asChild>
-          <Link href="/wholesale" className="flex items-center gap-2">
+          <Link href="/gifting" className="flex items-center gap-2">
             <ShoppingBag className="w-4 h-4" />
-            Wholesale Portal
+            Gifting
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

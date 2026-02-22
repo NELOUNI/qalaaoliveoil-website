@@ -52,11 +52,6 @@ export function Navigation() {
                       {t("nav.gifting")}
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="focus:!bg-[var(--antique-gold)]/10 focus:!text-[var(--matte-black)] data-[highlighted]:!bg-[var(--antique-gold)]/10 data-[highlighted]:!text-[var(--matte-black)]">
-                    <Link href="/wholesale" className="text-[var(--matte-black)]">
-                      {t("nav.wholesale")}
-                    </Link>
-                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -88,7 +83,7 @@ export function Navigation() {
               <img
                 src="/Qalaa_LOGO_1-Gold.svg"
                 alt="Qalaa Logo"
-                className="h-full w-auto object-contain object-center max-h-16"
+                className="h-full w-auto object-contain object-center max-h-32"
               />
             </Link>
           </div>
@@ -149,9 +144,6 @@ export function Navigation() {
               </Link>
               <Link href="/gifting" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
                 {t("nav.gifting")}
-              </Link>
-              <Link href="/wholesale" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
-                {t("nav.wholesale")}
               </Link>
               <Link href="/know-your-oil" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
                 Know Your Oil
