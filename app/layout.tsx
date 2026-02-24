@@ -97,8 +97,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/Qalaa_LOGO_1-Gold.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/qalaa-logo.gold.svg" />
-      </head>
-      <body className="font-sans antialiased bg-background text-foreground">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
@@ -115,6 +113,8 @@ export default function RootLayout({
             </Script>
           </>
         )}
+      </head>
+      <body className="font-sans antialiased bg-background text-foreground">
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
           <LanguageProvider>
             <DevelopmentBanner />
