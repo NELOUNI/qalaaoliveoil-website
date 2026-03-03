@@ -1,19 +1,137 @@
-import { DevelopmentBanner } from "@/components/development-banner"
+"use client"
+
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import { useLanguage } from "@/components/language-provider"
 
 export default function CookiePolicyPage() {
+  const { language } = useLanguage()
+  const isArabic = language === "ar"
+
   return (
     <>
-      <DevelopmentBanner />
       <main className="min-h-screen bg-background">
         {/* Content */}
         <div className="mx-auto max-w-4xl px-6 py-16">
           <div className="prose prose-neutral max-w-none">
-            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">Cookie Policy</h1>
-            <p className="text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">
+              {isArabic ? "سياسة ملفات تعريف الارتباط" : "Cookie Policy"}
+            </h1>
+            <p className="text-muted-foreground mb-8">{isArabic ? "آخر تحديث: فبراير 2025" : "Last updated: February 2025"}</p>
 
-            <div className="space-y-8">
+            {isArabic ? (
+              <div className="space-y-8">
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. ما هي ملفات تعريف الارتباط</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    ملفات تعريف الارتباط هي ملفات نصية صغيرة تُخزَّن على جهازك عند زيارة موقع ويب. تُستخدم على نطاق واسع لجعل المواقع تعمل بكفاءة أكبر وتوفير تجربة مستخدم أفضل. ويمكن أن تساعد أيضاً في عرض معلومات وإعلانات ذات صلة.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">2. كيف نستخدم ملفات التعريف</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    تستخدم قلعة ملفات التعريف للأغراض التالية:
+                  </p>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.1 ملفات أساسية</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    هذه الملفات ضرورية لتشغيل الموقع بشكل صحيح. تتيح وظائف أساسية مثل التنقل بين الصفحات والوصول إلى المناطق الآمنة ومعالجة الطلبات. بدونها، لن يعمل موقعنا بشكل صحيح.
+                  </p>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.2 ملفات تحليلية</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    تساعدنا هذه الملفات في فهم كيفية تفاعل الزوار مع موقعنا عبر جمع المعلومات والإبلاغ عنها بشكل مجهول. يساعد ذلك في تحسين أداء الموقع وتجربة المستخدم.
+                  </p>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.3 ملفات تسويقية</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    تُستخدم لتتبع الزوار عبر المواقع لعرض إعلانات ذات صلة. قد نستخدمها لعرض منتجات قد تهمك حسب سلوك التصفح. تُفعَّل هذه الملفات فقط بموافقتك.
+                  </p>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.4 ملفات تفضيلات</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    تتذكر هذه الملفات تفضيلاتك وإعداداتك، مثل لغة العرض، لتحسين تجربتك على موقعنا.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">3. ملفات الطرف الثالث</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    قد نستخدم أيضاً خدمات جهات خارجية تضع ملفات تعريف على جهازك، منها:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>Google Analytics لتحليلات الموقع</li>
+                    <li>منصات التواصل الاجتماعي لأزرار المشاركة</li>
+                    <li>معالجات الدفع للمعاملات الآمنة</li>
+                    <li>أدوات خدمة العملاء</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">4. إدارة ملفات التعريف</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    يمكنك التحكم في ملفات التعريف وإدارتها بطرق متعددة. لاحظ أن حذفها أو حظرها قد يؤثر سلباً على تجربتك وقد يصبح بعض أجزاء الموقع غير متاحة بالكامل.
+                  </p>
+                  <h3 className="text-xl font-medium text-foreground mb-3">4.1 إعدادات المتصفح</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    يمكنك التحكم في ملفات التعريف من إعدادات المتصفح. تتيح معظم المتصفحات:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2 mb-6">
+                    <li>عرض الملفات المخزنة على جهازك</li>
+                    <li>حذف جميع الملفات أو ملفات محددة</li>
+                    <li>حظر جميع الملفات من موقع معين</li>
+                    <li>حظر جميع الملفات من كل المواقع</li>
+                    <li>تحديد تفضيلات قبول ملفات التعريف</li>
+                  </ul>
+                  <h3 className="text-xl font-medium text-foreground mb-3">4.2 أداة الموافقة</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    عند زيارتك الأولى لموقعنا، ستظهر نافذة موافقة تتيح لك القبول أو تخصيص تفضيلات ملفات التعريف. يمكنك تغيير هذه التفضيلات في أي وقت من خلال الرابط في تذييل الموقع.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">5. أنواع الملفات التي نستخدمها</h2>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse border border-stone-300">
+                      <thead>
+                        <tr className="bg-muted">
+                          <th className="border border-stone-300 px-4 py-2 text-left">اسم الملف</th>
+                          <th className="border border-stone-300 px-4 py-2 text-left">الغرض</th>
+                          <th className="border border-stone-300 px-4 py-2 text-left">النوع</th>
+                          <th className="border border-stone-300 px-4 py-2 text-left">المدة</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-stone-300 px-4 py-2 latin-numerals" lang="en" dir="ltr">_ga</td>
+                          <td className="border border-stone-300 px-4 py-2">تتبع Google Analytics</td>
+                          <td className="border border-stone-300 px-4 py-2">تحليلي</td>
+                          <td className="border border-stone-300 px-4 py-2">سنتان</td>
+                        </tr>
+                        <tr className="bg-background">
+                          <td className="border border-stone-300 px-4 py-2 latin-numerals" lang="en" dir="ltr">_gid</td>
+                          <td className="border border-stone-300 px-4 py-2">تتبع جلسة Google Analytics</td>
+                          <td className="border border-stone-300 px-4 py-2">تحليلي</td>
+                          <td className="border border-stone-300 px-4 py-2">24 ساعة</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-stone-300 px-4 py-2 latin-numerals" lang="en" dir="ltr">cart_session</td>
+                          <td className="border border-stone-300 px-4 py-2">وظيفة سلة التسوق</td>
+                          <td className="border border-stone-300 px-4 py-2">أساسي</td>
+                          <td className="border border-stone-300 px-4 py-2">الجلسة</td>
+                        </tr>
+                        <tr className="bg-background">
+                          <td className="border border-stone-300 px-4 py-2 latin-numerals" lang="en" dir="ltr">user_preferences</td>
+                          <td className="border border-stone-300 px-4 py-2">إعدادات وتفضيلات المستخدم</td>
+                          <td className="border border-stone-300 px-4 py-2">تفضيل</td>
+                          <td className="border border-stone-300 px-4 py-2">سنة</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">6. تواصل معنا</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    إذا كان لديك أي أسئلة حول استخدامنا لملفات التعريف أو هذه السياسة، يرجى التواصل معنا عبر موقعنا الإلكتروني.
+                  </p>
+                </section>
+              </div>
+            ) : (
+              <div className="space-y-8">
               <section id="what-are-cookies">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. What Are Cookies</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -134,7 +252,8 @@ export default function CookiePolicyPage() {
                   If you have any questions about our use of cookies or this Cookie Policy, please contact us through our website.
                 </p>
               </section>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </main>

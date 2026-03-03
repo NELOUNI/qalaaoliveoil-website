@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, Eye } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 interface Product {
   id: string
@@ -30,13 +31,13 @@ interface ProductsGridProps {
 }
 
 export function ProductsGrid({ products }: ProductsGridProps) {
-  const { language } = useLanguage()
+  const { language, t } = useLanguage()
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
         <div className="text-6xl mb-4">🫒</div>
-        <h3 className="text-xl font-semibold text-foreground mb-2">No products found</h3>
-        <p className="text-muted-foreground">Try adjusting your filters or search terms.</p>
+        <h3 className="text-xl font-semibold text-foreground mb-2">{t("product.no-products")}</h3>
+        <p className="text-muted-foreground">{t("product.no-products-hint")}</p>
       </div>
     )
   }
@@ -50,19 +51,20 @@ export function ProductsGrid({ products }: ProductsGridProps) {
             key={product.id}
             className="group hover:shadow-xl transition-all duration-300 border-border overflow-hidden bg-card w-full max-w-sm md:max-w-[400px] xl:max-w-[380px]"
           >
-            <div className="relative overflow-hidden flex items-center justify-center bg-[var(--matte-black)]/50">
-              <img
-                src={product.image_url || "/placeholder.svg?key=prod1"}
+            <div className="relative overflow-hidden flex items-center justify-center bg-[var(--matte-black)]/50 h-64">
+              <Image
+                src={product.image_url || "/placeholder.svg"}
                 alt={language === "ar" ? product.name_ar : product.name_en}
-                className="w-full h-64 object-contain object-center group-hover:scale-105 transition-transform duration-300"
+                fill
+                className="object-contain object-center group-hover:scale-105 transition-transform duration-300"
               />
 
               {/* Badges */}
               <div className="absolute top-3 left-3 flex flex-col gap-2">
                 {product.stock_quantity < 10 && product.stock_quantity > 0 && (
-                  <Badge variant="destructive">Low Stock</Badge>
+                  <Badge variant="destructive">{t("product.low-stock")}</Badge>
                 )}
-                {product.stock_quantity === 0 && <Badge variant="secondary">Out of Stock</Badge>}
+                {product.stock_quantity === 0 && <Badge variant="secondary">{t("product.out-of-stock")}</Badge>}
               </div>
 
               {/* Action Buttons */}
@@ -85,7 +87,7 @@ export function ProductsGrid({ products }: ProductsGridProps) {
                     className="w-full bg-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/90 text-[var(--matte-black)]"
                   >
                     <Eye className="w-4 h-4 mr-2" />
-                    Know More
+                    {t("product.know-more")}
                   </Button>
                 </Link>
               </div>
@@ -97,7 +99,7 @@ export function ProductsGrid({ products }: ProductsGridProps) {
                   {language === "ar" ? product.name_ar : product.name_en}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {language === "ar" ? product.region_ar : product.region_en} • {product.volume_ml}ml
+                  {language === "ar" ? product.region_ar : product.region_en} • <span className="latin-numerals" lang="en" dir="ltr">{product.volume_ml}</span>ml
                 </p>
               </div>
 
@@ -123,8 +125,8 @@ export function ProductsGrid({ products }: ProductsGridProps) {
               {/* Acidity Level */}
               <div className="mb-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Acidity</span>
-                  <span className="font-medium">{product.acidity_level}%</span>
+                  <span className="text-muted-foreground">{t("product.acidity")}</span>
+                  <span className="font-medium latin-numerals" lang="en" dir="ltr">{Number(product.acidity_level).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="w-full bg-muted rounded-full h-1.5 mt-1">
                   <div
@@ -135,10 +137,10 @@ export function ProductsGrid({ products }: ProductsGridProps) {
               </div>
 
               <div className="flex items-center justify-between gap-4">
-                <div className="text-2xl font-bold text-[var(--antique-gold)] font-numeric">${product.price}</div>
+                <div className="text-2xl font-bold text-[var(--antique-gold)] font-numeric latin-numerals" lang="en" dir="ltr">${product.price}</div>
                 <Link href={`/products/${product.id}`}>
                   <Button size="sm" className="bg-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/90 text-[var(--matte-black)]">
-                    Know More
+                    {t("product.know-more")}
                   </Button>
                 </Link>
               </div>

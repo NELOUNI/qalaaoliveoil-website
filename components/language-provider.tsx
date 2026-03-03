@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
 type Language = "en" | "ar"
 
@@ -24,6 +24,12 @@ const translations = {
     "nav.account": "Account",
     "nav.cart": "Cart",
     "nav.wholesale": "Wholesale",
+    "nav.know-your-oil": "Know Your Oil",
+
+    // Footer section headers
+    "footer.products": "Products",
+    "footer.company": "Company",
+    "footer.contact": "Contact",
 
     // Common
     "common.loading": "Loading...",
@@ -130,6 +136,49 @@ const translations = {
     "auth.signup.button": "Sign up",
     "auth.need-account": "Need a wholesale account?",
     "auth.have-account": "Already have an account?",
+
+    // Footer links
+    "footer.our-olive-oil": "Our Olive Oil",
+    "footer.our-story": "Our Story",
+    "footer.our-locations": "Our Locations",
+    "footer.contact-us": "Contact Us",
+    "footer.privacy-policy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
+    "footer.cookies": "Cookie Policy",
+    "footer.copyright": "All rights reserved. Made with love in Tunisia.",
+    "footer.address.street": "Avenue 14 Janvier",
+    "footer.address.city": "Sousse, Tunisia",
+
+    // Story section
+    "story.preview.heading": "Over Half a Century of",
+    "story.preview.liquid-gold": "Liquid Gold",
+    "story.preview.intro": "Our story begins in the 1970s, when the first olive trees were planted in the fertile soils of Tunisia. Through generations of dedicated farmers and master craftsmen, we've preserved the ancient art of olive oil production while embracing modern quality standards.",
+    "story.preview.body": "Every bottle of QALAA carries the essence of Tunisia's Mediterranean climate, the wisdom of traditional methods, and the passion of families who have dedicated their lives to perfecting this ancient craft.",
+    "story.preview.stats.years": "Years Heritage",
+    "story.preview.stats.regions": "Regions",
+    "story.preview.stats.families": "Families",
+    "story.preview.cta": "Discover Our Heritage",
+
+    // Product detail
+    "product.origin-story": "Origin Story",
+    "product.harvest": "Harvest",
+    "product.gold-medal": "Gold Medal Winner",
+    "product.know-more": "Know More",
+    "product.acidity-level": "Acidity Level",
+    "product.volume": "Volume",
+    "product.harvest-method": "Harvest Method",
+    "product.region": "Region",
+    "product.per-bottle": "per bottle",
+    "product.extra-virgin": "Extra Virgin",
+    "product.cold-pressed": "Cold Pressed",
+    "product.november-2025": "November 2025",
+
+    // Products grid
+    "product.acidity": "Acidity",
+    "product.low-stock": "Low Stock",
+    "product.out-of-stock": "Out of Stock",
+    "product.no-products": "No products found",
+    "product.no-products-hint": "Try adjusting your filters or search terms.",
   },
   ar: {
     // Navigation
@@ -144,6 +193,12 @@ const translations = {
     "nav.account": "الحساب",
     "nav.cart": "السلة",
     "nav.wholesale": "الجملة",
+    "nav.know-your-oil": "تعرف على زيتك",
+
+    // Footer section headers
+    "footer.products": "المنتجات",
+    "footer.company": "الشركة",
+    "footer.contact": "التواصل",
 
     // Common
     "common.loading": "جاري التحميل...",
@@ -193,7 +248,7 @@ const translations = {
     "story.quality.text": "من الحصاد إلى الزجاجة، يتم مراقبة كل خطوة بعناية للحفاظ على أعلى معايير النقاء والنكهة.",
 
     // Recipes Page
-    "recipes.title": "الإلهام الطهي",
+    "recipes.title": "وصفات من مطبخنا",
     "recipes.subtitle": "اكتشف وصفات البحر الأبيض المتوسط الأصيلة مع زيوت الزيتون الفاخرة لدينا",
     "recipes.prep-time": "وقت التحضير",
     "recipes.cook-time": "وقت الطبخ",
@@ -248,13 +303,66 @@ const translations = {
     "auth.signup.button": "إنشاء حساب",
     "auth.need-account": "تحتاج حساب جملة؟",
     "auth.have-account": "لديك حساب بالفعل؟",
+
+    // Footer links
+    "footer.our-olive-oil": "زيت الزيتون لدينا",
+    "footer.our-story": "قصتنا",
+    "footer.our-locations": "مواقعنا",
+    "footer.contact-us": "اتصل بنا",
+    "footer.privacy-policy": "سياسة الخصوصية",
+    "footer.terms": "شروط الخدمة",
+    "footer.cookies": "سياسة ملفات تعريف الارتباط",
+    "footer.copyright": "جميع الحقوق محفوظة. صُنع بحب في تونس.",
+    "footer.address.street": "شارع 14 جانفي،",
+    "footer.address.city": "4000 سوسة، تونس",
+
+    // Story section
+    "story.preview.heading": "أكثر من نصف قرن من",
+    "story.preview.liquid-gold": "الذهب السائل",
+    "story.preview.intro": "تبدأ قصتنا في سبعينيات القرن الماضي، عندما زُرعت أولى أشجار الزيتون في التربة الخصبة لتونس. عبر أجيال من المزارعين المخلصين والحرفيين الماهرين، حافظنا على فن إنتاج زيت الزيتون العريق مع تبني معايير الجودة الحديثة.",
+    "story.preview.body": "كل زجاجة من قلعة تحمل جوهر المناخ المتوسطي لتونس وحكمة الطرق التقليدية وشغف العائلات التي كرّست حياتها لإتقان هذه الحرفة العريقة.",
+    "story.preview.stats.years": "سنوات من التراث",
+    "story.preview.stats.regions": "مناطق",
+    "story.preview.stats.families": "عائلات",
+    "story.preview.cta": "اكتشف تراثنا",
+
+    // Product detail
+    "product.origin-story": "قصة المنشأ",
+    "product.harvest": "الحصاد",
+    "product.gold-medal": "الميدالية الذهبية",
+    "product.know-more": "اعرف المزيد",
+    "product.acidity-level": "مستوى الحموضة",
+    "product.volume": "الحجم",
+    "product.harvest-method": "طريقة الحصاد",
+    "product.region": "المنطقة",
+    "product.per-bottle": "للزجاجة",
+    "product.extra-virgin": "بكر ممتاز",
+    "product.cold-pressed": "بضغط بارد",
+    "product.november-2025": "نوفمبر 2025",
+
+    // Products grid
+    "product.acidity": "الحموضة",
+    "product.low-stock": "مخزون منخفض",
+    "product.out-of-stock": "نفذ المخزون",
+    "product.no-products": "لا توجد منتجات",
+    "product.no-products-hint": "حاول تعديل الفلاتر أو مصطلحات البحث.",
   },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguageState] = useState<Language>("en")
+
+  useEffect(() => {
+    const saved = localStorage.getItem("qalaa-language") as Language | null
+    if (saved === "en" || saved === "ar") setLanguageState(saved)
+  }, [])
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang)
+    localStorage.setItem("qalaa-language", lang)
+  }
 
   const t = (key: string): string => {
     return translations[language][key as keyof (typeof translations)["en"]] || key

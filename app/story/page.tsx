@@ -7,57 +7,104 @@ import Image from "next/image"
 import { Footer } from "@/components/footer"
 
 export default function StoryPage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const isArabic = language === "ar"
 
-  const milestones = [
-    {
-      year: "1972",
-      title: "Family Legacy Begins",
-      description:
-        "Our ancestors planted the first olive trees in the hills of Sfax, establishing what would become a generational tradition.",
-    },
-    {
-      year: "1985",
-      title: "Traditional Methods Perfected",
-      description:
-        "The family perfected cold-pressing techniques, ensuring the purest extraction of olive oil while preserving nutritional value.",
-    },
-    {
-      year: "2000",
-      title: "International Recognition",
-      description:
-        "Our olive oils began winning international competitions, bringing Tunisian excellence to the global stage.",
-    },
-    {
-      year: "2026",
-      title: "Modern Innovation",
-      description:
-        "We embrace sustainable farming practices and modern quality control while maintaining our traditional craftsmanship.",
-    },
-  ]
+  const milestones = isArabic
+    ? [
+        {
+          year: "1972",
+          title: "بداية إرث العائلة",
+          description: "غرس أجدادنا أول أشجار الزيتون في تلال صفاقس، لتبدأ مسيرة عائلية متوارثة عبر الأجيال.",
+        },
+        {
+          year: "1985",
+          title: "إتقان الطرق التقليدية",
+          description: "أتقنت العائلة تقنيات العصر على البارد لضمان استخلاص نقي يحافظ على النكهة والقيمة الغذائية.",
+        },
+        {
+          year: "2000",
+          title: "اعتراف دولي",
+          description: "بدأت زيوتنا تحصد جوائز دولية، حاملة تميّز تونس إلى الساحة العالمية.",
+        },
+        {
+          year: "2026",
+          title: "ابتكار عصري",
+          description: "نعتمد ممارسات زراعية مستدامة وضبط جودة حديث مع الحفاظ على حرفيتنا التقليدية.",
+        },
+      ]
+    : [
+        {
+          year: "1972",
+          title: "Family Legacy Begins",
+          description:
+            "Our ancestors planted the first olive trees in the hills of Sfax, establishing what would become a generational tradition.",
+        },
+        {
+          year: "1985",
+          title: "Traditional Methods Perfected",
+          description:
+            "The family perfected cold-pressing techniques, ensuring the purest extraction of olive oil while preserving nutritional value.",
+        },
+        {
+          year: "2000",
+          title: "International Recognition",
+          description:
+            "Our olive oils began winning international competitions, bringing Tunisian excellence to the global stage.",
+        },
+        {
+          year: "2026",
+          title: "Modern Innovation",
+          description:
+            "We embrace sustainable farming practices and modern quality control while maintaining our traditional craftsmanship.",
+        },
+      ]
 
-  const values = [
-    {
-      icon: Leaf,
-      title: "Sustainability",
-      description: "We practice organic farming methods that protect our land for future generations.",
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "Every bottle meets the highest international standards for extra virgin olive oil.",
-    },
-    {
-      icon: Users,
-      title: "Community",
-      description: "We support local farmers and preserve traditional Tunisian olive cultivation methods.",
-    },
-    {
-      icon: Clock,
-      title: "Tradition",
-      description: "Over 50 years of family knowledge guides every aspect of our production.",
-    },
-  ]
+  const values = isArabic
+    ? [
+        {
+          icon: Leaf,
+          title: "الاستدامة",
+          description: "نتبع أساليب زراعة عضوية تحافظ على أرضنا للأجيال القادمة.",
+        },
+        {
+          icon: Award,
+          title: "التميّز",
+          description: "كل زجاجة تلبّي أعلى المعايير الدولية لزيت الزيتون البكر الممتاز.",
+        },
+        {
+          icon: Users,
+          title: "المجتمع",
+          description: "ندعم المزارعين المحليين ونحافظ على أساليب الزراعة التونسية التقليدية.",
+        },
+        {
+          icon: Clock,
+          title: "التقاليد",
+          description: "أكثر من 50 عامًا من خبرة العائلة تقود كل مرحلة من مراحل الإنتاج.",
+        },
+      ]
+    : [
+        {
+          icon: Leaf,
+          title: "Sustainability",
+          description: "We practice organic farming methods that protect our land for future generations.",
+        },
+        {
+          icon: Award,
+          title: "Excellence",
+          description: "Every bottle meets the highest international standards for extra virgin olive oil.",
+        },
+        {
+          icon: Users,
+          title: "Community",
+          description: "We support local farmers and preserve traditional Tunisian olive cultivation methods.",
+        },
+        {
+          icon: Clock,
+          title: "Tradition",
+          description: "Over 50 years of family knowledge guides every aspect of our production.",
+        },
+      ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--sage-olive)]/20 via-[var(--matte-black)] to-[var(--blush-clay)]/30">
@@ -78,7 +125,7 @@ export default function StoryPage() {
             <div className="relative aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg overflow-hidden">
               <Image
                 src="/olive-grove-story.png"
-                alt="Ancient olive grove"
+                alt={isArabic ? "بستان زيتون عريق" : "Ancient olive grove"}
                 fill
                 className="object-cover"
               />
@@ -90,7 +137,9 @@ export default function StoryPage() {
       {/* Timeline */}
       <section className="py-16 px-4 bg-[var(--sage-olive)]/10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">Our Journey Through Time</h2>
+          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
+            {isArabic ? "رحلتنا عبر الزمن" : "Our Journey Through Time"}
+          </h2>
           <div className="space-y-8">
             {milestones.map((milestone, index) => (
               <div key={index} className="flex items-start gap-8">
@@ -111,7 +160,9 @@ export default function StoryPage() {
       {/* Values */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">Our Values</h2>
+          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
+            {isArabic ? "قيمنا" : "Our Values"}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
               const Icon = value.icon

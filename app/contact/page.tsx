@@ -13,7 +13,8 @@ import { Send } from "lucide-react"
 import { Footer } from "@/components/footer"
 
 export default function ContactPage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const isArabic = language === "ar"
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -55,7 +56,7 @@ export default function ContactPage() {
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl">Send us a Message</CardTitle>
+              <CardTitle className="text-2xl">{isArabic ? "أرسل لنا رسالة" : "Send us a Message"}</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -100,10 +101,14 @@ export default function ContactPage() {
                   />
                 </div>
                 {status === "success" && (
-                  <p className="text-sm text-[#6BAA75]">Thank you! Your message has been sent.</p>
+                  <p className="text-sm text-[#6BAA75]">
+                    {isArabic ? "شكرًا لك! تم إرسال رسالتك بنجاح." : "Thank you! Your message has been sent."}
+                  </p>
                 )}
                 {status === "error" && (
-                  <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+                  <p className="text-sm text-red-500">
+                    {isArabic ? "حدث خطأ ما. يرجى المحاولة مرة أخرى." : "Something went wrong. Please try again."}
+                  </p>
                 )}
                 <Button
                   type="submit"
@@ -111,7 +116,7 @@ export default function ContactPage() {
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   <Send className="w-4 h-4 mr-2" />
-                  {status === "loading" ? "Sending..." : t("contact.form.send")}
+                  {status === "loading" ? (isArabic ? "جاري الإرسال..." : "Sending...") : t("contact.form.send")}
                 </Button>
               </form>
             </CardContent>

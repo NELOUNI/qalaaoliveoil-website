@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useLanguage } from "./language-provider"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Globe } from "lucide-react"
@@ -39,21 +40,10 @@ export function Navigation() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Gifting Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="text-sm font-medium text-foreground tracking-wide whitespace-nowrap hover:bg-[var(--soft-sand)] hover:text-[var(--matte-black)]">
-                    {t("nav.gifting")}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-[var(--soft-sand)] border-[var(--antique-gold)]/20 text-[var(--matte-black)] [&_[data-highlighted]]:bg-[var(--antique-gold)]/10 [&_[data-highlighted]]:text-[var(--matte-black)]">
-                  <DropdownMenuItem asChild className="focus:!bg-[var(--antique-gold)]/10 focus:!text-[var(--matte-black)] data-[highlighted]:!bg-[var(--antique-gold)]/10 data-[highlighted]:!text-[var(--matte-black)]">
-                    <Link href="/gifting" className="text-[var(--matte-black)]">
-                      {t("nav.gifting")}
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* Gifting — plain link */}
+              <Button variant="ghost" asChild className="text-sm font-medium text-foreground tracking-wide whitespace-nowrap hover:bg-[var(--soft-sand)] hover:text-[var(--matte-black)]">
+                <Link href="/gifting">{t("nav.gifting")}</Link>
+              </Button>
 
               {/* Learn Dropdown */}
               <DropdownMenu>
@@ -65,7 +55,7 @@ export function Navigation() {
                 <DropdownMenuContent align="start" className="bg-[var(--soft-sand)] border-[var(--antique-gold)]/20 text-[var(--matte-black)] [&_[data-highlighted]]:bg-[var(--antique-gold)]/10 [&_[data-highlighted]]:text-[var(--matte-black)]">
                   <DropdownMenuItem asChild className="focus:!bg-[var(--antique-gold)]/10 focus:!text-[var(--matte-black)] data-[highlighted]:!bg-[var(--antique-gold)]/10 data-[highlighted]:!text-[var(--matte-black)]">
                     <Link href="/know-your-oil" className="text-[var(--matte-black)]">
-                      Know Your Oil
+                      {t("nav.know-your-oil")}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="focus:!bg-[var(--antique-gold)]/10 focus:!text-[var(--matte-black)] data-[highlighted]:!bg-[var(--antique-gold)]/10 data-[highlighted]:!text-[var(--matte-black)]">
@@ -80,10 +70,13 @@ export function Navigation() {
           {/* Centered Logo — full height of nav band */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-full py-2">
             <Link href="/" className="h-full flex items-center">
-              <img
+              <Image
                 src="/Qalaa_LOGO_1-Gold.svg"
                 alt="Qalaa Logo"
+                width={180}
+                height={128}
                 className="h-full w-auto object-contain object-center max-h-32"
+                priority
               />
             </Link>
           </div>
@@ -146,10 +139,16 @@ export function Navigation() {
                 {t("nav.gifting")}
               </Link>
               <Link href="/know-your-oil" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
-                Know Your Oil
+                {t("nav.know-your-oil")}
               </Link>
               <Link href="/recipes" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
                 {t("nav.recipes")}
+              </Link>
+              <Link href="/story" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                {t("nav.our-story")}
+              </Link>
+              <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                {t("nav.contact-us")}
               </Link>
             </div>
           </div>

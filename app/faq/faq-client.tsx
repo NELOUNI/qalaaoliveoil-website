@@ -8,14 +8,51 @@ import { StructuredData } from "@/components/structured-data"
 import { Footer } from "@/components/footer"
 
 export function FAQClient() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const isArabic = language === "ar"
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
   }
 
-  const faqs = [
+  const faqs = isArabic ? [
+    {
+      question: "ما الذي يجعل زيت الزيتون لديكم بجودة ممتازة؟",
+      answer:
+        "زيت الزيتون لدينا مصنوع من زيتون يُقطف يدويًا من أشجار يزيد عمرها عن 50 عامًا. نعتمد العصر على البارد خلال 24 ساعة من الحصاد للحفاظ على النكهة والقيمة الغذائية، ويتم اختبار كل دفعة وفق معايير صارمة للزيت البكر الممتاز.",
+    },
+    {
+      question: "كيف أحفظ زيت الزيتون؟",
+      answer:
+        "يُحفظ في مكان بارد ومظلم بعيدًا عن الحرارة والضوء. احكم إغلاق الزجاجة واستخدمها خلال 18 إلى 24 شهرًا من تاريخ الحصاد للحصول على أفضل نكهة.",
+    },
+    {
+      question: "ما الفرق بين أنواع زيت الزيتون لديكم؟",
+      answer:
+        "يأتي كل نوع من أصناف ومناطق مختلفة. احتياطي قلعة الذهبي مزيج فاخر من الشتوِي والشملالي بنكهة مركّبة، أما غابة باجة المباركة فهو شتوِي نقي بطابع عشبي وفلفلي قوي.",
+    },
+    {
+      question: "هل يمكن زيارة بساتين الزيتون؟",
+      answer:
+        "نعم، نوفر جولات إرشادية تشمل مراحل الإنتاج وجلسات تذوق، ويمكن الحجز عبر صفحة المواقع.",
+    },
+    {
+      question: "ما هي سياسة الاسترجاع؟",
+      answer:
+        "نوفر ضمان رضا كامل. إذا لم تكن راضيًا، تواصل معنا خلال 30 يومًا للاسترجاع أو الاستبدال.",
+    },
+    {
+      question: "هل تشحنون دوليًا؟",
+      answer:
+        "نعم، نشحن إلى مختلف الدول. تختلف تكلفة الشحن ومدة التسليم حسب الوجهة.",
+    },
+    {
+      question: "كيف أعرف أن زيت الزيتون فقد جودته؟",
+      answer:
+        "زيت الزيتون البكر الممتاز الطازج يتميز برائحة فاكهية وطعم فلفلي خفيف. من علامات تراجع الجودة الرائحة غير المستحبة أو الطعم الحامض.",
+    },
+  ] : [
     {
       question: "What makes your olive oil premium quality?",
       answer:
@@ -29,22 +66,17 @@ export function FAQClient() {
     {
       question: "What's the difference between your olive oil varieties?",
       answer:
-        "Each variety comes from different olive cultivars and regions. Heritage Gold is our premium blend with complex flavors, Coastal Breeze offers a lighter, fruitier taste, and Sacred Grove Reserve is our limited edition with intense, robust flavors perfect for finishing dishes.",
-    },
-    {
-      question: "Do you offer wholesale pricing?",
-      answer:
-        "Yes, we offer wholesale pricing for restaurants, retailers, and corporate clients. Volume discounts start at 50 bottles with additional savings for larger orders. Contact our wholesale team for custom pricing and terms.",
+        "Each variety comes from different olive cultivars and regions. Gold Reserve of Qalaa is our premium blend of Chetoui and Chemlali with complex, layered flavors. Sacred Grove of Beja is our pure Chetoui — intensely grassy, peppery, and rich in polyphenols, perfect for finishing dishes raw.",
     },
     {
       question: "Can I visit your olive groves?",
       answer:
-        "We offer guided tours of our olive groves in Sfax, including the production process and oil tasting sessions. Tours are available Monday through Saturday and can be booked through our locations page or by calling directly.",
+        "We offer guided tours of our olive groves at Domaine Al Nagr, including the production process and oil tasting sessions. Tours are available Monday through Saturday and can be booked through our locations page or by calling directly.",
     },
     {
       question: "What is your return policy?",
       answer:
-        "We offer a 100% satisfaction guarantee. If you're not completely satisfied with your purchase, contact us within 30 days for a full refund or exchange. For wholesale orders, different terms may apply.",
+        "We offer a 100% satisfaction guarantee. If you're not completely satisfied with your purchase, contact us within 30 days for a full refund or exchange.",
     },
     {
       question: "Do you ship internationally?",

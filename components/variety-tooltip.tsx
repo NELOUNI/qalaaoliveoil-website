@@ -25,7 +25,7 @@ const VARIETY_DATA: Record<
   chemlali: {
     name: "Chemlali",
     arabic: "شملالي",
-    origin: "Central & Southern Tunisia · Sfax",
+    origin: "Central & Southern Tunisia · Sousse & Sfax",
     character: "Elegant & Refined",
     taste: "Soft almond, gentle fruitiness, a buttery whisper at the finish.",
     color: "#C9A84C",

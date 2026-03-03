@@ -112,7 +112,7 @@ export function LabCertification() {
       <section id="quality" className="py-16 md:py-24 px-4">
         <div className="max-w-[1100px] mx-auto">
           <div className={`${REVEAL_CLASS} text-center mb-16 opacity-0 translate-y-7 transition-all duration-700`}>
-            <span className={sectionLabelClass}>Laboratory Analysis · Lot 05260</span>
+            <span className={`${sectionLabelClass} latin-numerals`} lang="en" dir="ltr">Laboratory Analysis · Lot 05260</span>
             <h2 className={sectionTitleClass}>
               Numbers That
               <br />
@@ -191,7 +191,7 @@ export function LabCertification() {
                 <span className="font-display text-[0.55rem] tracking-[0.25em] text-[var(--antique-gold)]/80 uppercase block mb-4">
                   {m.label}
                 </span>
-                <div className="font-serif text-3xl font-light text-[var(--antique-gold)] leading-none mb-1">
+                <div className="font-serif text-3xl font-light text-[var(--antique-gold)] leading-none mb-1 latin-numerals" lang="en" dir="ltr">
                   {m.value}
                   <sup className="text-base text-[var(--antique-gold)]/70 align-super">
                     {m.sup}
@@ -204,7 +204,7 @@ export function LabCertification() {
                     style={{ width: `${m.bar}%` }}
                   />
                 </div>
-                <div className="text-xs text-[var(--antique-gold)]/60">
+                <div className="text-xs text-[var(--antique-gold)]/60 latin-numerals" lang="en" dir="ltr">
                   {m.limit.split(" · ")[0]} ·{" "}
                   <span className="text-[#6BAA75] font-medium">{m.limit.split(" · ")[1]}</span>
                 </div>
@@ -221,7 +221,7 @@ export function LabCertification() {
       >
         <div className="max-w-[1100px] mx-auto">
           <div className={`${REVEAL_CLASS} opacity-0 translate-y-7 transition-all duration-700`}>
-            <span className={sectionLabelClass}>Fatty Acid Composition · Lot 05260</span>
+            <span className={`${sectionLabelClass} latin-numerals`} lang="en" dir="ltr">Fatty Acid Composition · Lot 05260</span>
             <h2 className={sectionTitleClass}>
               What&apos;s <em className="italic text-[var(--antique-gold)]">Inside</em>
               <br />
@@ -244,7 +244,7 @@ export function LabCertification() {
                 of our oil.
               </p>
               <div className="border-l border-[var(--antique-gold)]/40 pl-5 mt-8">
-                <div className="font-serif text-5xl font-light text-[var(--antique-gold)] leading-none">
+                <div className="font-serif text-5xl font-light text-[var(--antique-gold)] leading-none latin-numerals" lang="en" dir="ltr">
                   64.3%
                 </div>
                 <p className="text-sm text-[var(--antique-gold)]/70 mt-2">
@@ -289,7 +289,7 @@ export function LabCertification() {
                       />
                     </div>
                   </div>
-                  <div className="font-serif text-xl font-light text-[var(--antique-gold)] whitespace-nowrap min-w-[65px] text-right">
+                  <div className="font-serif text-xl font-light text-[var(--antique-gold)] whitespace-nowrap min-w-[65px] text-right latin-numerals" lang="en" dir="ltr">
                     {a.pct}
                     <sup className="text-xs text-[var(--antique-gold)]/60 align-super">%</sup>
                   </div>
@@ -429,7 +429,7 @@ export function LabCertification() {
             {[
               { label: "Report Number", value: "TLHP26-000264" },
               { label: "Lot Number", value: "05260" },
-              { label: "Harvest Date", value: "Jan 2026" },
+              { label: "Harvest Date", value: "November 2025" },
               { label: "Best Before", value: "Jan 2027" },
               { label: "Batch Size", value: "2,798 kg" },
               { label: "Origin", value: "Kalaa Kobra, Tunisia" },
@@ -440,7 +440,7 @@ export function LabCertification() {
                 <span className="font-display text-[0.52rem] tracking-[0.22em] text-[var(--antique-gold)]/70 block mb-2">
                   {cell.label}
                 </span>
-                <div className="font-serif text-lg md:text-xl text-[var(--antique-gold)]">
+                <div className="font-serif text-lg md:text-xl text-[var(--antique-gold)] latin-numerals" lang="en" dir="ltr">
                   {cell.value}
                 </div>
               </div>

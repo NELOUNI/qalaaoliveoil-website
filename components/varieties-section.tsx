@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useLanguage } from "./language-provider"
 
 const T = {
   gold: "#C9A84C",
@@ -42,7 +43,7 @@ function TasteBar({
         <span
           style={{
             fontFamily: "'Cinzel', serif",
-            fontSize: "0.52rem",
+            fontSize: "0.78rem",
             letterSpacing: "0.2em",
             color: T.textDim,
             textTransform: "uppercase",
@@ -51,9 +52,12 @@ function TasteBar({
           {label}
         </span>
         <span
+          className="latin-numerals"
+          lang="en"
+          dir="ltr"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "0.9rem",
+            fontSize: "1rem",
             color,
           }}
         >
@@ -90,10 +94,10 @@ function NoteChip({ label, color }: { label: string; color: string }) {
         alignItems: "center",
         gap: "0.35rem",
         fontFamily: "'Cinzel', serif",
-        fontSize: "0.48rem",
+        fontSize: "0.75rem",
         letterSpacing: "0.18em",
         color,
-        padding: "0.3rem 0.7rem",
+        padding: "0.35rem 0.75rem",
         border: `1px solid ${color}33`,
         background: `${color}08`,
         marginRight: "0.4rem",
@@ -122,6 +126,7 @@ interface Variety {
   character: string
   origin: string
   region: string
+  regionAr?: string
   description: string
   detail: string
   notes: string[]
@@ -131,8 +136,45 @@ interface Variety {
   bestFor: string
 }
 
-function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean }) {
+const LABELS = {
+  en: {
+    tastingNotes: "TASTING NOTES",
+    tasteProfile: "TASTE PROFILE",
+    fruitiness: "Fruitiness",
+    bitterness: "Bitterness",
+    pungency: "Pungency",
+    harvest: "Harvest",
+    polyphenols: "Polyphenols",
+    bestFor: "Best For",
+    region: "Region",
+  },
+  ar: {
+    tastingNotes: "نوتات التذوق",
+    tasteProfile: "ملف التذوق",
+    fruitiness: "فواكيه",
+    bitterness: "مرارة",
+    pungency: "لاذعية",
+    harvest: "الحصاد",
+    polyphenols: "البوليفينول",
+    bestFor: "الأفضل لـ",
+    region: "المنطقة",
+  },
+}
+
+function VarietyCard({
+  variety,
+  animate,
+  regionDisplay,
+  language,
+}: {
+  variety: Variety & { ar?: VarietyAr }
+  animate: boolean
+  regionDisplay: string
+  language: "en" | "ar"
+}) {
   const isChetoui = variety.id === "chetoui"
+  const v = language === "ar" && variety.ar ? { ...variety, ...variety.ar } : variety
+  const labels = LABELS[language]
 
   return (
     <div
@@ -157,15 +199,15 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
           right: isChetoui ? "auto" : "1.5rem",
           left: isChetoui ? "1.5rem" : "auto",
           fontFamily: "'Cinzel', serif",
-          fontSize: "0.48rem",
+          fontSize: "0.75rem",
           letterSpacing: "0.2em",
           color: variety.color,
-          padding: "0.25rem 0.6rem",
+          padding: "0.3rem 0.65rem",
           border: `1px solid ${variety.color}33`,
           background: `${variety.color}0A`,
         }}
       >
-        {variety.character}
+        {v.character}
       </div>
 
       <div style={{ padding: "3.5rem 2.5rem 2.5rem" }}>
@@ -196,7 +238,7 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
           <div
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "0.5rem",
+              fontSize: "0.78rem",
               letterSpacing: "0.22em",
               color: T.textDim,
               display: "flex",
@@ -215,7 +257,7 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            {variety.origin}
+            {v.origin}
           </div>
         </div>
 
@@ -230,43 +272,43 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
         <p
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "1.12rem",
+            fontSize: "1.15rem",
             fontStyle: "italic",
             color: T.creamDim,
             lineHeight: 1.75,
             marginBottom: "1.5rem",
           }}
         >
-          &quot;{variety.description}&quot;
+          &quot;{v.description}&quot;
         </p>
 
         <p
           style={{
             fontFamily: "'Instrument Sans', sans-serif",
             fontWeight: 300,
-            fontSize: "0.82rem",
+            fontSize: "0.95rem",
             color: T.textDim,
             lineHeight: 1.85,
             marginBottom: "2rem",
           }}
         >
-          {variety.detail}
+          {v.detail}
         </p>
 
         <div style={{ marginBottom: "2rem", minHeight: "6.5rem" }}>
           <div
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "0.5rem",
+              fontSize: "0.78rem",
               letterSpacing: "0.22em",
               color: variety.color,
               marginBottom: "0.8rem",
             }}
           >
-            TASTING NOTES
+            {labels.tastingNotes}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {variety.notes.map((n) => (
+            {v.notes.map((n) => (
               <NoteChip key={n} label={n} color={variety.color} />
             ))}
           </div>
@@ -284,28 +326,28 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
           <div
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "0.5rem",
+              fontSize: "0.78rem",
               letterSpacing: "0.22em",
               color: variety.color,
               marginBottom: "1.2rem",
             }}
           >
-            TASTE PROFILE
+            {labels.tasteProfile}
           </div>
           <TasteBar
-            label="Fruitiness"
+            label={labels.fruitiness}
             value={variety.profile.fruitiness}
             color={variety.color}
             animate={animate}
           />
           <TasteBar
-            label="Bitterness"
+            label={labels.bitterness}
             value={variety.profile.bitterness}
             color={variety.color}
             animate={animate}
           />
           <TasteBar
-            label="Pungency"
+            label={labels.pungency}
             value={variety.profile.pungency}
             color={variety.color}
             animate={animate}
@@ -320,13 +362,13 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
           }}
         >
           {[
-            { label: "Harvest", value: variety.harvest },
-            { label: "Polyphenols", value: variety.polyphenols },
-            { label: "Best For", value: variety.bestFor },
-            { label: "Region", value: variety.region },
+            { rowKey: "harvest", label: labels.harvest, value: v.harvest },
+            { rowKey: "polyphenols", label: labels.polyphenols, value: v.polyphenols },
+            { rowKey: "bestFor", label: labels.bestFor, value: v.bestFor },
+            { rowKey: "region", label: labels.region, value: regionDisplay },
           ].map((item) => (
             <div
-              key={item.label}
+              key={item.rowKey}
               style={{
                 padding: "0.8rem",
                 border: `1px solid ${T.border}`,
@@ -336,7 +378,7 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
               <div
                 style={{
                   fontFamily: "'Cinzel', serif",
-                  fontSize: "0.44rem",
+                  fontSize: "0.7rem",
                   letterSpacing: "0.18em",
                   color: T.textDim,
                   marginBottom: "0.3rem",
@@ -345,9 +387,12 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
                 {item.label}
               </div>
               <div
+                className={item.rowKey === "region" ? undefined : "latin-numerals"}
+                lang={item.rowKey === "region" ? undefined : "en"}
+                dir={item.rowKey === "region" ? undefined : "ltr"}
                 style={{
                   fontFamily: "'Instrument Sans', sans-serif",
-                  fontSize: "0.75rem",
+                  fontSize: "0.9rem",
                   color: T.textMain,
                   fontWeight: 400,
                 }}
@@ -362,7 +407,18 @@ function VarietyCard({ variety, animate }: { variety: Variety; animate: boolean 
   )
 }
 
-const VARIETIES: Variety[] = [
+interface VarietyAr {
+  character: string
+  origin: string
+  description: string
+  detail: string
+  notes: string[]
+  harvest: string
+  polyphenols: string
+  bestFor: string
+}
+
+const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
   {
     id: "chetoui",
     name: "Chetoui",
@@ -371,9 +427,10 @@ const VARIETIES: Variety[] = [
     character: "Bold & Intense",
     origin: "Northern Tunisia · Bizerte & Béja",
     region: "North Tunisia",
+    regionAr: "شمال تونس",
     description: "The oil that announces itself — grassy, sharp, alive.",
     detail:
-      "Intensely grassy and peppery with a sharp, bitter bite and a lingering spicy finish. The hallmark catch at the back of the throat is a sign of high polyphenols — nature's signal of exceptional freshness and antioxidant richness. Best experienced raw, drizzled.",
+      "A bold character with a vivid green aroma, a sharp peppery bite, and a warm finish that sparks at the back of the throat. That signature tingle is the olive's way of telling you it's real — a natural sign of richness and freshness. Best enjoyed raw, poured generously over any dish.",
     notes: [
       "Fresh-cut grass",
       "Green tomato",
@@ -385,6 +442,17 @@ const VARIETIES: Variety[] = [
     harvest: "Oct – Nov · Early",
     polyphenols: "Very High",
     bestFor: "Raw drizzle, dipping",
+    ar: {
+      character: "قوي ومكثّف",
+      origin: "شمال تونس · بنزرت وباجة",
+      description: "زيت يعلن عن نفسه — عشبي، لاذع، حي.",
+      detail:
+        "شخصية جريئة برائحة خضراء نضرة، ولسعة فلفلية، ونهاية دافئة تشتعل في مؤخرة الحلق. ذلك الوخز المميز هو طريقة الزيتون ليقول لكم إنه حقيقي — علامة طبيعية على الغنى والنضارة. يُستساغ نيئاً، يُسكب بوفرة على أي طبق.",
+      notes: ["عشب طازج", "طماطم خضراء", "فلفل أسود", "لوز مر", "عشب بري"],
+      harvest: "أكتوبر – نوفمبر · مبكر",
+      polyphenols: "عالي جداً",
+      bestFor: "سكب نيء، تغميس",
+    },
   },
   {
     id: "chemlali",
@@ -392,12 +460,13 @@ const VARIETIES: Variety[] = [
     arabic: "شملالي",
     color: T.chemlali,
     character: "Elegant & Refined",
-    origin: "Central & Southern Tunisia · Sfax",
-    region: "South Tunisia",
+    origin: "Central & Southern Tunisia · Sousse & Sfax",
+    region: "Center and South of Tunisia",
+    regionAr: "وسط وجنوب تونس",
     description:
-      "Soft, golden, effortless — Tunisia's most beloved expression.",
+      "Soft, golden, effortless — Tunisia's most beloved variety.",
     detail:
-      "Soft and approachable with delicate almond and artichoke notes, gentle fruitiness, and a smooth, buttery finish that lingers gracefully. Tunisia's most widely cultivated variety — universally loved for its balance, warmth, and quiet elegance at the table.",
+      "Gentle and welcoming, with notes of ripe almond, artichoke, and wildflower, rounding off with a soft buttery warmth that lingers on the palate. Tunisia's most widely cultivated variety — cherished across generations for its balance, warmth, and quiet confidence that elevates any meal.",
     notes: [
       "Ripe almond",
       "Artichoke",
@@ -409,10 +478,22 @@ const VARIETIES: Variety[] = [
     harvest: "Nov – Dec · Mid",
     polyphenols: "Medium–High",
     bestFor: "Cooking, finishing, baking",
+    ar: {
+      character: "أنيق وناعم",
+      origin: "وسط وجنوب تونس · سوسة وصفاقس",
+      description: "ناعم، ذهبي، بلا جهد — الصنف الأكثر حباً في تونس.",
+      detail:
+        "لطيف ومرحب، بنوتات لوز ناضج وخرشوف وزهر بري، ينتهي بدفء زبدي ناعم يبقى في الحنك. الصنف الأكثر زراعة في تونس — يُعتز به عبر الأجيال لتوازنه ودفئه وثقته الهادئة التي ترفع أي وجبة.",
+      notes: ["لوز ناضج", "خرشوف", "زهر بري", "زبدة ناعمة", "تين مجفف"],
+      harvest: "نوفمبر – ديسمبر · منتصف",
+      polyphenols: "متوسط–عالي",
+      bestFor: "طبخ، إنهاء، خبز",
+    },
   },
 ]
 
 export function VarietiesSection() {
+  const { language } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const [animate, setAnimate] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(false)
@@ -459,13 +540,13 @@ export function VarietiesSection() {
               fontFamily: "'Cinzel', serif",
               fontSize: "0.6rem",
               letterSpacing: "0.35em",
-              color: T.gold,
+              color: T.cream,
               display: "block",
               marginBottom: "1rem",
               textTransform: "uppercase",
             }}
           >
-            The Varieties · Know Your Oil
+            {language === "ar" ? "الأصناف · تعرّف على زيتك" : "The Varieties · Know Your Oil"}
           </span>
 
           <h2
@@ -478,8 +559,7 @@ export function VarietiesSection() {
               marginBottom: "1.5rem",
             }}
           >
-            Two Souls of{" "}
-            <em style={{ fontStyle: "italic", color: T.goldLight }}>Tunisia</em>
+            {language === "ar" ? "روحان من تونس" : "Two Souls of Tunisia"}
           </h2>
 
           <div
@@ -502,9 +582,9 @@ export function VarietiesSection() {
               lineHeight: 1.85,
             }}
           >
-            Qalaa sources from two of Tunisia&apos;s most celebrated indigenous
-            varieties. Each brings its own character to the blend — and to your
-            table.
+            {language === "ar"
+              ? "قلعة تختار من أصناف تونس الأصيلة الأشهر. كل صنف يضيف شخصيته للمزيج — ولطاولتك."
+              : "Qalaa sources from two of Tunisia's most celebrated indigenous varieties. Each brings its own character to the blend — and to your table."}
           </p>
         </div>
 
@@ -526,7 +606,13 @@ export function VarietiesSection() {
             }}
           >
             {VARIETIES.map((v) => (
-              <VarietyCard key={v.id} variety={v} animate={animate} />
+              <VarietyCard
+                key={v.id}
+                variety={v}
+                animate={animate}
+                regionDisplay={language === "ar" && v.regionAr ? v.regionAr : v.region}
+                language={language}
+              />
             ))}
           </div>
 
@@ -601,13 +687,11 @@ export function VarietiesSection() {
             <strong
               style={{ color: T.creamDim, fontWeight: 400 }}
             >
-              About our blend:
+              {language === "ar" ? "عن مزيجنا:" : "About our blend:"}
             </strong>{" "}
-            Qalaa oils are crafted by carefully balancing Chetoui&apos;s bold
-            polyphenol intensity with Chemlali&apos;s refined softness —
-            resulting in an oil that is both complex and approachable, without
-            compromising on either character. Each harvest may shift the balance
-            slightly, reflecting the season&apos;s expression.
+            {language === "ar"
+              ? "زيوت قلعة تُصنع بموازنة دقيقة بين قوة البوليفينول في الشتوي ونعومة الشملالي — فينتج زيت مركّب وسهل التقديم دون تنازل عن أي من الشخصيتين. كل موسم حصاد قد يغيّر التوازن قليلاً، يعكس تعبير الموسم."
+              : "Qalaa oils are crafted by carefully balancing Chetoui's bold polyphenol intensity with Chemlali's refined softness — resulting in an oil that is both complex and approachable, without compromising on either character. Each harvest may shift the balance slightly, reflecting the season's expression."}
           </p>
         </div>
       </div>

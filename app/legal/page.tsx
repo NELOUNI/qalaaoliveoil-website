@@ -1,20 +1,15 @@
-import { Metadata } from "next"
-import { Breadcrumbs } from "@/components/breadcrumbs"
+"use client"
 
-export const metadata: Metadata = {
-  title: "Legal Information - Qalaa | Privacy Policy, Terms of Service, Cookie Policy",
-  description: "Read our Privacy Policy, Terms of Service, and Cookie Policy. Learn how we protect your data and use cookies on Qalaa olive oil website.",
-  keywords: "privacy policy, terms of service, cookie policy, legal, Qalaa olive oil",
-  openGraph: {
-    title: "Legal Information - Qalaa",
-    description: "Privacy Policy, Terms of Service, and Cookie Policy for Qalaa olive oil website",
-    images: ["/qalaa-logo.png"],
-  },
-}
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { Footer } from "@/components/footer"
+import { useLanguage } from "@/components/language-provider"
 
 export default function LegalPage() {
+  const { language } = useLanguage()
+  const isArabic = language === "ar"
+
   const breadcrumbItems = [
-    { name: "Legal", url: "/legal" }
+    { name: isArabic ? "قانوني" : "Legal", url: "/legal" }
   ]
 
   return (
@@ -25,9 +20,27 @@ export default function LegalPage() {
 
         <div className="bg-card rounded-2xl shadow-lg mt-8 p-8">
           <h1 className="text-4xl font-serif font-bold text-foreground mb-8 text-center">
-            Legal Information
+            {isArabic ? "المعلومات القانونية" : "Legal Information"}
           </h1>
 
+          {isArabic ? (
+            <section className="mb-12">
+              <div className="prose prose-neutral max-w-none">
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  تتضمن هذه الصفحة روابط ووصفًا مختصرًا للسياسات القانونية الخاصة بقلعة، وتشمل سياسة الخصوصية وشروط الخدمة وسياسة ملفات تعريف الارتباط.
+                </p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                  <li>سياسة الخصوصية: توضح كيف نجمع البيانات ونستخدمها ونحميها.</li>
+                  <li>شروط الخدمة: تحدد قواعد استخدام الموقع والخدمات.</li>
+                  <li>سياسة ملفات الارتباط: تشرح استخدام ملفات تعريف الارتباط وخيارات التحكم بها.</li>
+                </ul>
+                <p className="text-muted-foreground text-sm mt-6">
+                  آخر تحديث: فبراير 2025
+                </p>
+              </div>
+            </section>
+          ) : (
+          <>
           {/* Privacy Policy Section */}
           <section className="mb-12">
             <h2 className="text-3xl font-serif font-semibold text-primary mb-6 border-b border-border pb-2">
@@ -72,7 +85,7 @@ export default function LegalPage() {
               </p>
 
               <p className="text-muted-foreground text-sm mt-6">
-                Last updated: {new Date().toLocaleDateString()}
+                Last updated: February 2025
               </p>
             </div>
           </section>
@@ -113,7 +126,7 @@ export default function LegalPage() {
               </p>
 
               <p className="text-muted-foreground text-sm mt-6">
-                Last updated: {new Date().toLocaleDateString()}
+                Last updated: February 2025
               </p>
             </div>
           </section>
@@ -166,12 +179,15 @@ export default function LegalPage() {
               </p>
 
               <p className="text-muted-foreground text-sm mt-6">
-                Last updated: {new Date().toLocaleDateString()}
+                Last updated: February 2025
               </p>
             </div>
           </section>
+          </>
+          )}
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

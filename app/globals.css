@@ -16,19 +16,14 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/Aurellio-Regular.ttf") format("truetype"),
-       url("/fonts/Aurellio-Regular.woff2") format("woff2"),
-       url("/fonts/Aurellio-Regular.woff") format("woff");
+  src: url("/fonts/Aurellio.ttf") format("truetype");
 }
 @font-face {
   font-family: "Alsalam-light";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url("/fonts/ALSALAM-LIGHT.ttf") format("truetype"),
-       url("/fonts/ALSALAM-LIGHT.woff2") format("woff2"),
-       url("/fonts/ALSALAM-LIGHT.woff") format("woff"),
-       url("/fonts/Alsalam-Light.ttf") format("truetype");
+  src: url("/fonts/ALSALAM-Light.ttf") format("truetype");
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -83,7 +78,7 @@
 
 @theme inline {
   --font-sans: var(--font-primary);
-  --font-serif: var(--font-accent-type);
+  --font-serif: var(--font-crimson);
   --font-display: var(--font-heading);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -157,7 +152,7 @@ body {
 }
 
 .font-accent {
-  font-family: var(--font-accent-type);
+  font-family: var(--font-crimson);
 }
 
 /* Use fallback font for numbers when primary font shows symbols (e.g. prices, stats) */
@@ -166,13 +161,31 @@ body {
   font-variant-numeric: lining-nums tabular-nums;
 }
 
+/* Force Western (1,2,3) numerals — override Arabic font so digits never render as ١٢٣ */
+.latin-numerals {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif !important;
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  font-variant-numeric: lining-nums;
+  -webkit-locale: "en";
+}
+[dir="rtl"] .latin-numerals {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif !important;
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  font-variant-numeric: lining-nums;
+  -webkit-locale: "en";
+}
+
 [dir="rtl"] {
   font-family: var(--font-arabic);
 }
 
-* {
-  transition: all 0.2s ease-in-out;
-}
+/* Targeted transitions only — avoid layout-affecting 'all' which causes jank */
+a, button, [role="button"],
+.transition-colors { transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out; }
+.transition-shadow { transition: box-shadow 0.2s ease-in-out; }
+.transition-transform { transition: transform 0.3s ease-in-out; }
 
 .gradient-olive {
   background: linear-gradient(135deg, var(--antique-gold) 0%, var(--matte-black) 100%);

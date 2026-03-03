@@ -1,18 +1,127 @@
-import { DevelopmentBanner } from "@/components/development-banner"
+"use client"
+
 import { Footer } from "@/components/footer"
+import { useLanguage } from "@/components/language-provider"
 
 export default function PrivacyPolicyPage() {
+  const { language } = useLanguage()
+  const isArabic = language === "ar"
+
   return (
     <>
-      <DevelopmentBanner />
       <main className="min-h-screen bg-background">
         {/* Content */}
         <div className="mx-auto max-w-4xl px-6 py-16">
           <div className="prose prose-neutral max-w-none">
-            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">Privacy Policy</h1>
-            <p className="text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">
+              {isArabic ? "سياسة الخصوصية" : "Privacy Policy"}
+            </h1>
+            <p className="text-muted-foreground mb-8">{isArabic ? "آخر تحديث: فبراير 2025" : "Last updated: February 2025"}</p>
 
-            <div className="space-y-8">
+            {isArabic ? (
+              <div className="space-y-8">
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. مقدمة</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    قلعة (&quot;نحن&quot; أو &quot;لدينا&quot; أو &quot;لنا&quot;) ملتزمة بحماية خصوصيتك. توضح سياسة الخصوصية هذه كيفية جمعنا لمعلوماتك واستخدامها والإفصاح عنها وحمايتها عند زيارة موقعنا الإلكتروني www.qalaaoliveoil.com (&quot;الموقع&quot;).
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">2. المعلومات التي نجمعها</h2>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.1 المعلومات الشخصية</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    قد نجمع معلومات شخصية تقدمها لنا طواعية عندما:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2 mb-6">
+                    <li>تتواصل معنا عبر موقعنا</li>
+                    <li>تقدم استفساراً عن منتجاتنا</li>
+                    <li>تشترك في نشرتنا الإخبارية</li>
+                  </ul>
+                  <h3 className="text-xl font-medium text-foreground mb-3">2.2 المعلومات التي تُجمع تلقائياً</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    نجمع تلقائياً معلومات معينة عن جهازك وأنماط الاستخدام، بما في ذلك:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>عنوان IP وبيانات الموقع</li>
+                    <li>نوع المتصفح وإصداره</li>
+                    <li>الصفحات المزارة والوقت المستغرق على موقعنا</li>
+                    <li>معلومات الموقع المُحيل</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">3. كيفية استخدام معلوماتك</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    نستخدم المعلومات التي نجمعها من أجل:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>توفير موقعنا الإلكتروني وتشغيله وصيانته</li>
+                    <li>معالجة الاستفسارات والطلبات</li>
+                    <li>تحسين موقعنا وتخصيصه وتوسيعه</li>
+                    <li>فهم كيفية استخدامك للموقع وتحليله</li>
+                    <li>التواصل معك لخدمة العملاء والدعم</li>
+                    <li>إرسال رسائل تسويقية (بموافقتك)</li>
+                    <li>الكشف عن الاحتيال ومنعه</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">4. مشاركة المعلومات والإفصاح عنها</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    لا نبيع أو نتاجر أو ننقل معلوماتك الشخصية لأطراف ثالثة إلا في الحالات التالية:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>بموافقتك الصريحة</li>
+                    <li>للامتثال للالتزامات القانونية</li>
+                    <li>لحماية حقوقنا ومنع الاحتيال</li>
+                    <li>مع مقدمي خدمات موثوقين يساعدوننا في تشغيل موقعنا</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">5. أمن البيانات</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    نطبق إجراءات أمنية تقنية وتنظيمية مناسبة لحماية معلوماتك الشخصية من الوصول غير المصرح به أو التعديل أو الإفصاح أو الإتلاف. إلا أنه لا توجد طريقة نقل عبر الإنترنت أو تخزين إلكتروني آمنة بنسبة 100%.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">6. ملفات التعريف وتقنيات التتبع</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    نستخدم ملفات التعريف وتقنيات تتبع مماثلة لتحسين تجربتك على موقعنا. يمكنك التحكم في إعدادات ملفات التعريف من خلال تفضيلات متصفحك.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">7. حقوقك</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    حسب مكان إقامتك، قد يكون لديك الحقوق التالية بخصوص معلوماتك الشخصية:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>الوصول إلى معلوماتك الشخصية</li>
+                    <li>تصحيح المعلومات غير الدقيقة</li>
+                    <li>حذف معلوماتك الشخصية</li>
+                    <li>تقييد المعالجة</li>
+                    <li>قابلية نقل البيانات</li>
+                    <li>الاعتراض على المعالجة</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">8. خصوصية الأطفال</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    لا يُقصد بموقعنا الأطفال دون سن 13 عاماً. لا نجمع عن قصد معلومات شخصية من أطفال دون 13 عاماً.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">9. التغييرات على سياسة الخصوصية</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    قد نحدّث سياسة الخصوصية هذه من وقت لآخر. سنخبرك بأي تغييرات بنشر السياسة الجديدة على هذه الصفحة وتحديث تاريخ &quot;آخر تحديث&quot;.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">10. تواصل معنا</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا عبر موقعنا الإلكتروني.
+                  </p>
+                </section>
+              </div>
+            ) : (
+              <div className="space-y-8">
               <section id="introduction">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. Introduction</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -27,7 +136,6 @@ export default function PrivacyPolicyPage() {
                   We may collect personal information that you voluntarily provide to us when you:
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 mb-6">
-                  <li>Create a wholesale account</li>
                   <li>Contact us through our website</li>
                   <li>Make an inquiry about our products</li>
                   <li>Subscribe to our newsletter</li>
@@ -52,7 +160,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
                   <li>Provide, operate, and maintain our website</li>
-                  <li>Process wholesale inquiries and orders</li>
+                  <li>Process inquiries and orders</li>
                   <li>Improve, personalize, and expand our website</li>
                   <li>Understand and analyze how you use our website</li>
                   <li>Communicate with you for customer service and support</li>
@@ -123,7 +231,8 @@ export default function PrivacyPolicyPage() {
                   If you have any questions about this Privacy Policy, please contact us through our website.
                 </p>
               </section>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </main>

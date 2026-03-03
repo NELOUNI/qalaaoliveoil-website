@@ -2,6 +2,7 @@
 
 import { useLanguage } from "./language-provider"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   const { t } = useLanguage()
@@ -13,12 +14,12 @@ export function Footer() {
           {/* Brand - extra space so tagline stays on one line */}
           <div className="space-y-4 min-w-0">
             <div className="flex items-center">
-              <img src="/Qalaa_LOGO_1-Gold.svg" alt="Qalaa Logo" className="h-16 w-auto object-contain" />
+              <Image src="/Qalaa_LOGO_1-Gold.svg" alt="Qalaa Logo" width={160} height={64} className="h-16 w-auto object-contain" />
             </div>
             <p className="text-sm text-[var(--antique-gold)]/80 leading-relaxed lg:whitespace-nowrap">{t("brand.tagline")}</p>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com/Qalaa Olive Oil"
+                href="https://www.facebook.com/profile.php?id=61581402667182"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[var(--antique-gold)] transition-colors"
@@ -63,31 +64,28 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-[var(--antique-gold)]">Products</h3>
+            <h3 className="font-semibold text-[var(--antique-gold)]">{t("footer.products")}</h3>
             <div className="space-y-2">
               <Link href="/products" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
-                Our Olive Oil
+                {t("footer.our-olive-oil")}
               </Link>
               <Link href="/gifting" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
                 {t("nav.gifting")}
-              </Link>
-              <Link href="/recipes" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
-                {t("nav.recipes")}
               </Link>
             </div>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-[var(--antique-gold)]">Company</h3>
+            <h3 className="font-semibold text-[var(--antique-gold)]">{t("footer.company")}</h3>
             <div className="space-y-2">
               <Link href="/story" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
-                Our Story
+                {t("footer.our-story")}
               </Link>
               <Link href="/locations" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
-                Our Locations
+                {t("footer.our-locations")}
               </Link>
               <Link href="/contact" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
-                Contact Us
+                {t("footer.contact-us")}
               </Link>
               <Link href="/faq" className="block text-sm hover:text-[var(--antique-gold)] transition-colors">
                 {t("nav.faq")}
@@ -96,20 +94,20 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-[var(--antique-gold)]">Contact</h3>
+            <h3 className="font-semibold text-[var(--antique-gold)]">{t("footer.contact")}</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3 text-sm">
                 <svg className="w-4 h-4 text-[var(--antique-gold)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span>contact@tunevoo.com</span>
+                <span className="latin-numerals" lang="en" dir="ltr">qalaa@tunevoo.com</span>
               </div>
               <div className="flex items-start space-x-3 text-sm">
                 <svg className="w-4 h-4 text-[var(--antique-gold)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span>+216 58 737 106</span>
+                <span className="latin-numerals" lang="en" dir="ltr">+216 58 737 106</span>
               </div>
               <div className="flex items-start space-x-3 text-sm">
                 <svg className="w-4 h-4 text-[var(--antique-gold)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -120,8 +118,8 @@ export function Footer() {
                   />
                 </svg>
                 <div>
-                  <div>Avenue 14 Janvier</div>
-                  <div>4000 Sousse, Tunisia</div>
+                  <div className="latin-numerals">{t("footer.address.street")}</div>
+                  <div className="latin-numerals">{t("footer.address.city")}</div>
                 </div>
               </div>
             </div>
@@ -130,16 +128,16 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-[var(--antique-gold)]/80">&copy; 2025 Qalaa. All rights reserved. Made with love in Tunisia.</p>
+            <p className="text-sm text-[var(--antique-gold)]/80">&copy; <span className="latin-numerals" lang="en" dir="ltr">2025</span> Qalaa. {t("footer.copyright")}</p>
             <div className="flex space-x-6 text-sm text-[var(--antique-gold)]/80">
               <Link href="/privacy" className="hover:text-[var(--antique-gold)] transition-colors">
-                Privacy Policy
+                {t("footer.privacy-policy")}
               </Link>
               <Link href="/terms" className="hover:text-[var(--antique-gold)] transition-colors">
-                Terms of Service
+                {t("footer.terms")}
               </Link>
               <Link href="/cookies" className="hover:text-[var(--antique-gold)] transition-colors">
-                Cookie Policy
+                {t("footer.cookies")}
               </Link>
             </div>
           </div>

@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: "v0.app",
+  generator: "Next.js",
 }
 
 export default function RootLayout({

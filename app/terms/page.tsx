@@ -1,18 +1,124 @@
-import { DevelopmentBanner } from "@/components/development-banner"
+"use client"
+
 import { Footer } from "@/components/footer"
+import { useLanguage } from "@/components/language-provider"
 
 export default function TermsOfServicePage() {
+  const { language } = useLanguage()
+  const isArabic = language === "ar"
+
   return (
     <>
-      <DevelopmentBanner />
       <main className="min-h-screen bg-background">
         {/* Content */}
         <div className="mx-auto max-w-4xl px-6 py-16">
           <div className="prose prose-neutral max-w-none">
-            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">Terms of Service</h1>
-            <p className="text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+            <h1 className="text-4xl font-serif font-bold text-foreground mb-8">
+              {isArabic ? "شروط الخدمة" : "Terms of Service"}
+            </h1>
+            <p className="text-muted-foreground mb-8">{isArabic ? "آخر تحديث: فبراير 2025" : "Last updated: February 2025"}</p>
 
-            <div className="space-y-8">
+            {isArabic ? (
+              <div className="space-y-8">
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. قبول الشروط</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    بالوصول إلى موقع قلعة (www.qalaaoliveoil.com) واستخدامه، فإنك تقبل وتوافق على الالتزام بشروط وأحكام هذه الاتفاقية. إذا لم توافق على الالتزام بما سبق، يرجى عدم استخدام الخدمة.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">2. وصف الخدمة</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    تقدم قلعة معلومات عن منتجات وخدمات زيت الزيتون التونسي الفاخر. يعمل موقعنا كنافذة لعرض منتجاتنا، وتعريف الزبائن بعلامتنا وتراثنا.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">3. ترخيص الاستخدام</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    يُسمح لك بتحميل نسخة مؤقتة واحدة من المواد على موقع قلعة للعرض الشخصي غير التجاري المؤقت فقط. هذا منح ترخيص وليس نقل ملكية، وتحت هذا الترخيص لا يجوز لك:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>تعديل أو نسخ المواد</li>
+                    <li>استخدام المواد لأي غرض تجاري أو عرض عام</li>
+                    <li>محاولة الهندسة العكسية لأي برنامج على الموقع</li>
+                    <li>إزالة أي حقوق نشر أو إشارات ملكية من المواد</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">4. حسابات المستخدمين</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    عند إنشاء حساب لدينا، يجب أن تقدم معلومات دقيقة وكاملة وحديثة في جميع الأوقات. أنت مسؤول عن حماية كلمة المرور وجميع الأنشطة التي تتم تحت حسابك.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">5. الاستخدامات المحظورة</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    لا يجوز لك استخدام موقعنا:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>لأي غرض غير قانوني أو لحث آخرين على ارتكاب أفعال غير قانونية</li>
+                    <li>لمخالفة اللوائح أو القوانين المحلية أو الدولية</li>
+                    <li>لانتهاك حقوقنا الملكية الفكرية أو حقوق الآخرين</li>
+                    <li>لمضايقة أو إيذاء أو تشهير أو تمييز</li>
+                    <li>لتقديم معلومات كاذبة أو مضللة</li>
+                    <li>لرفع أو إرسال فيروسات أو أي كود ضار</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">6. المحتوى</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    يتيح موقعنا نشر ومشاركة محتوى معين. أنت مسؤول عن المحتوى الذي تنشره، بما في ذلك قانونيته وموثوقيته ومناسبته.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">7. حقوق الملكية الفكرية</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    باستثناء المحتوى الذي تملكه، تمتلك قلعة و/أو المرخِصون لها جميع الحقوق والمواد الواردة في هذا الموقع. يُمنح لك ترخيص محدود فقط لزيارة المحتوى.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">8. سياسة الخصوصية</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    خصوصيتك مهمة لنا. يرجى مراجعة سياسة الخصوصية، التي تحكم أيضاً استخدامك للموقع، لتفهم ممارساتنا.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">9. إخلاء المسؤولية</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    تُقدَّم المعلومات على هذا الموقع &quot;كما هي&quot;. إلى أقصى حد يسمح به القانون، قلعة:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>لا تقدم أي ضمانات أو تصريحات بخصوص الموقع ومحتوياته</li>
+                    <li>لا تتحمل المسؤولية عن الأضرار الناشئة عن استخدامك للموقع أو المتصلة به</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">10. تحديد المسؤولية</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    لا تتحمل قلعة، ولا مديروها أو موظفوها أو شركاؤها، المسؤولية عن أي أضرار غير مباشرة أو عرضية أو تبعية أو عقابية، بما في ذلك فقدان الأرباح أو البيانات أو السمعة، الناتجة عن استخدامك للموقع.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">11. القانون الحاكم</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    تُفسَّر هذه الشروط وتُحكم بقوانين تونس. عدم إنفاذنا لأي حق أو حكم لن يُعتبر تنازلاً عن ذلك الحق.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">12. التغييرات على الشروط</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    نحتفظ بالحق، وفق تقديرنا، بتعديل أو استبدال هذه الشروط في أي وقت. في حالة التعديل الجوهري، سنحاول إبلاغك قبل 30 يوماً على الأقل من دخول الشروط الجديدة حيز التنفيذ.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">13. معلومات التواصل</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    إذا كان لديك أي أسئلة حول شروط الخدمة هذه، يرجى التواصل معنا عبر موقعنا الإلكتروني.
+                  </p>
+                </section>
+              </div>
+            ) : (
+              <div className="space-y-8">
               <section id="acceptance">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">1. Acceptance of Terms</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -23,7 +129,7 @@ export default function TermsOfServicePage() {
               <section id="description">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">2. Description of Service</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Qalaa provides information about premium Tunisian olive oil products and services. Our website serves as a platform to showcase our products, connect customers with wholesale opportunities, and provide information about our brand and heritage.
+                  Qalaa provides information about premium Tunisian olive oil products and services. Our website serves as a platform to showcase our products and provide information about our brand and heritage.
                 </p>
               </section>
 
@@ -121,7 +227,8 @@ export default function TermsOfServicePage() {
                   If you have any questions about these Terms of Service, please contact us through our website.
                 </p>
               </section>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </main>

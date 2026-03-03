@@ -2,19 +2,81 @@
 
 import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Clock, Users, ChefHat } from "lucide-react"
 import Image from "next/image"
 import { Footer } from "@/components/footer"
 
 export default function RecipesPage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const isArabic = language === "ar"
 
-  const recipes = [
+  const recipes = isArabic ? [
+    {
+      id: 1,
+      title: "بروشيتا متوسطية",
+      description: "مقبلات إيطالية كلاسيكية بزيت احتياطي قلعة الذهبي",
+      image: "/bruschetta.png",
+      prepTime: "15 دقيقة",
+      cookTime: "5 دقائق",
+      servings: 4,
+      difficulty: "سهل",
+      ingredients: [
+        "4 شرائح خبز ريفي",
+        "2 طماطم ناضجة مقطعة",
+        "3 ملاعق كبيرة من زيت احتياطي قلعة الذهبي",
+        "2 فص ثوم مفروم",
+        "أوراق ريحان طازجة",
+        "ملح بحري وفلفل أسود",
+      ],
+      instructions: [],
+    },
+    {
+      id: 2,
+      title: "سلطة مشوية تونسية",
+      description: "سلطة خضار مشوية تقليدية بزيت فاخر",
+      image: "/salata-mechouia.png",
+      prepTime: "20 دقيقة",
+      cookTime: "30 دقيقة",
+      servings: 6,
+      difficulty: "متوسط",
+      ingredients: [
+        "2 فلفل أحمر",
+        "2 فلفل أخضر",
+        "4 طماطم",
+        "1 بصلة",
+        "4 ملاعق كبيرة من زيت غابة باجة المباركة",
+        "2 ملعقة كبيرة كبر",
+        "زيتون أسود",
+        "ملح وكمون",
+      ],
+      instructions: [],
+    },
+    {
+      id: 3,
+      title: "كيكة الليمون بزيت الزيتون",
+      description: "كيكة متوسطية طرية بزيت احتياطي قلعة الذهبي",
+      image: "/lemon-cake.png",
+      prepTime: "15 دقيقة",
+      cookTime: "45 دقيقة",
+      servings: 8,
+      difficulty: "سهل",
+      ingredients: [
+        "1 كوب زيت احتياطي قلعة الذهبي",
+        "1 كوب سكر",
+        "3 بيضات",
+        "1.5 كوب دقيق",
+        "برش 2 ليمونة",
+        "0.5 كوب عصير ليمون",
+        "1 ملعقة صغيرة بيكنج باودر",
+        "رشة ملح",
+      ],
+      instructions: [],
+    },
+  ] : [
     {
       id: 1,
       title: "Mediterranean Bruschetta",
-      description: "Classic Italian appetizer with our Heritage Gold olive oil",
+      description: "Classic Italian appetizer with our Gold Reserve of Qalaa olive oil",
       image: "/bruschetta.png",
       prepTime: "15 min",
       cookTime: "5 min",
@@ -23,7 +85,7 @@ export default function RecipesPage() {
       ingredients: [
         "4 slices of rustic bread",
         "2 ripe tomatoes, diced",
-        "3 tbsp Zaytouna Heritage Gold olive oil",
+        "3 tbsp Qalaa Gold Reserve olive oil",
         "2 cloves garlic, minced",
         "Fresh basil leaves",
         "Sea salt and black pepper",
@@ -50,7 +112,7 @@ export default function RecipesPage() {
         "2 green bell peppers",
         "4 tomatoes",
         "1 onion",
-        "4 tbsp Zaytouna Sacred Grove olive oil",
+        "4 tbsp Qalaa Sacred Grove of Beja olive oil",
         "2 tbsp capers",
         "Black olives",
         "Salt and cumin",
@@ -66,14 +128,14 @@ export default function RecipesPage() {
     {
       id: 3,
       title: "Olive Oil Lemon Cake",
-      description: "Moist Mediterranean cake made with our Coastal Breeze blend",
+      description: "Moist Mediterranean cake made with our Gold Reserve of Qalaa blend",
       image: "/lemon-cake.png",
       prepTime: "15 min",
       cookTime: "45 min",
       servings: 8,
       difficulty: "Easy",
       ingredients: [
-        "1 cup Zaytouna Coastal Breeze olive oil",
+        "1 cup Qalaa Gold Reserve olive oil",
         "1 cup sugar",
         "3 eggs",
         "1½ cups flour",
@@ -111,7 +173,6 @@ export default function RecipesPage() {
               <Card key={recipe.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative aspect-video bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)]">
                   <Image src={recipe.image || "/placeholder.svg"} alt={recipe.title} fill className="object-cover" />
-                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">{recipe.difficulty}</Badge>
                 </div>
 
                 <CardHeader>
@@ -121,15 +182,15 @@ export default function RecipesPage() {
                   <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      <span>{recipe.prepTime}</span>
+                      <span className="latin-numerals" lang="en" dir="ltr">{recipe.prepTime}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <ChefHat className="w-4 h-4" />
-                      <span>{recipe.cookTime}</span>
+                      <span className="latin-numerals" lang="en" dir="ltr">{recipe.cookTime}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
-                      <span>{recipe.servings}</span>
+                      <span className="latin-numerals" lang="en" dir="ltr">{recipe.servings}</span>
                     </div>
                   </div>
                 </CardHeader>
@@ -139,15 +200,12 @@ export default function RecipesPage() {
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">{t("recipes.ingredients")}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {recipe.ingredients.slice(0, 4).map((ingredient, index) => (
+                        {recipe.ingredients.map((ingredient, index) => (
                           <li key={index} className="flex items-start">
                             <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
                             {ingredient}
                           </li>
                         ))}
-                        {recipe.ingredients.length > 4 && (
-                          <li className="text-primary text-sm">+{recipe.ingredients.length - 4} more ingredients</li>
-                        )}
                       </ul>
                     </div>
                   </div>

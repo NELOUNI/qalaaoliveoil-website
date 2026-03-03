@@ -3,39 +3,65 @@
 import { useLanguage } from "./language-provider"
 
 export function TestimonialsSection() {
-  const { t } = useLanguage()
+  const { language } = useLanguage()
+  const isArabic = language === "ar"
 
-  const testimonials = [
-    {
-      name: "Chef Ahmed Mansouri",
-      title: "Michelin Star Restaurant, Tunis",
-      quote:
-        "Qalaa's olive oil transforms every dish. The depth of flavor from their ancient groves is unmatched in Mediterranean cuisine.",
-      rating: 5,
-    },
-    {
-      name: "Sarah Al-Rashid",
-      title: "Food Critic, Gulf Times",
-      quote:
-        "This is not just olive oil - it's liquid gold. The heritage and quality in every drop makes Qalaa exceptional.",
-      rating: 5,
-    },
-    {
-      name: "Marco Benedetti",
-      title: "Italian Culinary Institute",
-      quote:
-        "Having tasted oils from across the Mediterranean, Qalaa stands among the finest. Truly artisanal quality.",
-      rating: 5,
-    },
-  ]
+  const testimonials = isArabic
+    ? [
+        {
+          name: "الشيف أحمد المنصوري",
+          title: "مطعم نجمة ميشلان، تونس",
+          quote: "زيت قلعة يغيّر كل طبق. عمق النكهة من بساتينهم العريقة لا يُضاهى في المطبخ المتوسطي.",
+          rating: 5,
+        },
+        {
+          name: "سارة الراشد",
+          title: "ناقدة طعام، جلف تايمز",
+          quote: "هذا ليس مجرد زيت زيتون — إنه ذهب سائل. التراث والجودة في كل قطرة يجعلان قلعة استثنائية.",
+          rating: 5,
+        },
+        {
+          name: "ماركو بينيديتي",
+          title: "المعهد الإيطالي للطهي",
+          quote: "بعد تذوق زيوت من كل أنحاء المتوسط، قلعة من الأفضل. جودة حرفية بحق.",
+          rating: 5,
+        },
+      ]
+    : [
+        {
+          name: "Chef Ahmed Mansouri",
+          title: "Michelin Star Restaurant, Tunis",
+          quote:
+            "Qalaa's olive oil transforms every dish. The depth of flavor from their ancient groves is unmatched in Mediterranean cuisine.",
+          rating: 5,
+        },
+        {
+          name: "Sarah Al-Rashid",
+          title: "Food Critic, Gulf Times",
+          quote:
+            "This is not just olive oil - it's liquid gold. The heritage and quality in every drop makes Qalaa exceptional.",
+          rating: 5,
+        },
+        {
+          name: "Marco Benedetti",
+          title: "Italian Culinary Institute",
+          quote:
+            "Having tasted oils from across the Mediterranean, Qalaa stands among the finest. Truly artisanal quality.",
+          rating: 5,
+        },
+      ]
 
   return (
-    <section className="py-20 bg-[var(--blush-clay)]/20 font-serif">
+    <section className="py-20 bg-[var(--blush-clay)]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl font-bold text-[var(--antique-gold)] mb-4">Trusted by Culinary Masters</h2>
+          <h2 className="font-serif text-4xl font-bold text-[var(--antique-gold)] mb-4">
+            {isArabic ? "موثوق به من كبار الطهاة" : "Trusted by Culinary Masters"}
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover why renowned chefs and food critics choose Qalaa for their finest creations
+            {isArabic
+              ? "اكتشف لماذا يختار أشهر الطهاة ونقاد الطعام قلعة لأرقى أطباقهم"
+              : "Discover why renowned chefs and food critics choose Qalaa for their finest creations"}
           </p>
         </div>
 
@@ -49,10 +75,10 @@ export function TestimonialsSection() {
                   </svg>
                 ))}
               </div>
-              <blockquote className="text-muted-foreground mb-6 italic leading-relaxed">"{testimonial.quote}"</blockquote>
+              <blockquote className="text-muted-foreground mb-6 italic leading-relaxed" style={{ fontFamily: "'Aurellio Regular', Georgia, serif" }}>"{testimonial.quote}"</blockquote>
               <div className="border-t border-[var(--sage-olive)]/40 pt-4">
-                <div className="font-semibold text-[var(--antique-gold)]">{testimonial.name}</div>
-                <div className="text-sm text-muted-foreground">{testimonial.title}</div>
+                <div className="font-semibold text-[var(--antique-gold)] font-sans">{testimonial.name}</div>
+                <div className="text-sm text-muted-foreground font-sans">{testimonial.title}</div>
               </div>
             </div>
           ))}

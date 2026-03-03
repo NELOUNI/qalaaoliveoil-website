@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next'
+import { products } from '@/lib/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://qalaaoliveoil.com'
   const currentDate = new Date()
+
+  const productPages = products.map((p) => ({
+    url: `${baseUrl}/products/${p.id}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
 
   return [
     {
@@ -17,11 +25,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    ...productPages,
     {
       url: `${baseUrl}/story`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/know-your-oil`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/gifting`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/recipes`,
@@ -48,23 +69,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/gifting`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/auth/login`,
+      url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/auth/sign-up`,
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookies`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
   ]
 }
-
