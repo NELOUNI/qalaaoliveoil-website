@@ -41,7 +41,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Product Images */}
           <div className="space-y-4">
-            <ProductImageGallery images={[product.image_url]} />
+            <ProductImageGallery images={product.image_url ? [product.image_url] : []} />
           </div>
 
           {/* Product Info */}
