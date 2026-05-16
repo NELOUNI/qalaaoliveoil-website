@@ -1,13 +1,14 @@
 import { HeroSection } from "@/components/hero-section"
 import { FeaturedProducts } from "@/components/featured-products"
 import { StoryPreview } from "@/components/story-preview"
-import { TestimonialsSection } from "@/components/testimonials-section"
 import { AwardsSection } from "@/components/awards-section"
 import { Footer } from "@/components/footer"
 import { StructuredData } from "@/components/structured-data"
 import type { Metadata } from "next"
+import { canonicalForPath } from "@/lib/canonical-metadata"
 
 export const metadata: Metadata = {
+  ...canonicalForPath("/"),
   title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
   description: "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves. Guardians of the Olive, Keepers of the Gold. Now available worldwide!",
   keywords: "premium olive oil, Tunisian olive oil, extra virgin, Mediterranean, luxury food, artisanal, organic, ancient groves",
@@ -42,7 +43,6 @@ export default function HomePage() {
         <HeroSection />
         <FeaturedProducts />
         <StoryPreview />
-        <TestimonialsSection />
         <AwardsSection />
         <Footer />
       </div>

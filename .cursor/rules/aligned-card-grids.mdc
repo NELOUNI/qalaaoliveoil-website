@@ -1,0 +1,19 @@
+---
+description: Equal-height card grids — media slots and aligned title/description rows
+globs: app/**/*.tsx,components/**/*.tsx
+alwaysApply: false
+---
+
+# Aligned card grids
+
+When building a row of cards (locations, recipes, products, features):
+
+1. **Grid**: `items-stretch` via `alignedCardGridClass` from `@/components/aligned-card-primitives`.
+2. **Card shell**: `alignedCardShellClass` — `flex h-full flex-col` so cards fill the row height.
+3. **Media**: Always reserve a fixed media slot — never conditionally omit it.
+   - Story/content cards: `AlignedCardMedia` (`aspect-video`). Empty `src` shows brand gradient placeholder.
+   - Product cards: `alignedProductMediaClass` (`h-64`, white pad, `object-contain`).
+4. **Text rows**: Wrap title and description in `AlignedCardTitleSlot` (`min-h-[3.75rem]`) and `AlignedCardDescriptionSlot` (`min-h-[5.5rem]` or tighter `min-h-[2.75rem]` when copy is short).
+5. **CTA**: Pin footers with `mt-auto` on the bottom block inside `CardContent`.
+
+Do not use `{image && <img…>}` on grid cards — missing images must still occupy the same height as siblings.

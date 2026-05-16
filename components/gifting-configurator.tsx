@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { Package, Plus, Minus, Gift, MessageSquare, Truck, Check } from "lucide-react"
 import Image from "next/image"
 
-type Lang = "en" | "ar"
+type Lang = "en" | "ar" | "fr"
 
 interface GiftProduct {
   id: string
@@ -35,13 +35,13 @@ const availableProducts = [
     id: "1",
     name: "Gold Reserve of Qalaa",
     price: 89.99,
-    image: "/QALAA%20500ml%20no%20background.png",
+    image: "/QALAA%20LINFA.jpeg",
   },
   {
     id: "2",
-    name: "Sacred Grove of Beja",
+    name: "Sacred Grove of Al Nagr",
     price: 125.99,
-    image: "/organic-bottle.png",
+    image: "/QALAA%20Natura%20Quadra.jpeg",
   },
 ]
 
@@ -68,6 +68,7 @@ const packagingOptions = [
 
 export function GiftingConfigurator({ language }: { language: Lang }) {
   const isArabic = language === "ar"
+  const isFrench = language === "fr"
   const [step, setStep] = useState(1)
   const [config, setConfig] = useState<GiftConfiguration>({
     products: [],
@@ -149,7 +150,37 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
         total: "الإجمالي",
         noProducts: "لم يتم اختيار منتجات بعد",
       }
-    : {
+    : isFrench
+      ? {
+          heading: "Composez votre cadeau idéal",
+          subtitle: "Quelques étapes pour un présent sur-mesure qui fera sensation",
+          stepLabel: "Étape",
+          steps: ["Produits", "Coffret", "Message", "Livraison", "Vérification"],
+          selectOils: "Choisissez vos huiles",
+          addToGift: "Ajouter au cadeau",
+          choosePackaging: "Choisir le coffret",
+          personalMessage: "Message personnel",
+          recipientName: "Nom du destinataire",
+          recipientPlaceholder: "Nom complet",
+          giftMessage: "Votre message",
+          giftMessagePlaceholder: "Quelques mots du cœur…",
+          characters: "caractères",
+          deliveryDetails: "Livraison",
+          preferredDeliveryDate: "Date souhaitée",
+          deliveryAddress: "Adresse",
+          deliveryAddressPlaceholder: "Adresse complète…",
+          reviewGift: "Vérifier le cadeau",
+          selectedProducts: "Huiles sélectionnées",
+          packaging: "Coffret",
+          messageFor: "Message pour",
+          previous: "Retour",
+          nextStep: "Suivant",
+          completeOrder: "Valider la commande cadeau",
+          giftSummary: "Récapitulatif",
+          total: "Total",
+          noProducts: "Aucun produit sélectionné",
+        }
+      : {
         heading: "Configure Your Perfect Gift",
         subtitle: "Follow our simple steps to create a personalized gift that will delight your recipient",
         stepLabel: "Step",
@@ -185,11 +216,24 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
       isArabic && product.id === "1"
         ? "احتياطي قلعة الذهبي"
         : isArabic && product.id === "2"
-          ? "غابة باجة المباركة"
-          : product.name,
+          ? "غابة النغر المباركة"
+          : isFrench && product.id === "1"
+            ? "Réserve d'or de Qalaa"
+            : isFrench && product.id === "2"
+              ? "Bosquet sacré d'Al Nagr"
+              : product.name,
   }))
 
   const localizedPackaging = packagingOptions.map((option) => {
+    if (isFrench) {
+      if (option.id === "classic") {
+        return { ...option, name: "Coffret classique", description: "Boîtier bois et ruban or" }
+      }
+      if (option.id === "premium") {
+        return { ...option, name: "Collection premium", description: "Coffret en bois d'olivier, doublure soie" }
+      }
+      return { ...option, name: "Coffret patrimoine", description: "Présentation céramique et gravure sur mesure" }
+    }
     if (!isArabic) return option
     if (option.id === "classic") {
       return { ...option, name: "علبة هدية كلاسيكية", description: "علبة خشبية أنيقة مع شريط ذهبي" }
@@ -266,11 +310,12 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {localizedProducts.map((product) => (
                         <div key={product.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                          <div className="aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg mb-4 relative overflow-hidden flex items-center justify-center">
+                          <div className="relative mb-4 aspect-square overflow-hidden rounded-lg bg-white p-4 ring-1 ring-border">
                             <Image
                               src={product.image || "/placeholder.svg"}
                               alt={product.name}
                               fill
+                              sizes="(max-width: 768px) 100vw, 280px"
                               className="object-contain object-center"
                             />
                           </div>
@@ -456,11 +501,12 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
                       {config.products.map((product) => (
                         <div key={product.id} className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded relative overflow-hidden flex items-center justify-center">
+                            <div className="relative h-12 w-12 overflow-hidden rounded bg-white p-0.5 ring-1 ring-border">
                               <Image
                                 src={product.image || "/placeholder.svg"}
                                 alt={product.name}
                                 fill
+                                sizes="48px"
                                 className="object-contain object-center"
                               />
                             </div>

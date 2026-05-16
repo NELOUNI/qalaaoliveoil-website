@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { useLanguage } from "./language-provider"
+import { useLanguage, type Language } from "./language-provider"
 
 const T = {
   gold: "#C9A84C",
@@ -127,6 +127,7 @@ interface Variety {
   origin: string
   region: string
   regionAr?: string
+  regionFr?: string
   description: string
   detail: string
   notes: string[]
@@ -159,6 +160,17 @@ const LABELS = {
     bestFor: "الأفضل لـ",
     region: "المنطقة",
   },
+  fr: {
+    tastingNotes: "NOTES DE DÉGUSTATION",
+    tasteProfile: "PROFIL EN BOUCHE",
+    fruitiness: "Fruité",
+    bitterness: "Amertume",
+    pungency: "Ardeur",
+    harvest: "Récolte",
+    polyphenols: "Polyphénols",
+    bestFor: "Idéal pour",
+    region: "Région",
+  },
 }
 
 function VarietyCard({
@@ -167,13 +179,18 @@ function VarietyCard({
   regionDisplay,
   language,
 }: {
-  variety: Variety & { ar?: VarietyAr }
+  variety: Variety & { ar?: VarietyLocale; fr?: VarietyLocale }
   animate: boolean
   regionDisplay: string
-  language: "en" | "ar"
+  language: Language
 }) {
   const isChetoui = variety.id === "chetoui"
-  const v = language === "ar" && variety.ar ? { ...variety, ...variety.ar } : variety
+  const v =
+    language === "ar" && variety.ar
+      ? { ...variety, ...variety.ar }
+      : language === "fr" && variety.fr
+        ? { ...variety, ...variety.fr }
+        : variety
   const labels = LABELS[language]
 
   return (
@@ -407,7 +424,7 @@ function VarietyCard({
   )
 }
 
-interface VarietyAr {
+interface VarietyLocale {
   character: string
   origin: string
   description: string
@@ -418,7 +435,7 @@ interface VarietyAr {
   bestFor: string
 }
 
-const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
+const VARIETIES: (Variety & { ar?: VarietyLocale; fr?: VarietyLocale })[] = [
   {
     id: "chetoui",
     name: "Chetoui",
@@ -428,6 +445,7 @@ const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
     origin: "Northern Tunisia · Bizerte & Béja",
     region: "North Tunisia",
     regionAr: "شمال تونس",
+    regionFr: "Nord de la Tunisie",
     description: "The oil that announces itself — grassy, sharp, alive.",
     detail:
       "A bold character with a vivid green aroma, a sharp peppery bite, and a warm finish that sparks at the back of the throat. That signature tingle is the olive's way of telling you it's real — a natural sign of richness and freshness. Best enjoyed raw, poured generously over any dish.",
@@ -453,6 +471,24 @@ const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
       polyphenols: "عالي جداً",
       bestFor: "سكب نيء، تغميس",
     },
+    fr: {
+      character: "Corsé & intense",
+      origin: "Nord de la Tunisie · Bizerte & Béja",
+      description:
+        "Une huile qui se fait entendre — herbacée, vive, presque électrique.",
+      detail:
+        "Un caractère affirmé : bouquet vert intense, mordant poivré en bouche, puis une chaleur qui s’éveille en fond de gorge. Ce picotement est la signature d’une olive authentique — signe naturel de fraîcheur et de richesse. À savourer cru, versé généreusement sur vos plats.",
+      notes: [
+        "Herbe fraîchement coupée",
+        "Tomate verte",
+        "Poivre noir",
+        "Amande amère",
+        "Herbes sauvages",
+      ],
+      harvest: "Oct. – nov. · Précoce",
+      polyphenols: "Très élevés",
+      bestFor: "Cru, en finition, trempette",
+    },
   },
   {
     id: "chemlali",
@@ -463,6 +499,7 @@ const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
     origin: "Central & Southern Tunisia · Sousse & Sfax",
     region: "Center and South of Tunisia",
     regionAr: "وسط وجنوب تونس",
+    regionFr: "Centre et sud de la Tunisie",
     description:
       "Soft, golden, effortless — Tunisia's most beloved variety.",
     detail:
@@ -488,6 +525,24 @@ const VARIETIES: (Variety & { ar?: VarietyAr })[] = [
       harvest: "نوفمبر – ديسمبر · منتصف",
       polyphenols: "متوسط–عالي",
       bestFor: "طبخ، إنهاء، خبز",
+    },
+    fr: {
+      character: "Élégant & délicat",
+      origin: "Centre & sud de la Tunisie · Sousse & Sfax",
+      description:
+        "Doré, souple, sans effort — le cépage le plus aimé de Tunisie.",
+      detail:
+        "Accueillant et rond, avec des notes d’amande mûre, d’artichaut et de fleurs sauvages, puis une chaleur beurrée qui s’attarde. Le cépage le plus cultivé en Tunisie — transmis de génération en génération pour son équilibre, sa douceur et sa présence discrète qui élève tout repas.",
+      notes: [
+        "Amande mûre",
+        "Artichaut",
+        "Fleurs sauvages",
+        "Beurre doux",
+        "Figue séchée",
+      ],
+      harvest: "Nov. – déc. · Mi-saison",
+      polyphenols: "Moyens à élevés",
+      bestFor: "Cuisson, finition, pâtisserie",
     },
   },
 ]
@@ -546,7 +601,11 @@ export function VarietiesSection() {
               textTransform: "uppercase",
             }}
           >
-            {language === "ar" ? "الأصناف · تعرّف على زيتك" : "The Varieties · Know Your Oil"}
+            {language === "ar"
+              ? "الأصناف · تعرّف على زيتك"
+              : language === "fr"
+                ? "Les cépages · Connaître votre huile"
+                : "The Varieties · Know Your Oil"}
           </span>
 
           <h2
@@ -559,7 +618,11 @@ export function VarietiesSection() {
               marginBottom: "1.5rem",
             }}
           >
-            {language === "ar" ? "روحان من تونس" : "Two Souls of Tunisia"}
+            {language === "ar"
+              ? "روحان من تونس"
+              : language === "fr"
+                ? "Deux âmes de Tunisie"
+                : "Two Souls of Tunisia"}
           </h2>
 
           <div
@@ -584,7 +647,9 @@ export function VarietiesSection() {
           >
             {language === "ar"
               ? "قلعة تختار من أصناف تونس الأصيلة الأشهر. كل صنف يضيف شخصيته للمزيج — ولطاولتك."
-              : "Qalaa sources from two of Tunisia's most celebrated indigenous varieties. Each brings its own character to the blend — and to your table."}
+              : language === "fr"
+                ? "Qalaa sélectionne deux cépages autochtones parmi les plus célébrés de Tunisie. Chacun imprime sa personnalité à l’assemblage — et à votre table."
+                : "Qalaa sources from two of Tunisia's most celebrated indigenous varieties. Each brings its own character to the blend — and to your table."}
           </p>
         </div>
 
@@ -610,7 +675,13 @@ export function VarietiesSection() {
                 key={v.id}
                 variety={v}
                 animate={animate}
-                regionDisplay={language === "ar" && v.regionAr ? v.regionAr : v.region}
+                regionDisplay={
+                  language === "ar" && v.regionAr
+                    ? v.regionAr
+                    : language === "fr" && v.regionFr
+                      ? v.regionFr
+                      : v.region
+                }
                 language={language}
               />
             ))}
@@ -687,11 +758,17 @@ export function VarietiesSection() {
             <strong
               style={{ color: T.creamDim, fontWeight: 400 }}
             >
-              {language === "ar" ? "عن مزيجنا:" : "About our blend:"}
+              {language === "ar"
+                ? "عن مزيجنا:"
+                : language === "fr"
+                  ? "À propos de notre assemblage :"
+                  : "About our blend:"}
             </strong>{" "}
             {language === "ar"
               ? "زيوت قلعة تُصنع بموازنة دقيقة بين قوة البوليفينول في الشتوي ونعومة الشملالي — فينتج زيت مركّب وسهل التقديم دون تنازل عن أي من الشخصيتين. كل موسم حصاد قد يغيّر التوازن قليلاً، يعكس تعبير الموسم."
-              : "Qalaa oils are crafted by carefully balancing Chetoui's bold polyphenol intensity with Chemlali's refined softness — resulting in an oil that is both complex and approachable, without compromising on either character. Each harvest may shift the balance slightly, reflecting the season's expression."}
+              : language === "fr"
+                ? "Les huiles Qalaa équilibrent avec précision l’intensité polyphénolique du Chetoui et la douceur raffinée du Chemlali — une huile à la fois complexe et accessible, sans renier aucune des deux personnalités. Chaque récolte peut faire varier légèrement cet équilibre, reflet de l’expression du millésime."
+                : "Qalaa oils are crafted by carefully balancing Chetoui's bold polyphenol intensity with Chemlali's refined softness — resulting in an oil that is both complex and approachable, without compromising on either character. Each harvest may shift the balance slightly, reflecting the season's expression."}
           </p>
         </div>
       </div>

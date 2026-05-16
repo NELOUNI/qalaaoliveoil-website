@@ -6,19 +6,24 @@ import { Star, MapPin, Calendar, Award } from "lucide-react"
 import { ProductImageGallery } from "@/components/product-image-gallery"
 import { LabCertification } from "@/components/lab-certification"
 import { ProductDescriptionWithTooltips } from "@/components/product-description-with-tooltips"
+import { pickLocalizedString } from "@/lib/i18n/pick-locale"
 
 interface Product {
   id: string
   name_en: string
   name_ar?: string
+  name_fr?: string
   description_en: string
   description_ar?: string
+  description_fr?: string
   origin_story_en?: string
   origin_story_ar?: string
+  origin_story_fr?: string
   price: number
   volume_ml: number
   region_en: string
   region_ar?: string
+  region_fr?: string
   acidity_level: number
   image_url?: string
 }
@@ -30,10 +35,15 @@ interface ProductDetailContentProps {
 export function ProductDetailContent({ product }: ProductDetailContentProps) {
   const { t, language } = useLanguage()
 
-  const name = language === "ar" && product.name_ar ? product.name_ar : product.name_en
-  const description = language === "ar" && product.description_ar ? product.description_ar : product.description_en
-  const originStory = language === "ar" && product.origin_story_ar ? product.origin_story_ar : product.origin_story_en
-  const region = language === "ar" && product.region_ar ? product.region_ar : product.region_en
+  const name = pickLocalizedString(language, product.name_en, product.name_ar, product.name_fr)
+  const description = pickLocalizedString(language, product.description_en, product.description_ar, product.description_fr)
+  const originStory = pickLocalizedString(
+    language,
+    product.origin_story_en ?? "",
+    product.origin_story_ar,
+    product.origin_story_fr,
+  )
+  const region = pickLocalizedString(language, product.region_en, product.region_ar, product.region_fr)
 
   return (
     <div className="min-h-screen bg-[var(--matte-black)]">

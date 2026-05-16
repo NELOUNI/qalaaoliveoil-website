@@ -3,157 +3,265 @@
 import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock, Users, ChefHat } from "lucide-react"
-import Image from "next/image"
 import { Footer } from "@/components/footer"
+import {
+  AlignedCardDescriptionSlot,
+  AlignedCardMedia,
+  AlignedCardTitleSlot,
+  alignedCardGridClass,
+  alignedCardShellClass,
+} from "@/components/aligned-card-primitives"
+
+const RECIPE_IMAGES = {
+  tuna: "/images/recipes/Wild%20Thyme%20Bluefin%20Tuna%20Carpaccio.jpg",
+  scallops: "/images/recipes/Pan-Seared%20Scallops%20with%20Olive%20Mousseline.jpg",
+  fig: "/images/recipes/Fig%20%26%20Honey%20Olive%20Oil%20Parfait.jpg",
+} as const
 
 export default function RecipesPage() {
   const { t, language } = useLanguage()
-  const isArabic = language === "ar"
 
-  const recipes = isArabic ? [
+  const recipesAr = [
     {
       id: 1,
-      title: "بروشيتا متوسطية",
-      description: "مقبلات إيطالية كلاسيكية بزيت احتياطي قلعة الذهبي",
-      image: "/bruschetta.png",
-      prepTime: "15 دقيقة",
-      cookTime: "5 دقائق",
+      title: "كارباتشيو التونة الأحمر بالزعتر البري",
+      description: "طبق راقٍ من التونة النيئة الفاخرة مع زيت احتياطي قلعة الذهبي",
+      image: RECIPE_IMAGES.tuna,
+      prepTime: "25 دقيقة",
+      cookTime: "0 دقيقة",
       servings: 4,
-      difficulty: "سهل",
+      difficulty: "متقدم",
       ingredients: [
-        "4 شرائح خبز ريفي",
-        "2 طماطم ناضجة مقطعة",
-        "3 ملاعق كبيرة من زيت احتياطي قلعة الذهبي",
-        "2 فص ثوم مفروم",
-        "أوراق ريحان طازجة",
-        "ملح بحري وفلفل أسود",
+        "400 غرام تونة حمراء فاخرة (درجة الساشيمي)",
+        "3 ملاعق كبيرة زيت احتياطي قلعة الذهبي",
+        "ملعقة كبيرة زعتر بري تونسي",
+        "حبات رمان طازجة",
+        "جرجير صغير للتزيين",
+        "ملح البحر الخشن",
+        "فلفل أسود مطحون طازجاً",
+        "قشر ليمون أخضر مبشور",
       ],
       instructions: [],
     },
     {
       id: 2,
-      title: "سلطة مشوية تونسية",
-      description: "سلطة خضار مشوية تقليدية بزيت فاخر",
-      image: "/salata-mechouia.png",
-      prepTime: "20 دقيقة",
+      title: "أسقلوب محار مع موسلين الزيتون",
+      description: "طبق استثنائي من المحار المقرمش مع كريمة الزيتون الخضراء",
+      image: RECIPE_IMAGES.scallops,
+      prepTime: "35 دقيقة",
+      cookTime: "15 دقيقة",
+      servings: 4,
+      difficulty: "متقدم",
+      ingredients: [
+        "12 حبة أسقلوب (محار كبير)",
+        "100 مل زيت غابة النغر المباركة",
+        "50 غرام زيتون أخضر منزوع النوى",
+        "200 مل كريمة طبخ فاخرة",
+        "ملعقة صغيرة عسل أبيض نقي",
+        "نبات الخرشوف الصغير",
+        "ميكروجرين للتزيين",
+        "ملح زهرة البحر",
+      ],
+      instructions: [],
+    },
+    {
+      id: 3,
+      title: "حلى التين والعسل بزيت الزيتون الفاخر",
+      description: "حلوى راقية مستوحاة من التراث المتوسطي مع لمسة عصرية",
+      image: RECIPE_IMAGES.fig,
+      prepTime: "45 دقيقة",
       cookTime: "30 دقيقة",
       servings: 6,
-      difficulty: "متوسط",
+      difficulty: "متوسط إلى متقدم",
       ingredients: [
-        "2 فلفل أحمر",
-        "2 فلفل أخضر",
-        "4 طماطم",
-        "1 بصلة",
-        "4 ملاعق كبيرة من زيت غابة باجة المباركة",
-        "2 ملعقة كبيرة كبر",
-        "زيتون أسود",
-        "ملح وكمون",
+        "8 حبات تين طازج فاخر",
+        "75 مل زيت احتياطي قلعة الذهبي",
+        "100 غرام عسل نحل طبيعي",
+        "150 غرام جبن ماسكاربوني",
+        "50 غرام لوز محمص مقشر",
+        "أوراق النعناع الطازجة",
+        "رقائق الذهب للتزيين (اختياري)",
+        "بودرة الفستق الحلبي",
       ],
       instructions: [],
     },
-    {
-      id: 3,
-      title: "كيكة الليمون بزيت الزيتون",
-      description: "كيكة متوسطية طرية بزيت احتياطي قلعة الذهبي",
-      image: "/lemon-cake.png",
-      prepTime: "15 دقيقة",
-      cookTime: "45 دقيقة",
-      servings: 8,
-      difficulty: "سهل",
-      ingredients: [
-        "1 كوب زيت احتياطي قلعة الذهبي",
-        "1 كوب سكر",
-        "3 بيضات",
-        "1.5 كوب دقيق",
-        "برش 2 ليمونة",
-        "0.5 كوب عصير ليمون",
-        "1 ملعقة صغيرة بيكنج باودر",
-        "رشة ملح",
-      ],
-      instructions: [],
-    },
-  ] : [
+  ]
+
+  const recipesEn = [
     {
       id: 1,
-      title: "Mediterranean Bruschetta",
-      description: "Classic Italian appetizer with our Gold Reserve of Qalaa olive oil",
-      image: "/bruschetta.png",
-      prepTime: "15 min",
-      cookTime: "5 min",
+      title: "Wild Thyme Bluefin Tuna Carpaccio",
+      description: "Exquisite raw tuna with Qalaa Gold Reserve and wild Tunisian thyme",
+      image: RECIPE_IMAGES.tuna,
+      prepTime: "25 min",
+      cookTime: "0 min",
       servings: 4,
-      difficulty: "Easy",
+      difficulty: "Advanced",
       ingredients: [
-        "4 slices of rustic bread",
-        "2 ripe tomatoes, diced",
+        "400g sashimi-grade bluefin tuna",
         "3 tbsp Qalaa Gold Reserve olive oil",
-        "2 cloves garlic, minced",
-        "Fresh basil leaves",
-        "Sea salt and black pepper",
+        "1 tbsp wild Tunisian thyme",
+        "Fresh pomegranate seeds",
+        "Baby arugula for garnish",
+        "Coarse sea salt",
+        "Freshly ground black pepper",
+        "Lime zest, finely grated",
       ],
       instructions: [
-        "Toast bread slices until golden brown",
-        "Rub garlic on warm toast",
-        "Mix diced tomatoes with olive oil, salt, and pepper",
-        "Top toast with tomato mixture",
-        "Garnish with fresh basil and drizzle more olive oil",
+        "Slice tuna paper-thin with a sharp knife",
+        "Arrange on chilled plates in overlapping pattern",
+        "Drizzle with premium olive oil",
+        "Season with wild thyme, salt, and pepper",
+        "Garnish with pomegranate and lime zest",
+        "Serve immediately with baby arugula",
       ],
     },
     {
       id: 2,
-      title: "Tunisian Mechouia Salad",
-      description: "Traditional grilled vegetable salad with premium olive oil",
-      image: "/salata-mechouia.png",
-      prepTime: "20 min",
-      cookTime: "30 min",
-      servings: 6,
-      difficulty: "Medium",
+      title: "Pan-Seared Scallops with Olive Mousseline",
+      description: "Restaurant-quality scallops with green olive cream sauce",
+      image: RECIPE_IMAGES.scallops,
+      prepTime: "35 min",
+      cookTime: "15 min",
+      servings: 4,
+      difficulty: "Advanced",
       ingredients: [
-        "2 red bell peppers",
-        "2 green bell peppers",
-        "4 tomatoes",
-        "1 onion",
-        "4 tbsp Qalaa Sacred Grove of Beja olive oil",
-        "2 tbsp capers",
-        "Black olives",
-        "Salt and cumin",
+        "12 large sea scallops (U-10)",
+        "100ml Qalaa Sacred Grove olive oil",
+        "50g pitted green olives",
+        "200ml heavy cream",
+        "1 tsp white honey",
+        "Baby artichokes",
+        "Microgreens for garnish",
+        "Fleur de sel",
       ],
       instructions: [
-        "Grill vegetables until charred and tender",
-        "Peel and chop grilled vegetables",
-        "Mix with olive oil, capers, and seasonings",
-        "Let marinate for 30 minutes",
-        "Serve with crusty bread",
+        "Blend olives with olive oil until smooth",
+        "Reduce cream by half, whisk in olive paste",
+        "Season scallops with fleur de sel",
+        "Sear scallops 2 minutes each side",
+        "Plate with warm mousseline",
+        "Garnish with artichokes and microgreens",
       ],
     },
     {
       id: 3,
-      title: "Olive Oil Lemon Cake",
-      description: "Moist Mediterranean cake made with our Gold Reserve of Qalaa blend",
-      image: "/lemon-cake.png",
-      prepTime: "15 min",
-      cookTime: "45 min",
-      servings: 8,
-      difficulty: "Easy",
+      title: "Fig & Honey Olive Oil Parfait",
+      description: "Elegant Mediterranean-inspired dessert with gold leaf",
+      image: RECIPE_IMAGES.fig,
+      prepTime: "45 min",
+      cookTime: "30 min",
+      servings: 6,
+      difficulty: "Medium to Advanced",
       ingredients: [
-        "1 cup Qalaa Gold Reserve olive oil",
-        "1 cup sugar",
-        "3 eggs",
-        "1½ cups flour",
-        "Zest of 2 lemons",
-        "½ cup lemon juice",
-        "1 tsp baking powder",
-        "Pinch of salt",
+        "8 premium fresh figs",
+        "75ml Qalaa Gold Reserve olive oil",
+        "100g pure wildflower honey",
+        "150g mascarpone cheese",
+        "50g toasted blanched almonds",
+        "Fresh mint leaves",
+        "Edible gold leaf (optional)",
+        "Pistachio powder",
       ],
       instructions: [
-        "Preheat oven to 350°F (175°C)",
-        "Mix olive oil, sugar, and eggs",
-        "Add dry ingredients and lemon zest",
-        "Pour into greased pan",
-        "Bake for 45 minutes until golden",
-        "Drizzle with lemon juice while warm",
+        "Roast figs with honey and olive oil",
+        "Whip mascarpone until light and airy",
+        "Layer figs and mascarpone in glasses",
+        "Drizzle with olive oil honey reduction",
+        "Top with crushed almonds and mint",
+        "Finish with gold leaf and pistachio dust",
       ],
     },
   ]
+
+  const recipesFr = [
+    {
+      id: 1,
+      title: "Carpaccio de thon rouge au thym sauvage",
+      description: "Thon cru d'exception avec la Réserve d'or de Qalaa et thym sauvage tunisien",
+      image: RECIPE_IMAGES.tuna,
+      prepTime: "25 min",
+      cookTime: "0 min",
+      servings: 4,
+      difficulty: "Avancé",
+      ingredients: [
+        "400 g de thon rouge (qualité sashimi)",
+        "3 c. à soupe d'huile Réserve d'or de Qalaa",
+        "1 c. à soupe de thym sauvage tunisien",
+        "Graines de grenade fraîches",
+        "Roquette pour la garniture",
+        "Gros sel de mer",
+        "Poivre noir fraîchement moulu",
+        "Zeste de citron vert",
+      ],
+      instructions: [
+        "Trancher le thon très finement au couteau",
+        "Disposer sur assiettes froides en rosace",
+        "Arroser d'huile d'olive premium",
+        "Assaisonner de thym, sel et poivre",
+        "Garnir de grenade et zeste de citron vert",
+        "Servir aussitôt avec la roquette",
+      ],
+    },
+    {
+      id: 2,
+      title: "Saint-Jacques poêlées, mousseline d'olive",
+      description: "Noix de Saint-Jacques dorées et crème d'olive verte",
+      image: RECIPE_IMAGES.scallops,
+      prepTime: "35 min",
+      cookTime: "15 min",
+      servings: 4,
+      difficulty: "Avancé",
+      ingredients: [
+        "12 grosses noix de Saint-Jacques",
+        "100 ml d'huile Bosquet sacré d'Al Nagr",
+        "50 g d'olives vertes dénoyautées",
+        "200 ml de crème liquide",
+        "1 c. à café de miel blanc",
+        "Artichauts baby",
+        "Micropousses pour la garniture",
+        "Fleur de sel",
+      ],
+      instructions: [
+        "Mixer olives et huile jusqu'à consistance lisse",
+        "Réduire la crème de moitié, incorporer la purée d'olive",
+        "Saler les Saint-Jacques avec la fleur de sel",
+        "Poêler 2 minutes de chaque côté",
+        "Dresser sur mousseline tiède",
+        "Garnir d'artichauts et micropousses",
+      ],
+    },
+    {
+      id: 3,
+      title: "Parfait figue, miel et huile d'olive",
+      description: "Dessert méditerranéen raffiné, feuille d'or en option",
+      image: RECIPE_IMAGES.fig,
+      prepTime: "45 min",
+      cookTime: "30 min",
+      servings: 6,
+      difficulty: "Moyen à avancé",
+      ingredients: [
+        "8 figues fraîches de qualité",
+        "75 ml d'huile Réserve d'or de Qalaa",
+        "100 g de miel de fleurs sauvages",
+        "150 g de mascarpone",
+        "50 g d'amandes effilées toastées",
+        "Feuilles de menthe fraîche",
+        "Feuille d'or comestible (facultatif)",
+        "Poudre de pistache",
+      ],
+      instructions: [
+        "Rôtir les figues au miel et à l'huile d'olive",
+        "Fouetter le mascarpone jusqu'à texture aérienne",
+        "Alterner figues et mascarpone dans les verrines",
+        "Napper du sirop miel-huile",
+        "Parsemer d'amandes et de menthe",
+        "Terminer par feuille d'or et pistache",
+      ],
+    },
+  ]
+
+  const recipes = language === "ar" ? recipesAr : language === "fr" ? recipesFr : recipesEn
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--blush-clay)]/25 via-[var(--matte-black)] to-[var(--sage-olive)]/25">
@@ -168,18 +276,24 @@ export default function RecipesPage() {
       {/* Recipes Grid */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 ${alignedCardGridClass}`}>
             {recipes.map((recipe) => (
-              <Card key={recipe.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)]">
-                  <Image src={recipe.image || "/placeholder.svg"} alt={recipe.title} fill className="object-cover" />
-                </div>
+              <Card key={recipe.id} className={alignedCardShellClass}>
+                <AlignedCardMedia
+                  src={recipe.image || "/placeholder.svg"}
+                  alt={recipe.title}
+                  recipeHover
+                />
 
-                <CardHeader>
-                  <CardTitle className="text-xl">{recipe.title}</CardTitle>
-                  <p className="text-muted-foreground text-sm">{recipe.description}</p>
+                <CardHeader className="flex flex-col">
+                  <AlignedCardTitleSlot>
+                    <CardTitle className="text-xl leading-snug line-clamp-2">{recipe.title}</CardTitle>
+                  </AlignedCardTitleSlot>
+                  <AlignedCardDescriptionSlot className="min-h-[2.75rem]">
+                    <p className="text-muted-foreground text-sm leading-snug line-clamp-2">{recipe.description}</p>
+                  </AlignedCardDescriptionSlot>
 
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
+                  <div className="flex min-h-[1.75rem] items-center gap-4 pt-3 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       <span className="latin-numerals" lang="en" dir="ltr">{recipe.prepTime}</span>

@@ -3,30 +3,39 @@
 import { Gift, Package, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-type Lang = "en" | "ar"
+type Lang = "en" | "ar" | "fr"
 
 export function GiftingHero({ language }: { language: Lang }) {
-  const isArabic = language === "ar"
-
-  const content = isArabic
-    ? {
-        title: "هدايا زيت الزيتون الفاخرة",
-        subtitle:
-          "اصنع الهدية المثالية مع زيوت الزيتون التونسية الفاخرة. كل هدية تُنسَّق بعناية وتُقدَّم بتغليف أنيق للاحتفاء بالمناسبات المميزة.",
-        feature1: "تغليف يدوي",
-        feature2: "رسائل شخصية",
-        feature3: "عرض فاخر",
-        cta: "اصنع هديتك",
-      }
-    : {
-        title: "Luxury Olive Oil Gifts",
-        subtitle:
-          "Create the perfect gift with our premium Tunisian olive oils. Each gift is carefully curated and beautifully packaged to celebrate life's special moments.",
-        feature1: "Handcrafted Packaging",
-        feature2: "Personal Messages",
-        feature3: "Premium Presentation",
-        cta: "Create Your Gift",
-      }
+  const content =
+    language === "ar"
+      ? {
+          title: "هدايا زيت الزيتون الفاخرة",
+          subtitle:
+            "اصنع الهدية المثالية مع زيوت الزيتون التونسية الفاخرة. كل هدية تُنسَّق بعناية وتُقدَّم بتغليف أنيق للاحتفاء بالمناسبات المميزة.",
+          feature1: "تغليف يدوي",
+          feature2: "رسائل شخصية",
+          feature3: "عرض فاخر",
+          cta: "اصنع هديتك",
+        }
+      : language === "fr"
+        ? {
+            title: "Cadeaux huile d'olive d'exception",
+            subtitle:
+              "Composez un présent inoubliable avec nos huiles tunisiennes ultra-premium : sélection, message et coffret dignes des grandes tables.",
+            feature1: "Coffrets faits main",
+            feature2: "Mots personnels",
+            feature3: "Présentation soignée",
+            cta: "Créer mon cadeau",
+          }
+        : {
+            title: "Luxury olive oil gifts",
+            subtitle:
+              "Create the perfect gift with our ultra-premium Tunisian oils — curated, personal, and packaged to mark the moments that matter.",
+            feature1: "Handcrafted packaging",
+            feature2: "Personal messages",
+            feature3: "Premium presentation",
+            cta: "Create your gift",
+          }
 
   return (
     <section className="relative py-20 px-4 text-center">

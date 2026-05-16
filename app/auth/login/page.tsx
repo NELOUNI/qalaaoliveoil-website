@@ -26,9 +26,6 @@ const LoginForm = () => {
     setError(null)
 
     try {
-      // Replace with your authentication logic
-      console.log("Login attempt:", { email, password })
-      
       // Mock authentication - replace with your actual auth logic
       if (email && password) {
         // Simulate API call

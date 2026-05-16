@@ -1,8 +1,9 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { frStrings } from "@/lib/i18n/strings-fr"
 
-type Language = "en" | "ar"
+export type Language = "en" | "ar" | "fr"
 
 interface LanguageContextType {
   language: Language
@@ -44,45 +45,52 @@ const translations = {
 
     // Brand
     "brand.name": "Qalaa",
-    "brand.tagline": "Guardians of the Olive, Keepers of the Gold",
+    "brand.tagline": "Terroir, craft, and liquid gold in every bottle.",
 
     // Homepage
-    "home.hero.title": "Fortress of Flavor from Ancient Tunisia",
+    "home.hero.title": "The Fortress of Tunisian Terroir",
     "home.hero.subtitle":
-      "From our citadel of tradition comes liquid gold - premium extra virgin olive oils crafted by guardians of ancient groves.",
-    "home.hero.cta": "Discover Our Collection",
-    "home.featured.title": "Premium Fortress Collection",
-    "home.story.title": "Our Citadel Heritage",
+      "Ultra-premium extra virgin oils — early harvest, cold extraction, acidity held in the realm of the exceptional. Explore the groves, learn the craft, then taste liquid gold worthy of your finest table.",
+    "home.hero.cta": "Explore the collection",
+    "home.featured.title": "Signature oils — ultra-premium",
+    "home.featured.description":
+      "Each cuvée is a rare expression of our groves: olives picked at the right moment, meticulous cold extraction, aromatic profiles built for finishing and for memory. Follow the journey from tree to table — then order the oil that tells Tunisia differently.",
+    "home.featured.cta-all": "View the full collection",
+    "home.story.title": "Our citadel heritage",
     "home.story.text":
-      "For centuries, our family has been the guardians of Tunisia's sacred olive groves, protecting ancient traditions while crafting liquid gold of unmatched purity.",
+      "For generations we have guarded ancient groves where time slows — holding sacred methods and modern rigor in the same hand — to craft liquid gold of uncommon purity and depth.",
 
     // Products
-    "products.title": "Premium Olive Oil Collection",
-    "products.subtitle": "Discover our range of exceptional extra virgin olive oils",
+    "products.title": "Ultra-premium olive oils",
+    "products.subtitle":
+      "Two signature cuvées from Tunisian terroir — crafted for connoisseurs, finishing, and moments worth lingering over.",
     "products.filter.all": "All Products",
     "products.filter.premium": "Premium",
     "products.filter.organic": "Organic",
     "products.filter.limited": "Limited Edition",
-    "products.add-to-cart": "Know More",
-    "products.know-more": "Know More",
+    "products.add-to-cart": "Discover",
+    "products.know-more": "Discover",
     "products.view-details": "View Details",
 
     // Story Page
-    "story.title": "Our Story",
-    "story.subtitle": "A Legacy of Excellence Spanning Generations",
-    "story.heritage.title": "Ancient Heritage",
+    "story.title": "Our story",
+    "story.subtitle": "Excellence in a straight line — from the tree to your table",
+    "story.heritage.title": "Living terroir",
     "story.heritage.text":
-      "Our olive groves have been in our family for over 50 years, passed down through generations of master cultivators who understood the sacred art of olive oil production.",
-    "story.tradition.title": "Traditional Methods",
+      "Our groves carry more than fifty years of family memory: each tree tended as an heirloom, each harvest held to a promise of absolute quality.",
+    "story.tradition.title": "Gesture and modernity",
     "story.tradition.text":
-      "We honor time-tested techniques while embracing modern quality standards, ensuring each bottle captures the authentic taste of Tunisia.",
-    "story.quality.title": "Uncompromising Quality",
+      "We honor cold pressing and speed from branch to mill, while every lot is traced and tasted with today's tools — for Tunisian truth and consistent character.",
+    "story.quality.title": "Quality without compromise",
     "story.quality.text":
-      "From harvest to bottle, every step is carefully monitored to maintain the highest standards of purity and flavor.",
+      "From picking to seal, every step is logged and tasted: we chase the lowest acidity we can hold and a clear, long finish you will remember.",
+    "story.journey.title": "Our journey through time",
+    "story.values.title": "What guides us",
+    "story.image.alt": "Ancient olive grove at golden hour",
 
     // Recipes Page
-    "recipes.title": "Culinary Inspirations",
-    "recipes.subtitle": "Discover authentic Mediterranean recipes featuring our premium olive oils",
+    "recipes.title": "Culinary inspirations",
+    "recipes.subtitle": "Mediterranean recipes that reveal the character of our oils",
     "recipes.prep-time": "Prep Time",
     "recipes.cook-time": "Cook Time",
     "recipes.servings": "Servings",
@@ -90,8 +98,8 @@ const translations = {
     "recipes.instructions": "Instructions",
 
     // Contact Page
-    "contact.title": "Get in Touch",
-    "contact.subtitle": "We'd love to hear from you",
+    "contact.title": "Get in touch",
+    "contact.subtitle": "Partnerships, tastings, orders — we read every note and reply with care.",
     "contact.form.name": "Full Name",
     "contact.form.email": "Email Address",
     "contact.form.subject": "Subject",
@@ -103,21 +111,24 @@ const translations = {
     "contact.info.hours": "Business Hours",
 
     // Locations Page
-    "locations.title": "Our Locations",
-    "locations.subtitle": "Visit our olive groves and tasting rooms",
+    "locations.title": "Our locations",
+    "locations.subtitle":
+      "Walk the groves, taste in Tunis, or find us where the journey continues beyond Tunisia.",
     "locations.main-grove": "Main Olive Grove",
     "locations.tasting-room": "Tasting Room",
     "locations.retail-store": "Retail Store",
     "locations.visit-us": "Visit Us",
+    "locations.enquire": "Enquire",
     "locations.book-tour": "Book a Tour",
 
     // FAQ Page
-    "faq.title": "Frequently Asked Questions",
-    "faq.subtitle": "Everything you need to know about our olive oils",
+    "faq.title": "Frequently asked questions",
+    "faq.subtitle": "Shipping, authenticity, storage, and how to taste Qalaa like a professional.",
 
     // Gifting
-    "gifting.title": "Luxury Olive Oil Gifts",
-    "gifting.subtitle": "Create the perfect gift with our premium Tunisian olive oils",
+    "gifting.title": "Gifts & curated sets",
+    "gifting.subtitle":
+      "Compose something unforgettable: our oils, your words, presentation worthy of Tunis or abroad.",
     "gifting.create-gift": "Create Your Gift",
     "gifting.step.products": "Select Products",
     "gifting.step.packaging": "Choose Packaging",
@@ -150,20 +161,22 @@ const translations = {
     "footer.address.city": "Sousse, Tunisia",
 
     // Story section
-    "story.preview.heading": "Over Half a Century of",
-    "story.preview.liquid-gold": "Liquid Gold",
-    "story.preview.intro": "Our story begins in the 1970s, when the first olive trees were planted in the fertile soils of Tunisia. Through generations of dedicated farmers and master craftsmen, we've preserved the ancient art of olive oil production while embracing modern quality standards.",
-    "story.preview.body": "Every bottle of QALAA carries the essence of Tunisia's Mediterranean climate, the wisdom of traditional methods, and the passion of families who have dedicated their lives to perfecting this ancient craft.",
+    "story.preview.heading": "More than half a century of",
+    "story.preview.liquid-gold": "liquid gold",
+    "story.preview.intro":
+      "Our story begins in the 1970s, when the first trees took root in generous soil. Between respect for the fruit and obsession with detail, we preserved a rare craft — the kind that turns a harvest into aroma, texture, and emotion on the palate.",
+    "story.preview.body":
+      "Every bottle of Qalaa condenses Mediterranean light, seasonal patience, and the pursuit of balance: an invitation to explore, taste, compare — then bring that Tunisia into your kitchen.",
     "story.preview.stats.years": "Years Heritage",
     "story.preview.stats.regions": "Regions",
     "story.preview.stats.families": "Families",
-    "story.preview.cta": "Discover Our Heritage",
+    "story.preview.cta": "Step into our heritage",
 
     // Product detail
-    "product.origin-story": "Origin Story",
+    "product.origin-story": "Terroir story",
     "product.harvest": "Harvest",
     "product.gold-medal": "Gold Medal Winner",
-    "product.know-more": "Know More",
+    "product.know-more": "Discover",
     "product.acidity-level": "Acidity Level",
     "product.volume": "Volume",
     "product.harvest-method": "Harvest Method",
@@ -213,26 +226,30 @@ const translations = {
 
     // Brand
     "brand.name": "قلعة",
-    "brand.tagline": "حراس الزيتون، حفظة الذهب",
+    "brand.tagline": "أرض المنشأ، الحرفية، والذهب السائل في كل زجاجة.",
 
     // Homepage
-    "home.hero.title": "قلعة النكهة من تونس العريقة",
-    "home.hero.subtitle": "من قلعة تقاليدنا يأتي الذهب السائل - زيوت زيتون بكر ممتازة صنعها حراس البساتين العريقة.",
+    "home.hero.title": "قلعة التربة التونسية",
+    "home.hero.subtitle":
+      "زيوت بكر ممتازة فائقة الجودة — حصاد مبكر، عصر على البارد، حموضة في نطاق التميّز. استكشف البساتين، تعرّف على الحرفية، ثم ذق ذهباً سائلاً يليق بأفضل مائدة لديك.",
     "home.hero.cta": "اكتشف مجموعتنا",
-    "home.featured.title": "مجموعة القلعة الفاخرة",
+    "home.featured.title": "زيوتنا المميزة — فائقة الجودة",
+    "home.featured.description":
+      "كل تركيبة نادرة من بساتيننا: زيتون يُقطف في الوقت المناسب، عصر بارد بدقة، ونكهات مصممة للتشريب وللذاكرة. اتبع الرحلة من الشجرة إلى المائدة — ثم اطلب الزيت الذي يحكي تونس بصوت مختلف.",
+    "home.featured.cta-all": "عرض المجموعة كاملة",
     "home.story.title": "تراث قلعتنا",
     "home.story.text":
       "لقرون، كانت عائلتنا حراس بساتين الزيتون المقدسة في تونس، نحمي التقاليد القديمة بينما نصنع الذهب السائل بنقاء لا مثيل له.",
 
     // Products
-    "products.title": "مجموعة زيت الزيتون الفاخر",
-    "products.subtitle": "اكتشف مجموعتنا من زيوت الزيتون البكر الاستثنائية",
+    "products.title": "زيوت زيتون فائقة الجودة",
+    "products.subtitle": "تركيبتان مميزتان من أرض المنشأ التونسية — للمقتنين والطهاة وللحظات التي تستحق أن تطول.",
     "products.filter.all": "جميع المنتجات",
     "products.filter.premium": "فاخر",
     "products.filter.organic": "عضوي",
     "products.filter.limited": "إصدار محدود",
-    "products.add-to-cart": "اعرف المزيد",
-    "products.know-more": "اعرف المزيد",
+    "products.add-to-cart": "اكتشف",
+    "products.know-more": "اكتشف",
     "products.view-details": "عرض التفاصيل",
 
     // Story Page
@@ -246,6 +263,9 @@ const translations = {
       "نحن نكرم التقنيات المجربة مع احتضان معايير الجودة الحديثة، مما يضمن أن كل زجاجة تلتقط الطعم الأصيل لتونس.",
     "story.quality.title": "جودة لا تقبل المساومة",
     "story.quality.text": "من الحصاد إلى الزجاجة، يتم مراقبة كل خطوة بعناية للحفاظ على أعلى معايير النقاء والنكهة.",
+    "story.journey.title": "رحلتنا عبر الزمن",
+    "story.values.title": "قيمنا",
+    "story.image.alt": "بستان زيتون عريق عند غروب الشمس",
 
     // Recipes Page
     "recipes.title": "وصفات من مطبخنا",
@@ -258,7 +278,7 @@ const translations = {
 
     // Contact Page
     "contact.title": "تواصل معنا",
-    "contact.subtitle": "نحب أن نسمع منك",
+    "contact.subtitle": "شراكات، تذوق، طلبات — نقرأ كل رسالة ونرد بعناية.",
     "contact.form.name": "الاسم الكامل",
     "contact.form.email": "عنوان البريد الإلكتروني",
     "contact.form.subject": "الموضوع",
@@ -271,20 +291,21 @@ const translations = {
 
     // Locations Page
     "locations.title": "مواقعنا",
-    "locations.subtitle": "زر بساتين الزيتون وقاعات التذوق لدينا",
+    "locations.subtitle": "تمشَّ في البساتين، ذق في تونس، أو اعثر علينا حيث تستمر الرحلة خارج تونس.",
     "locations.main-grove": "بستان الزيتون الرئيسي",
     "locations.tasting-room": "قاعة التذوق",
     "locations.retail-store": "متجر التجزئة",
     "locations.visit-us": "زرنا",
+    "locations.enquire": "تواصل معنا",
     "locations.book-tour": "احجز جولة",
 
     // FAQ Page
     "faq.title": "الأسئلة الشائعة",
-    "faq.subtitle": "كل ما تحتاج لمعرفته عن زيوت الزيتون لدينا",
+    "faq.subtitle": "الشحن، الأصالة، التخزين، وكيف تذوق قلعة كالمحترفين.",
 
     // Gifting
-    "gifting.title": "هدايا زيت الزيتون الفاخرة",
-    "gifting.subtitle": "اصنع الهدية المثالية مع زيوت الزيتون التونسية الفاخرة لدينا",
+    "gifting.title": "هدايا ومجموعات مختارة",
+    "gifting.subtitle": "اصنع هدية لا تُنسى: زيوتنا، كلماتك، تقديم يليق بتونس أو بعيداً عنها.",
     "gifting.create-gift": "اصنع هديتك",
     "gifting.step.products": "اختر المنتجات",
     "gifting.step.packaging": "اختر التغليف",
@@ -313,7 +334,7 @@ const translations = {
     "footer.terms": "شروط الخدمة",
     "footer.cookies": "سياسة ملفات تعريف الارتباط",
     "footer.copyright": "جميع الحقوق محفوظة. صُنع بحب في تونس.",
-    "footer.address.street": "شارع 14 جانفي،",
+    "footer.address.street": "شارع 14 جانفي",
     "footer.address.city": "4000 سوسة، تونس",
 
     // Story section
@@ -324,13 +345,13 @@ const translations = {
     "story.preview.stats.years": "سنوات من التراث",
     "story.preview.stats.regions": "مناطق",
     "story.preview.stats.families": "عائلات",
-    "story.preview.cta": "اكتشف تراثنا",
+    "story.preview.cta": "ادخل إلى تراثنا",
 
     // Product detail
-    "product.origin-story": "قصة المنشأ",
+    "product.origin-story": "قصة أرض المنشأ",
     "product.harvest": "الحصاد",
     "product.gold-medal": "الميدالية الذهبية",
-    "product.know-more": "اعرف المزيد",
+    "product.know-more": "اكتشف",
     "product.acidity-level": "مستوى الحموضة",
     "product.volume": "الحجم",
     "product.harvest-method": "طريقة الحصاد",
@@ -347,6 +368,7 @@ const translations = {
     "product.no-products": "لا توجد منتجات",
     "product.no-products-hint": "حاول تعديل الفلاتر أو مصطلحات البحث.",
   },
+  fr: { ...frStrings },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -356,8 +378,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("qalaa-language") as Language | null
-    if (saved === "en" || saved === "ar") setLanguageState(saved)
+    if (saved === "en" || saved === "ar" || saved === "fr") setLanguageState(saved)
   }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = language === "ar" ? "ar" : language === "fr" ? "fr" : "en"
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
+  }, [language])
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)

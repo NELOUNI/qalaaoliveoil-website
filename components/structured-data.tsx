@@ -1,5 +1,7 @@
 "use client"
 
+const SITE_ORIGIN = "https://qalaaoliveoil.com"
+
 interface StructuredDataProps {
   type: 'organization' | 'product' | 'breadcrumb' | 'faq' | 'localBusiness'
   data: any
@@ -14,8 +16,8 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "@type": "Organization",
           "name": "Qalaa",
           "description": "Premium Tunisian olive oil company specializing in extra virgin olive oils from ancient groves",
-          "url": "https://qalaa.com",
-          "logo": "https://qalaa.com/qalaa-logo.white.svg",
+          "url": SITE_ORIGIN,
+          "logo": `${SITE_ORIGIN}/qalaa-logo.white.svg`,
           "foundingDate": "1800",
           "founder": {
             "@type": "Person",
@@ -39,13 +41,17 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           }
         }
 
-      case 'product':
+      case 'product': {
+        const imageUrl =
+          typeof data.image_url === "string" && data.image_url.startsWith("/")
+            ? `${SITE_ORIGIN}${data.image_url}`
+            : data.image_url
         return {
           "@context": "https://schema.org",
           "@type": "Product",
           "name": data.name_en,
           "description": data.description_en,
-          "image": data.image_url,
+          "image": imageUrl,
           "brand": {
             "@type": "Brand",
             "name": "Qalaa"
@@ -66,6 +72,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
             "reviewCount": data.review_count
           } : undefined
         }
+      }
 
       case 'breadcrumb':
         return {
@@ -99,7 +106,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "@type": "FoodEstablishment",
           "name": "Qalaa Olive Oil",
           "description": "Premium Tunisian olive oil producer and retailer",
-          "url": "https://qalaa.com",
+          "url": SITE_ORIGIN,
           "telephone": "+216-XX-XXX-XXX",
           "address": {
             "@type": "PostalAddress",

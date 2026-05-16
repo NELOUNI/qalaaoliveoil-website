@@ -96,6 +96,9 @@ export function Navigation() {
                 <DropdownMenuItem onClick={() => setLanguage("en")} className="text-[var(--matte-black)] focus:!bg-[var(--antique-gold)]/10 data-[highlighted]:!bg-[var(--antique-gold)]/10 cursor-pointer">
                   English
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage("fr")} className="text-[var(--matte-black)] focus:!bg-[var(--antique-gold)]/10 data-[highlighted]:!bg-[var(--antique-gold)]/10 cursor-pointer">
+                  Français
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLanguage("ar")} className="text-[var(--matte-black)] focus:!bg-[var(--antique-gold)]/10 data-[highlighted]:!bg-[var(--antique-gold)]/10 cursor-pointer">
                   العربية
                 </DropdownMenuItem>

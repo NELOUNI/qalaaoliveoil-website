@@ -68,7 +68,7 @@ export function StoryPreview() {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[600px]">
               <Image
-                src="/liquid-gold.jpg"
+                src="/images/hero/QALAA-Landing.jpg"
                 alt="Hands holding freshly harvested olives - liquid gold"
                 fill
                 className="object-cover"

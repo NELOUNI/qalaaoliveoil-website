@@ -9,14 +9,13 @@ import { Footer } from "@/components/footer"
 
 export function FAQClient() {
   const { t, language } = useLanguage()
-  const isArabic = language === "ar"
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
   }
 
-  const faqs = isArabic ? [
+  const faqsAr = [
     {
       question: "ما الذي يجعل زيت الزيتون لديكم بجودة ممتازة؟",
       answer:
@@ -30,7 +29,7 @@ export function FAQClient() {
     {
       question: "ما الفرق بين أنواع زيت الزيتون لديكم؟",
       answer:
-        "يأتي كل نوع من أصناف ومناطق مختلفة. احتياطي قلعة الذهبي مزيج فاخر من الشتوِي والشملالي بنكهة مركّبة، أما غابة باجة المباركة فهو شتوِي نقي بطابع عشبي وفلفلي قوي.",
+        "يأتي كل نوع من أصناف ومناطق مختلفة. احتياطي قلعة الذهبي مزيج فاخر من الشتوِي والشملالي بنكهة مركّبة، أما غابة النغر المباركة فهو شتوِي نقي بطابع عشبي وفلفلي قوي من دومين النغر.",
     },
     {
       question: "هل يمكن زيارة بساتين الزيتون؟",
@@ -52,7 +51,9 @@ export function FAQClient() {
       answer:
         "زيت الزيتون البكر الممتاز الطازج يتميز برائحة فاكهية وطعم فلفلي خفيف. من علامات تراجع الجودة الرائحة غير المستحبة أو الطعم الحامض.",
     },
-  ] : [
+  ]
+
+  const faqsEn = [
     {
       question: "What makes your olive oil premium quality?",
       answer:
@@ -66,7 +67,7 @@ export function FAQClient() {
     {
       question: "What's the difference between your olive oil varieties?",
       answer:
-        "Each variety comes from different olive cultivars and regions. Gold Reserve of Qalaa is our premium blend of Chetoui and Chemlali with complex, layered flavors. Sacred Grove of Beja is our pure Chetoui — intensely grassy, peppery, and rich in polyphenols, perfect for finishing dishes raw.",
+        "Each cuvée is a different conversation with the fruit. Gold Reserve of Qalaa is our ultra-premium blend of Chetoui and Chemlali — layered fruit, cut grass, and a long peppery finish. Sacred Grove of Al Nagr is a monovarietal Chetoui from the same domaine for those who want intensity: bold grass, almond butter, and structured spice — ideal raw on simple plates.",
     },
     {
       question: "Can I visit your olive groves?",
@@ -89,6 +90,46 @@ export function FAQClient() {
         "Fresh extra virgin olive oil should have a fruity aroma and slightly peppery taste. Signs of rancidity include a musty smell, bitter or sour taste, or cloudy appearance. Our oils include harvest dates to help you track freshness.",
     },
   ]
+
+  const faqsFr = [
+    {
+      question: "Qu'est-ce qui rend votre huile d'olive « ultra-premium » ?",
+      answer:
+        "Des olives cueillies au bon moment, un passage au moulin rapide après la récolte, une extraction à froid maîtrisée, et une acidité maintenue dans la zone d'excellence. Chaque lot est goûté : nous cherchons une bouche nette, longue, mémorable — pas seulement une étiquette.",
+    },
+    {
+      question: "Comment conserver mon huile ?",
+      answer:
+        "À l'abri de la lumière et de la chaleur, bouchon bien fermé. Idéalement dans les 18 à 24 mois suivant la récolte pour une palette aromatique au sommet. Évitez le plan de travail près de la cuisinière.",
+    },
+    {
+      question: "Quelle différence entre vos deux cuvées ?",
+      answer:
+        "Réserve d'or de Qalaa : assemblage méticuleux Chetoui / Chemlali, fruité, herbe fraîche, finale poivrée longue. Bosquet sacré d'Al Nagr : Chetoui monovariétal du même domaine, plus affirmé — herbe intense, beurré d'amande, épice structurée ; pensé pour finir les plats à cru.",
+    },
+    {
+      question: "Puis-je visiter l'oliveraie ?",
+      answer:
+        "Oui — visites guidées au Domaine Al Nagr, parcours de production et dégustation. Renseignements via notre page Lieux ou par téléphone.",
+    },
+    {
+      question: "Politique de retour ?",
+      answer:
+        "Satisfaction prioritaire : contactez-nous sous 30 jours en cas de problème pour remboursement ou échange, selon les conditions applicables.",
+    },
+    {
+      question: "Livrez-vous à l'international ?",
+      answer:
+        "Oui, vers de nombreux pays. Délais et frais varient selon la destination ; emballages conçus pour protéger la bouteille. Certains pays restreignent l'importation de denrées.",
+    },
+    {
+      question: "Comment repérer une huile qui a tourné ?",
+      answer:
+        "Une bonne vierge extra sent le fruit et picote légèrement en gorge. Rancio : odeur de moisi, amertume ou acidité désagréable, aspect trouble. Nos bouteilles portent des repères de récolte pour suivre la fraîcheur.",
+    },
+  ]
+
+  const faqs = language === "ar" ? faqsAr : language === "fr" ? faqsFr : faqsEn
 
   return (
     <>

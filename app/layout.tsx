@@ -4,8 +4,8 @@ import Script from "next/script"
 import { Inter, Crimson_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
-import { DevelopmentBanner } from "@/components/development-banner"
 import { LanguageProvider } from "@/components/language-provider"
+import { GtmPageView } from "@/components/gtm-page-view"
 import "./globals.css"
 import { Suspense } from "react"
 
@@ -39,13 +39,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/Qalaa_LOGO_1-Gold.svg",
     apple: "/qalaa-logo.gold.svg",
-  },
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-      "ar-SA": "/ar-SA",
-    },
   },
   openGraph: {
     title: "Qalaa - Premium Tunisian Olive Oil",
@@ -137,7 +130,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
           <LanguageProvider>
-            <DevelopmentBanner />
+            <GtmPageView />
             <Navigation />
             <main className="min-h-screen pt-4">{children}</main>
           </LanguageProvider>

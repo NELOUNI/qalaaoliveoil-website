@@ -23,12 +23,13 @@ export function ProductImageGallery({ images }: ProductImageGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg overflow-hidden group">
+      <div className="relative aspect-square overflow-hidden rounded-lg bg-white p-6 ring-1 ring-border group">
         <Image
           src={images[currentImage] || "/placeholder.svg?height=600&width=600&query=premium olive oil bottle"}
           alt="Product image"
           fill
-          className="object-contain transition-transform duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 560px"
+          className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
         />
 
         {images.length > 1 && (

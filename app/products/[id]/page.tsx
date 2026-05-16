@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import { canonicalForPath } from "@/lib/canonical-metadata"
 import { getProductById, products } from "@/lib/products"
 import { ProductDetailContent } from "@/components/product-detail-content"
 
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const product = getProductById(params.id)
   if (!product) return { title: "Product Not Found | Qalaa" }
   return {
+    ...canonicalForPath(`/products/${params.id}`),
     title: `${product.name_en} | Qalaa Premium Olive Oil`,
     description: `${product.description_en} — ${product.volume_ml}ml, harvested from ${product.region_en}, Tunisia. Extra Virgin, acidity ${product.acidity_level}.`,
     openGraph: {

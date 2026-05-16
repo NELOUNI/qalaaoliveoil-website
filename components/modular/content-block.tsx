@@ -1,15 +1,34 @@
 "use client"
 
+function escapeHtml(input: string) {
+  return input
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+}
+
 interface ContentBlockProps {
   title: string
   subtitle?: string
   content: string
   className?: string
   titleLevel?: "h1" | "h2" | "h3" | "h4"
+  /** Only true for trusted CMS/admin HTML; default escapes to prevent XSS */
+  trustedHtml?: boolean
 }
 
-export function ContentBlock({ title, subtitle, content, className = "", titleLevel = "h2" }: ContentBlockProps) {
+export function ContentBlock({
+  title,
+  subtitle,
+  content,
+  className = "",
+  titleLevel = "h2",
+  trustedHtml = false,
+}: ContentBlockProps) {
   const TitleTag = titleLevel
+  const html = trustedHtml ? content : escapeHtml(content).replace(/\n/g, "<br />")
 
   return (
     <div className={`space-y-4 ${className}`}>
@@ -19,7 +38,7 @@ export function ContentBlock({ title, subtitle, content, className = "", titleLe
       </div>
       <div
         className="prose prose-neutral max-w-none text-muted-foreground leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
   )

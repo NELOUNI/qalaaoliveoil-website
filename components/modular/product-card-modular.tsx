@@ -3,13 +3,17 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+import type { Language } from "@/components/language-provider"
+import { pickLocalizedString } from "@/lib/i18n/pick-locale"
 
 interface Product {
   id: string
   name_en: string
   name_ar: string
+  name_fr?: string
   description_en: string
   description_ar: string
+  description_fr?: string
   price: number
   image_url: string
   region_en: string
@@ -19,7 +23,7 @@ interface Product {
 
 interface ProductCardModularProps {
   product: Product
-  language: "en" | "ar"
+  language: Language
   showAddToCart?: boolean
   className?: string
 }
@@ -30,8 +34,8 @@ export function ProductCardModular({
   showAddToCart = false,
   className = "",
 }: ProductCardModularProps) {
-  const name = language === "ar" ? product.name_ar : product.name_en
-  const description = language === "ar" ? product.description_ar : product.description_en
+  const name = pickLocalizedString(language, product.name_en, product.name_ar, product.name_fr)
+  const description = pickLocalizedString(language, product.description_en, product.description_ar, product.description_fr)
 
   return (
     <div

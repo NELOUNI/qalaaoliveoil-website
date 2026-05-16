@@ -2,16 +2,21 @@
 
 import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { MapPin } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link"
 import { Footer } from "@/components/footer"
+import {
+  AlignedCardDescriptionSlot,
+  AlignedCardMedia,
+  AlignedCardTitleSlot,
+  alignedCardGridClass,
+  alignedCardShellClass,
+} from "@/components/aligned-card-primitives"
 
 export default function LocationsPage() {
   const { t, language } = useLanguage()
-  const isArabic = language === "ar"
 
-  const locations = isArabic ? [
+  const locationsAr = [
     {
       id: 1,
       name: "البستان الرئيسي",
@@ -31,7 +36,8 @@ export default function LocationsPage() {
       address: "شارع الحبيب بورقيبة، تونس 1000، تونس",
       phone: "+216 58 737 106",
       hours: "الثلاثاء - الأحد: 10:00 ص - 7:00 م",
-      description: "اكتشف عمق النكهات عبر تجربة تذوق حسية موجهة في تونس.",
+      description:
+        "قريباً في تونس — تذوق موجّه بحجز مسبق. سجّل اهتمامك وسنتواصل معك عند افتتاح القاعة.",
       image: "/tasting room.png",
       mapUrl: null,
       features: [],
@@ -43,12 +49,15 @@ export default function LocationsPage() {
       address: "السد، قرب مدرسة طارق بن زياد، الدوحة",
       phone: "+974 33551131",
       hours: "يوميًا: 9:00 ص - 8:00 م",
-      description: "متوفر فقط في الأماكن التي يسكنها الذوق الرفيع.",
+      description:
+        "عنوان دقيق في الدوحة — يُعلَن قريباً. تواصل معنا ليصلك إشعار عند توفر الزجاجات.",
       image: "",
       mapUrl: null,
       features: [],
     },
-  ] : [
+  ]
+
+  const locationsEn = [
     {
       id: 1,
       name: "Main Olive Grove",
@@ -57,7 +66,7 @@ export default function LocationsPage() {
       phone: "+216 58 737 106",
       hours: "Monday - Saturday: 8:00 AM - 5:00 PM",
       description:
-        "Walk among century-old trees where every drop of our oil begins its journey.",
+        "Stroll ancient terraces where every drop of our ultra-premium oil is born — scent of leaf, soil, and sun before it ever reaches your table.",
       image: "/olive-grove-story.png",
       mapUrl: "https://maps.app.goo.gl/hK9NeK1Soa9NpNtQ8?g_st=afm",
       features: [],
@@ -69,7 +78,8 @@ export default function LocationsPage() {
       address: "Avenue Habib Bourguiba, Tunis 1000, Tunisia",
       phone: "+216 58 737 106",
       hours: "Tuesday - Sunday: 10:00 AM - 7:00 PM",
-      description: "Discover the depth of our oils through an intimate, guided sensory experience in Tunis.",
+      description:
+        "Opening in Tunis — guided tastings by appointment. Register your interest; we will confirm dates as the room opens.",
       image: "/tasting room.png",
       mapUrl: null,
       features: [],
@@ -82,12 +92,56 @@ export default function LocationsPage() {
       phone: "+974 33551131",
       hours: "Daily: 9:00 AM - 8:00 PM",
       description:
-        "Found only where exceptional taste is already at home.",
+        "Doha — a discreet address, announced soon. Contact us to be notified when bottles are on the shelf.",
       image: "",
       mapUrl: null,
       features: [],
     },
   ]
+
+  const locationsFr = [
+    {
+      id: 1,
+      name: "Oliveraie principale",
+      type: "Oliveraie & production",
+      address: "Domaine Al Nagr, Sousse, Tunisie",
+      phone: "+216 58 737 106",
+      hours: "Lundi - Samedi : 8h00 - 17h00",
+      description:
+        "Flânez entre des terrasses centenaires où naît chaque goutte de notre huile ultra-premium — feuille, terre et soleil avant même l'assiette.",
+      image: "/olive-grove-story.png",
+      mapUrl: "https://maps.app.goo.gl/hK9NeK1Soa9NpNtQ8?g_st=afm",
+      features: [],
+    },
+    {
+      id: 2,
+      name: "Salle de dégustation",
+      type: "Dégustation guidée",
+      address: "Avenue Habib Bourguiba, Tunis 1000, Tunisie",
+      phone: "+216 58 737 106",
+      hours: "Mardi - Dimanche : 10h00 - 19h00",
+      description:
+        "Ouverture prochaine à Tunis — dégustations guidées sur rendez-vous. Inscrivez votre intérêt ; nous vous confirmerons les dates.",
+      image: "/tasting room.png",
+      mapUrl: null,
+      features: [],
+    },
+    {
+      id: 3,
+      name: "Sélections d'exception",
+      type: "Boutique",
+      address: "Al Saad, près de l'école Tariq Ibn Ziyad, Doha",
+      phone: "+974 33551131",
+      hours: "Tous les jours : 9h00 - 20h00",
+      description:
+        "Doha — une adresse discrète, annoncée prochainement. Écrivez-nous pour être averti dès que les bouteilles seront disponibles.",
+      image: "",
+      mapUrl: null,
+      features: [],
+    },
+  ]
+
+  const locations = language === "ar" ? locationsAr : language === "fr" ? locationsFr : locationsEn
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--sage-olive)]/30 via-[var(--matte-black)] to-[var(--blush-clay)]/20 overflow-x-hidden">
@@ -102,40 +156,65 @@ export default function LocationsPage() {
       {/* Locations Grid */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
-            {locations.map((location) => (
-              <Card key={location.id} className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
-                {location.image && (
-                  <div className="relative aspect-video bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)]">
-                    <Image src={location.image} alt={location.name} fill className="object-cover" />
-                  </div>
-                )}
+          <div className={`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 ${alignedCardGridClass}`}>
+            {locations.map((location) => {
+              const visitLabel = t("locations.visit-us")
+              const ctaLabel = visitLabel
+              const ctaClassName =
+                "inline-flex h-9 items-center justify-center rounded-md bg-[var(--antique-gold)] px-3 text-sm font-medium text-[var(--matte-black)] hover:bg-[var(--antique-gold)]/90 transition-colors"
 
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="text-xl">{location.name}</CardTitle>
-                  <p className="text-muted-foreground text-sm font-display">{location.description}</p>
-                </CardHeader>
+              const card = (
+                <Card className={alignedCardShellClass}>
+                  <AlignedCardMedia src={location.image || null} alt={location.name} />
 
-                <CardContent className="flex flex-col flex-1 flex-grow">
-                  {/* Visit Us - aligned to bottom across all cards */}
-                  <div className="flex justify-center pt-4 mt-auto">
-                    {location.mapUrl ? (
-                      <a href={location.mapUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="sm" className="bg-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/90 text-[var(--matte-black)]">
-                          <MapPin className="w-4 h-4 mr-1" />
-                          {t("locations.visit-us")}
-                        </Button>
-                      </a>
-                    ) : (
-                      <Button size="sm" className="bg-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/90 text-[var(--matte-black)]" disabled>
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {t("locations.visit-us")}
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardHeader className="flex flex-shrink-0 flex-col">
+                    <AlignedCardTitleSlot>
+                      <CardTitle className="text-xl leading-snug line-clamp-2">{location.name}</CardTitle>
+                    </AlignedCardTitleSlot>
+                    <AlignedCardDescriptionSlot>
+                      <p className="font-display text-sm leading-snug text-muted-foreground line-clamp-4">
+                        {location.description}
+                      </p>
+                    </AlignedCardDescriptionSlot>
+                  </CardHeader>
+
+                  <CardContent className="flex flex-col flex-1 flex-grow">
+                    <div className="flex justify-center pt-4 mt-auto">
+                      <span className={ctaClassName}>
+                        <MapPin className="w-4 h-4 mr-1 shrink-0" aria-hidden />
+                        {ctaLabel}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+
+              if (location.mapUrl) {
+                return (
+                  <a
+                    key={location.id}
+                    href={location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--antique-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    aria-label={`${location.name} — ${ctaLabel}`}
+                  >
+                    {card}
+                  </a>
+                )
+              }
+
+              return (
+                <Link
+                  key={location.id}
+                  href="/contact"
+                  className="block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--antique-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  aria-label={`${location.name} — ${ctaLabel}`}
+                >
+                  {card}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>

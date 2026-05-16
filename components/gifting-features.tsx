@@ -1,12 +1,11 @@
 import { Shield, Truck, Package, Award, Clock, Gift } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
-type Lang = "en" | "ar"
+type Lang = "en" | "ar" | "fr"
 
 export function GiftingFeatures({ language }: { language: Lang }) {
-  const isArabic = language === "ar"
-
-  const content = isArabic
+  const content =
+    language === "ar"
     ? {
         heading: "لماذا تختار خدمة الهدايا لدينا",
         subtitle: "نقدّم تجربة متكاملة تضمن أن تترك هديتك انطباعًا لا يُنسى",
@@ -43,9 +42,46 @@ export function GiftingFeatures({ language }: { language: Lang }) {
           },
         ],
       }
-    : {
-        heading: "Why Choose Our Gifting Service",
-        subtitle: "We go above and beyond to ensure your gift creates a lasting impression",
+      : language === "fr"
+        ? {
+            heading: "Pourquoi nos coffrets cadeaux",
+            subtitle: "Une expérience complète pour que votre geste reste en mémoire",
+            features: [
+              {
+                icon: Shield,
+                title: "Garantie qualité",
+                description: "Chaque flacon est sélectionné et contrôlé avant mise en coffret",
+              },
+              {
+                icon: Truck,
+                title: "Livraison soignée",
+                description: "Expédition suivie et emballage pensé pour protéger la bouteille",
+              },
+              {
+                icon: Package,
+                title: "Finitions artisanales",
+                description: "Coffrets préparés avec le même soin que nos huiles",
+              },
+              {
+                icon: Award,
+                title: "Huiles récompensées",
+                description: "Des cuvées pensées pour les amateurs et les tables exigeantes",
+              },
+              {
+                icon: Clock,
+                title: "Planification",
+                description: "Anticipez les fêtes et événements jusqu'à plusieurs mois à l'avance",
+              },
+              {
+                icon: Gift,
+                title: "Entreprises",
+                description: "Volumes et personnalisation pour cadeaux d'affaires",
+              },
+            ],
+          }
+        : {
+        heading: "Why choose our gifting service",
+        subtitle: "We go further so your gift leaves a lasting impression",
         features: [
           {
             icon: Shield,

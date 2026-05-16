@@ -33,9 +33,6 @@ export default function SignUpPage() {
     }
 
     try {
-      // Replace with your registration logic
-      console.log("Sign up attempt:", { email, password })
-      
       // Mock registration - replace with your actual registration logic
       if (email && password) {
         // Simulate API call
