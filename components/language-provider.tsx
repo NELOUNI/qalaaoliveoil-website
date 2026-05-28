@@ -175,7 +175,6 @@ const translations = {
     // Product detail
     "product.origin-story": "Terroir story",
     "product.harvest": "Harvest",
-    "product.gold-medal": "Gold Medal Winner",
     "product.know-more": "Discover",
     "product.acidity-level": "Acidity Level",
     "product.volume": "Volume",
@@ -350,7 +349,6 @@ const translations = {
     // Product detail
     "product.origin-story": "قصة أرض المنشأ",
     "product.harvest": "الحصاد",
-    "product.gold-medal": "الميدالية الذهبية",
     "product.know-more": "اكتشف",
     "product.acidity-level": "مستوى الحموضة",
     "product.volume": "الحجم",

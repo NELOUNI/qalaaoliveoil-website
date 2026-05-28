@@ -146,7 +146,6 @@ export const frStrings = {
 
   "product.origin-story": "Récit du terroir",
   "product.harvest": "Récolte",
-  "product.gold-medal": "Médaille d'or",
   "product.know-more": "Découvrir",
   "product.acidity-level": "Acidité",
   "product.volume": "Volume",

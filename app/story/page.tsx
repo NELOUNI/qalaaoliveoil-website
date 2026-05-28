@@ -22,8 +22,8 @@ export default function StoryPage() {
     },
     {
       year: "2000",
-      title: "اعتراف دولي",
-      description: "بدأت زيوتنا تحصد جوائز دولية، حاملة تميّز تونس إلى الساحة العالمية.",
+      title: "ما بعد البستان",
+      description: "فتحنا زيوتنا للتذوق والتصدير — إثبات أن أرض المنشأ التونسية، حين تُكرَّم، تستحق مكانًا بين أرقى زيوت العالم.",
     },
     {
       year: "2026",
@@ -47,9 +47,9 @@ export default function StoryPage() {
     },
     {
       year: "2000",
-      title: "Judged beside the world's best",
+      title: "Beyond the grove",
       description:
-        "Medals and juries became mirrors — proof that Tunisian terroir, when honored, belongs in the same conversation as the finest crus d'huile.",
+        "We opened our oils to blind tastings and export — proof that Tunisian terroir, when honored, belongs in the same conversation as the finest crus d'huile.",
     },
     {
       year: "2026",
@@ -74,9 +74,9 @@ export default function StoryPage() {
     },
     {
       year: "2000",
-      title: "À la table des meilleures huiles du monde",
+      title: "Au-delà de l'oliveraie",
       description:
-        "Médailles et jurys sont devenus des miroirs — preuve que le terroir tunisien, bien respecté, dialogue avec les plus grands crus d'huile.",
+        "Nous avons ouvert nos huiles aux dégustations à l'aveugle et à l'export — preuve que le terroir tunisien, bien respecté, dialogue avec les plus grands crus d'huile.",
     },
     {
       year: "2026",

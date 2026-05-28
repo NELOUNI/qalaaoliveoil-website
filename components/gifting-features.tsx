@@ -27,8 +27,8 @@ export function GiftingFeatures({ language }: { language: Lang }) {
           },
           {
             icon: Award,
-            title: "زيوت حائزة على جوائز",
-            description: "زيوت الزيتون لدينا حصدت جوائز في مسابقات دولية متعددة",
+            title: "زيوت فائقة الجودة",
+            description: "زيوت حصاد مبكر مختارة لرائحتها وتوازنها وما تضيفه للمائدة",
           },
           {
             icon: Clock,
@@ -64,8 +64,8 @@ export function GiftingFeatures({ language }: { language: Lang }) {
               },
               {
                 icon: Award,
-                title: "Huiles récompensées",
-                description: "Des cuvées pensées pour les amateurs et les tables exigeantes",
+                title: "Cuvées ultra-premium",
+                description: "Huiles de récolte précoce choisies pour l'arôme, l'équilibre et la table",
               },
               {
                 icon: Clock,
@@ -100,8 +100,8 @@ export function GiftingFeatures({ language }: { language: Lang }) {
           },
           {
             icon: Award,
-            title: "Award-Winning Oils",
-            description: "Our olive oils have won multiple international competitions",
+            title: "Ultra-premium cuvées",
+            description: "Early-harvest oils selected for aroma, balance, and table-worthy character",
           },
           {
             icon: Clock,

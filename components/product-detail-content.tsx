@@ -2,7 +2,7 @@
 
 import { useLanguage } from "./language-provider"
 import { Button } from "@/components/ui/button"
-import { Star, MapPin, Calendar, Award } from "lucide-react"
+import { Star, MapPin, Calendar } from "lucide-react"
 import { ProductImageGallery } from "@/components/product-image-gallery"
 import { LabCertification } from "@/components/lab-certification"
 import { ProductDescriptionWithTooltips } from "@/components/product-description-with-tooltips"
@@ -89,10 +89,6 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-1" />
                   {t("product.harvest")}: <span className="latin-numerals ms-1" lang="en" dir="ltr">{t("product.november-2025")}</span>
-                </div>
-                <div className="flex items-center">
-                  <Award className="w-4 h-4 mr-1" />
-                  {t("product.gold-medal")}
                 </div>
               </div>
             </div>
