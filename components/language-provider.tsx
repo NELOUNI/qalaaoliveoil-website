@@ -45,25 +45,23 @@ const translations = {
 
     // Brand
     "brand.name": "Qalaa",
-    "brand.tagline": "Terroir, craft, and liquid gold in every bottle.",
+    "brand.tagline": "Extra Virgin Olive Oil",
 
     // Homepage
-    "home.hero.title": "The Fortress of Tunisian Terroir",
+    "home.hero.title": "From the Hills of Sousse.",
     "home.hero.subtitle":
-      "Ultra-premium extra virgin oils — early harvest, cold extraction, acidity held in the realm of the exceptional. Explore the groves, learn the craft, then taste liquid gold worthy of your finest table.",
-    "home.hero.cta": "Explore the collection",
-    "home.featured.title": "Signature oils — ultra-premium",
-    "home.featured.description":
-      "Each cuvée is a rare expression of our groves: olives picked at the right moment, meticulous cold extraction, aromatic profiles built for finishing and for memory. Follow the journey from tree to table — then order the oil that tells Tunisia differently.",
-    "home.featured.cta-all": "View the full collection",
-    "home.story.title": "Our citadel heritage",
+      "Single-variety Chetoui — early harvest, cold-extracted, tasted before it leaves the mill. One oil, in three bottles, made to be offered.",
+    "home.hero.cta": "The collection",
+    "home.featured.title": "The collection",
+    "home.featured.description": "One oil. Three bottles.",
+    "home.featured.cta-all": "The collection",
+    "home.story.title": "The groves",
     "home.story.text":
-      "For generations we have guarded ancient groves where time slows — holding sacred methods and modern rigor in the same hand — to craft liquid gold of uncommon purity and depth.",
+      "Chetoui from the hills of Sousse — picked early, cold-extracted, tasted before it leaves the mill.",
 
     // Products
-    "products.title": "Ultra-premium olive oils",
-    "products.subtitle":
-      "Two signature cuvées from Tunisian terroir — crafted for connoisseurs, finishing, and moments worth lingering over.",
+    "products.title": "Extra Virgin Olive Oil",
+    "products.subtitle": "Single-variety Chetoui, from Sousse. Three bottles.",
     "products.filter.all": "All Products",
     "products.filter.premium": "Premium",
     "products.filter.organic": "Organic",
@@ -74,23 +72,23 @@ const translations = {
 
     // Story Page
     "story.title": "Our story",
-    "story.subtitle": "Excellence in a straight line — from the tree to your table",
+    "story.subtitle": "From the tree to the bottle.",
     "story.heritage.title": "Living terroir",
     "story.heritage.text":
-      "Our groves carry more than fifty years of family memory: each tree tended as an heirloom, each harvest held to a promise of absolute quality.",
+      "The groves have been in the family for more than fifty years.",
     "story.tradition.title": "Gesture and modernity",
     "story.tradition.text":
-      "We honor cold pressing and speed from branch to mill, while every lot is traced and tasted with today's tools — for Tunisian truth and consistent character.",
+      "Cold extraction, from branch to mill within hours. Every lot is tasted.",
     "story.quality.title": "Quality without compromise",
     "story.quality.text":
-      "From picking to seal, every step is logged and tasted: we chase the lowest acidity we can hold and a clear, long finish you will remember.",
+      "From picking to seal, each step is logged. Acidity is held below 0.2%.",
     "story.journey.title": "Our journey through time",
     "story.values.title": "What guides us",
-    "story.image.alt": "Ancient olive grove at golden hour",
+    "story.image.alt": "Qalaa in the groves of Sousse",
 
     // Recipes Page
-    "recipes.title": "Culinary inspirations",
-    "recipes.subtitle": "Mediterranean recipes that reveal the character of our oils",
+    "recipes.title": "Recipes",
+    "recipes.subtitle": "For the table.",
     "recipes.prep-time": "Prep Time",
     "recipes.cook-time": "Cook Time",
     "recipes.servings": "Servings",
@@ -122,14 +120,13 @@ const translations = {
     "locations.book-tour": "Book a Tour",
 
     // FAQ Page
-    "faq.title": "Frequently asked questions",
-    "faq.subtitle": "Shipping, authenticity, storage, and how to taste Qalaa like a professional.",
+    "faq.title": "Questions",
+    "faq.subtitle": "Shipping, storage, tasting.",
 
     // Gifting
-    "gifting.title": "Gifts & curated sets",
-    "gifting.subtitle":
-      "Compose something unforgettable: our oils, your words, presentation worthy of Tunis or abroad.",
-    "gifting.create-gift": "Create Your Gift",
+    "gifting.title": "Gifts",
+    "gifting.subtitle": "To be offered.",
+    "gifting.create-gift": "Compose a gift",
     "gifting.step.products": "Select Products",
     "gifting.step.packaging": "Choose Packaging",
     "gifting.step.message": "Add Message",
@@ -156,17 +153,17 @@ const translations = {
     "footer.privacy-policy": "Privacy Policy",
     "footer.terms": "Terms of Service",
     "footer.cookies": "Cookie Policy",
-    "footer.copyright": "All rights reserved. Made with love in Tunisia.",
+    "footer.copyright": "All rights reserved. Tunisia.",
     "footer.address.street": "Avenue 14 Janvier",
     "footer.address.city": "Sousse, Tunisia",
 
     // Story section
-    "story.preview.heading": "More than half a century of",
-    "story.preview.liquid-gold": "liquid gold",
+    "story.preview.heading": "The groves,",
+    "story.preview.liquid-gold": "since 1972",
     "story.preview.intro":
-      "Our story begins in the 1970s, when the first trees took root in generous soil. Between respect for the fruit and obsession with detail, we preserved a rare craft — the kind that turns a harvest into aroma, texture, and emotion on the palate.",
+      "The first trees took root in generous soil. The harvest still follows the fruit.",
     "story.preview.body":
-      "Every bottle of Qalaa condenses Mediterranean light, seasonal patience, and the pursuit of balance: an invitation to explore, taste, compare — then bring that Tunisia into your kitchen.",
+      "Qalaa is Chetoui from those hills — tasted batch by batch, then offered.",
     "story.preview.stats.years": "Years Heritage",
     "story.preview.stats.regions": "Regions",
     "story.preview.stats.families": "Families",
@@ -180,10 +177,13 @@ const translations = {
     "product.volume": "Volume",
     "product.harvest-method": "Harvest Method",
     "product.region": "Region",
+    "product.sku": "SKU",
     "product.per-bottle": "per bottle",
     "product.extra-virgin": "Extra Virgin",
     "product.cold-pressed": "Cold Pressed",
     "product.november-2025": "November 2025",
+    "product.credentials":
+      "Harvest: November 2025 · Acidity < 0.2% · High in polyphenols · Cold-extracted · Product of Sousse, Tunisia",
 
     // Products grid
     "product.acidity": "Acidity",
@@ -225,24 +225,23 @@ const translations = {
 
     // Brand
     "brand.name": "قلعة",
-    "brand.tagline": "أرض المنشأ، الحرفية، والذهب السائل في كل زجاجة.",
+    "brand.tagline": "زيت زيتون بكر ممتاز",
 
     // Homepage
-    "home.hero.title": "قلعة التربة التونسية",
+    "home.hero.title": "من تلال سوسة.",
     "home.hero.subtitle":
-      "زيوت بكر ممتازة فائقة الجودة — حصاد مبكر، عصر على البارد، حموضة في نطاق التميّز. استكشف البساتين، تعرّف على الحرفية، ثم ذق ذهباً سائلاً يليق بأفضل مائدة لديك.",
-    "home.hero.cta": "اكتشف مجموعتنا",
-    "home.featured.title": "زيوتنا المميزة — فائقة الجودة",
-    "home.featured.description":
-      "كل تركيبة نادرة من بساتيننا: زيتون يُقطف في الوقت المناسب، عصر بارد بدقة، ونكهات مصممة للتشريب وللذاكرة. اتبع الرحلة من الشجرة إلى المائدة — ثم اطلب الزيت الذي يحكي تونس بصوت مختلف.",
-    "home.featured.cta-all": "عرض المجموعة كاملة",
-    "home.story.title": "تراث قلعتنا",
+      "شتوي أحادي الصنف — حصاد مبكر، عصر على البارد، يُذاق قبل أن يغادر المعصرة. زيتٌ واحد، في ثلاث زجاجات، يُقدَّم هديةً.",
+    "home.hero.cta": "المجموعة",
+    "home.featured.title": "المجموعة",
+    "home.featured.description": "زيتٌ واحد. ثلاث زجاجات.",
+    "home.featured.cta-all": "المجموعة",
+    "home.story.title": "البساتين",
     "home.story.text":
-      "لقرون، كانت عائلتنا حراس بساتين الزيتون المقدسة في تونس، نحمي التقاليد القديمة بينما نصنع الذهب السائل بنقاء لا مثيل له.",
+      "شتوي من تلال سوسة — يُقطف مبكراً، يُعصر على البارد، ويُذاق قبل أن يغادر المعصرة.",
 
     // Products
-    "products.title": "زيوت زيتون فائقة الجودة",
-    "products.subtitle": "تركيبتان مميزتان من أرض المنشأ التونسية — للمقتنين والطهاة وللحظات التي تستحق أن تطول.",
+    "products.title": "زيت زيتون بكر ممتاز",
+    "products.subtitle": "شتوي أحادي الصنف، من سوسة. ثلاث زجاجات.",
     "products.filter.all": "جميع المنتجات",
     "products.filter.premium": "فاخر",
     "products.filter.organic": "عضوي",
@@ -253,22 +252,23 @@ const translations = {
 
     // Story Page
     "story.title": "قصتنا",
-    "story.subtitle": "إرث من التميز يمتد عبر الأجيال",
+    "story.subtitle": "من الشجرة إلى الزجاجة.",
     "story.heritage.title": "التراث العريق",
     "story.heritage.text":
-      "بساتين الزيتون لدينا في عائلتنا لأكثر من 50 عاماً، تم تناقلها عبر أجيال من المزارعين الخبراء الذين فهموا فن إنتاج زيت الزيتون المقدس.",
+      "البساتين في العائلة منذ أكثر من خمسين عاماً.",
     "story.tradition.title": "الطرق التقليدية",
     "story.tradition.text":
-      "نحن نكرم التقنيات المجربة مع احتضان معايير الجودة الحديثة، مما يضمن أن كل زجاجة تلتقط الطعم الأصيل لتونس.",
+      "عصر على البارد، من الغصن إلى المعصرة في ساعات. كل دفعة تُذاق.",
     "story.quality.title": "جودة لا تقبل المساومة",
-    "story.quality.text": "من الحصاد إلى الزجاجة، يتم مراقبة كل خطوة بعناية للحفاظ على أعلى معايير النقاء والنكهة.",
+    "story.quality.text":
+      "من القطف إلى الختم، كل خطوة موثّقة. الحموضة أقل من ٪٠٫٢.",
     "story.journey.title": "رحلتنا عبر الزمن",
     "story.values.title": "قيمنا",
-    "story.image.alt": "بستان زيتون عريق عند غروب الشمس",
+    "story.image.alt": "قلعة في بساتين سوسة",
 
     // Recipes Page
-    "recipes.title": "وصفات من مطبخنا",
-    "recipes.subtitle": "اكتشف وصفات البحر الأبيض المتوسط الأصيلة مع زيوت الزيتون الفاخرة لدينا",
+    "recipes.title": "الوصفات",
+    "recipes.subtitle": "للمائدة.",
     "recipes.prep-time": "وقت التحضير",
     "recipes.cook-time": "وقت الطبخ",
     "recipes.servings": "الحصص",
@@ -299,12 +299,12 @@ const translations = {
     "locations.book-tour": "احجز جولة",
 
     // FAQ Page
-    "faq.title": "الأسئلة الشائعة",
-    "faq.subtitle": "الشحن، الأصالة، التخزين، وكيف تذوق قلعة كالمحترفين.",
+    "faq.title": "أسئلة",
+    "faq.subtitle": "الشحن، الحفظ، التذوق.",
 
     // Gifting
-    "gifting.title": "هدايا ومجموعات مختارة",
-    "gifting.subtitle": "اصنع هدية لا تُنسى: زيوتنا، كلماتك، تقديم يليق بتونس أو بعيداً عنها.",
+    "gifting.title": "هدايا",
+    "gifting.subtitle": "تُقدَّم.",
     "gifting.create-gift": "اصنع هديتك",
     "gifting.step.products": "اختر المنتجات",
     "gifting.step.packaging": "اختر التغليف",
@@ -332,15 +332,15 @@ const translations = {
     "footer.privacy-policy": "سياسة الخصوصية",
     "footer.terms": "شروط الخدمة",
     "footer.cookies": "سياسة ملفات تعريف الارتباط",
-    "footer.copyright": "جميع الحقوق محفوظة. صُنع بحب في تونس.",
+    "footer.copyright": "جميع الحقوق محفوظة. تونس.",
     "footer.address.street": "شارع 14 جانفي",
     "footer.address.city": "4000 سوسة، تونس",
 
     // Story section
-    "story.preview.heading": "أكثر من نصف قرن من",
-    "story.preview.liquid-gold": "الذهب السائل",
-    "story.preview.intro": "تبدأ قصتنا في سبعينيات القرن الماضي، عندما زُرعت أولى أشجار الزيتون في التربة الخصبة لتونس. عبر أجيال من المزارعين المخلصين والحرفيين الماهرين، حافظنا على فن إنتاج زيت الزيتون العريق مع تبني معايير الجودة الحديثة.",
-    "story.preview.body": "كل زجاجة من قلعة تحمل جوهر المناخ المتوسطي لتونس وحكمة الطرق التقليدية وشغف العائلات التي كرّست حياتها لإتقان هذه الحرفة العريقة.",
+    "story.preview.heading": "البساتين،",
+    "story.preview.liquid-gold": "منذ ١٩٧٢",
+    "story.preview.intro": "غُرست أولى الأشجار في تربة كريمة. والحصاد ما زال يتبع الثمرة.",
+    "story.preview.body": "«قلعة» شتوي من تلك التلال — تُذاق كل دفعة، ثم تُقدَّم.",
     "story.preview.stats.years": "سنوات من التراث",
     "story.preview.stats.regions": "مناطق",
     "story.preview.stats.families": "عائلات",
@@ -354,10 +354,13 @@ const translations = {
     "product.volume": "الحجم",
     "product.harvest-method": "طريقة الحصاد",
     "product.region": "المنطقة",
+    "product.sku": "رمز المنتج",
     "product.per-bottle": "للزجاجة",
     "product.extra-virgin": "بكر ممتاز",
     "product.cold-pressed": "بضغط بارد",
     "product.november-2025": "نوفمبر 2025",
+    "product.credentials":
+      "الحصاد: نوفمبر ٢٠٢٥ · الحموضة أقل من ٪٠٫٢ · غنيٌّ بالبوليفينول · معصورٌ على البارد · إنتاج سوسة، تونس",
 
     // Products grid
     "product.acidity": "الحموضة",
