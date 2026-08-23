@@ -3,29 +3,20 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { HeroBackgroundVideo } from "@/components/hero-background-video"
 import { useLanguage } from "./language-provider"
 
 const HERO_LOGO_SRC = "/Qalaa_LOGO_1-Gold.svg"
-
-const HERO_VIDEO_SRC = "/hero-video.mp4"
+const HERO_POSTER = "/images/hero/hero-poster.webp"
+const HERO_VIDEO_MP4 = "/hero-desktop.mp4"
 
 export function HeroSection() {
   const { t } = useLanguage()
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden
-          poster="/tunisian-olive-grove-hero.webp"
-        >
-          <source src={HERO_VIDEO_SRC} type="video/mp4" />
-        </video>
+      <div className="absolute inset-0 z-0">
+        <HeroBackgroundVideo posterSrc={HERO_POSTER} videoMp4={HERO_VIDEO_MP4} />
       </div>
 
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/55 to-black/25" aria-hidden />
@@ -61,12 +52,6 @@ export function HeroSection() {
         >
           <Link href="/products">{t("home.hero.cta")}</Link>
         </Button>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10" aria-hidden="true">
-        <div className="w-6 h-10 border-2 border-[var(--antique-gold)]/70 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-[var(--antique-gold)] rounded-full mt-2 animate-pulse" />
-        </div>
       </div>
     </section>
   )

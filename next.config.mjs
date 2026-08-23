@@ -10,6 +10,17 @@ const securityHeaders = [
   },
 ]
 
+const heroMediaHeaders = [
+  {
+    source: "/hero-desktop.mp4",
+    headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+  },
+  {
+    source: "/images/hero/hero-poster.webp",
+    headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+  },
+]
+
 const nextConfig = {
   async headers() {
     return [
@@ -17,6 +28,7 @@ const nextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      ...heroMediaHeaders,
     ]
   },
 }

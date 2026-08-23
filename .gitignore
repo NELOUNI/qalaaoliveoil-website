@@ -28,6 +28,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Source/master hero only — commit optimized hero-desktop.* and hero-poster.webp
+public/hero-video.mp4
+
 # IDE / OS
 .DS_Store
 *.log
