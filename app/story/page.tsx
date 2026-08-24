@@ -13,76 +13,72 @@ export default function StoryPage() {
     {
       year: "1972",
       title: "بداية إرث العائلة",
-      description: "غرس أجدادنا أول أشجار الزيتون في تلال صفاقس، لتبدأ مسيرة عائلية متوارثة عبر الأجيال.",
+      description: "غُرست أولى الأشجار في تلال صفاقس.",
     },
     {
       year: "1985",
       title: "إتقان الطرق التقليدية",
-      description: "أتقنت العائلة تقنيات العصر على البارد لضمان استخلاص نقي يحافظ على النكهة والقيمة الغذائية.",
+      description: "من الغصن إلى المعصرة دون إبطاء.",
     },
     {
       year: "2000",
       title: "ما بعد البستان",
-      description: "فتحنا زيوتنا للتذوق والتصدير — إثبات أن أرض المنشأ التونسية، حين تُكرَّم، تستحق مكانًا بين أرقى زيوت العالم.",
+      description: "غادر الزيت البستان — للتذوق، ولمائدات أبعد من تونس.",
     },
     {
       year: "2026",
       title: "ابتكار عصري",
-      description: "نعتمد ممارسات زراعية مستدامة وضبط جودة حديث مع الحفاظ على حرفيتنا التقليدية.",
+      description: "البساتين، والمعصرة على المعيار نفسه.",
     },
   ]
 
   const milestonesEn = [
     {
       year: "1972",
-      title: "Where the lineage took root",
+      title: "The first trees",
       description:
-        "The first trees were planted in the hills of Sfax — not as a crop alone, but as a promise: to guard the fruit, the soil, and the slow wisdom of harvest.",
+        "The first trees were planted in the hills of Sfax.",
     },
     {
       year: "1985",
       title: "Cold extraction as a discipline",
       description:
-        "We committed to the clock between branch and mill: temperature, hygiene, and restraint — so aroma and polyphenols survive the journey into the bottle.",
+        "From branch to mill without delay — so aroma and polyphenols reach the bottle.",
     },
     {
       year: "2000",
       title: "Beyond the grove",
       description:
-        "We opened our oils to blind tastings and export — proof that Tunisian terroir, when honored, belongs in the same conversation as the finest crus d'huile.",
+        "The oils left the grove — for tasting, and for tables beyond Tunisia.",
     },
     {
       year: "2026",
-      title: "Traceability meets terroir",
+      title: "Today",
       description:
-        "Today we pair ancestral groves with rigorous tracking and tasting panels — inviting you to explore each cuvée, then order with confidence.",
+        "The groves, with tasting and traceability held to the same standard.",
     },
   ]
 
   const milestonesFr = [
     {
       year: "1972",
-      title: "Là où la lignée a pris racine",
-      description:
-        "Les premiers oliviers ont été plantés dans les collines de Sfax — non comme simple récolte, mais comme promesse : protéger le fruit, le sol, et la lente sagesse des vendanges.",
+      title: "Les premiers oliviers",
+      description: "Plantés dans les collines de Sfax.",
     },
     {
       year: "1985",
-      title: "L'extraction à froid comme discipline",
-      description:
-        "Nous avons fait du délai branche-moulin un rituel : température, hygiène, retenue — pour que arômes et polyphénols traversent la bouteille intacts.",
+      title: "L'extraction à froid",
+      description: "De la branche au moulin, sans délai.",
     },
     {
       year: "2000",
       title: "Au-delà de l'oliveraie",
-      description:
-        "Nous avons ouvert nos huiles aux dégustations à l'aveugle et à l'export — preuve que le terroir tunisien, bien respecté, dialogue avec les plus grands crus d'huile.",
+      description: "L'huile quitte le domaine — pour la dégustation, et pour d'autres tables.",
     },
     {
       year: "2026",
-      title: "Traçabilité et terroir",
-      description:
-        "Aujourd'hui nous marions oliveraies ancestrales et contrôles rigoureux — pour que vous exploriez chaque cuvée, puis commandiez en toute confiance.",
+      title: "Aujourd'hui",
+      description: "Les oliveraies, avec la même exigence au moulin.",
     },
   ]
 
@@ -91,69 +87,69 @@ export default function StoryPage() {
   const valuesAr = [
     {
       icon: Leaf,
-      title: "الاستدامة",
-      description: "نتبع أساليب زراعة عضوية تحافظ على أرضنا للأجيال القادمة.",
+      title: "الأرض",
+      description: "البساتين ينبغي أن تعيش بعدنا.",
     },
     {
       icon: Award,
-      title: "التميّز",
-      description: "كل زجاجة تلبّي أعلى المعايير الدولية لزيت الزيتون البكر الممتاز.",
+      title: "المعصرة",
+      description: "كل دفعة تُذاق.",
     },
     {
       icon: Users,
-      title: "المجتمع",
-      description: "ندعم المزارعين المحليين ونحافظ على أساليب الزراعة التونسية التقليدية.",
+      title: "الناس",
+      description: "مع جيراننا.",
     },
     {
       icon: Clock,
-      title: "التقاليد",
-      description: "أكثر من 50 عامًا من خبرة العائلة تقود كل مرحلة من مراحل الإنتاج.",
+      title: "الزمن",
+      description: "منذ ١٩٧٢.",
     },
   ]
 
   const valuesEn = [
     {
       icon: Leaf,
-      title: "Sustainability",
-      description: "Organic practices and soil care so the groves outlive us — and keep giving oil with identity.",
+      title: "The land",
+      description: "The groves should outlive us.",
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "Every lot is tasted and traced; we chase the lowest acidity we can hold and a finish you remember tomorrow.",
+      title: "The mill",
+      description: "Each batch is tasted.",
     },
     {
       icon: Users,
-      title: "Community",
-      description: "We work with growers and neighbors who share our obsession — preserving Tunisian olive culture as a living craft.",
+      title: "The people",
+      description: "Grown with our neighbors.",
     },
     {
       icon: Clock,
-      title: "Patience",
-      description: "More than fifty years of family knowledge steers harvest timing, milling, and the quiet art of blending.",
+      title: "Time",
+      description: "Since 1972.",
     },
   ]
 
   const valuesFr = [
     {
       icon: Leaf,
-      title: "Durabilité",
-      description: "Pratiques biologiques et soin des sols pour que les oliveraies nous survivent — et donnent encore une huile avec une âme.",
+      title: "La terre",
+      description: "Les oliveraies doivent nous survivre.",
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "Chaque lot est dégusté et tracé ; nous visons la plus basse acidité possible et une finale que vous vous rappellerez le lendemain.",
+      title: "Le moulin",
+      description: "Chaque lot est goûté.",
     },
     {
       icon: Users,
-      title: "Communauté",
-      description: "Nous travaillons avec des producteurs et voisins qui partagent notre obsession — préserver la culture oléicole tunisienne comme un métier vivant.",
+      title: "Les gens",
+      description: "Avec nos voisins.",
     },
     {
       icon: Clock,
-      title: "Patience",
-      description: "Plus de cinquante ans de savoir familial guident le moment de la récolte, le moulinage, et l'art discret du mariage des lots.",
+      title: "Le temps",
+      description: "Depuis 1972.",
     },
   ]
 
@@ -175,12 +171,13 @@ export default function StoryPage() {
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">{t("story.heritage.text")}</p>
               <p className="text-muted-foreground text-lg leading-relaxed">{t("story.tradition.text")}</p>
             </div>
-            <div className="relative aspect-square bg-gradient-to-br from-[var(--matte-black)] to-[var(--blush-clay)] rounded-lg overflow-hidden">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-lg bg-[var(--matte-black)]">
               <Image
-                src="/olive-grove-story.png"
+                src="/images/lifestyle/qalaa-in-the-grove.png"
                 alt={t("story.image.alt")}
                 fill
-                className="object-cover"
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

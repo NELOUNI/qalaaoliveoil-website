@@ -47,12 +47,12 @@ export function AwardsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl font-bold text-[var(--antique-gold)] mb-4">
-            {isArabic ? "الجوائز والشهادات" : "Awards & Certification"}
+            {isArabic ? "الشهادات" : "Certification"}
           </h2>
           <p className="text-lg text-[var(--antique-gold)]/80 max-w-2xl mx-auto">
             {isArabic
-              ? "مراجعة مستقلة من SGS تونس — إحدى أبرز هيئات التفتيش في العالم"
-              : "Independently verified by SGS Tunisia — one of the world's leading inspection bodies"}
+              ? "مراجعة مستقلة من SGS تونس."
+              : "Independently verified by SGS Tunisia."}
           </p>
         </div>
 

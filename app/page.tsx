@@ -9,15 +9,15 @@ import { canonicalForPath } from "@/lib/canonical-metadata"
 
 export const metadata: Metadata = {
   ...canonicalForPath("/"),
-  title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
-  description: "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves. Guardians of the Olive, Keepers of the Gold. Now available worldwide!",
+  title: "Qalaa | Chetoui from Sousse",
+  description: "Single-variety Chetoui. Three bottles. From the hills of Sousse, Tunisia.",
   keywords: "premium olive oil, Tunisian olive oil, extra virgin, Mediterranean, luxury food, artisanal, organic, ancient groves",
   openGraph: {
-    title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
-    description: "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves.",
+    title: "Qalaa | Chetoui from Sousse",
+    description: "Single-variety Chetoui. Three bottles. From the hills of Sousse, Tunisia.",
     images: [
       {
-        url: "/tunisian-olive-grove-hero.webp",
+        url: "/images/hero/hero-poster.webp",
         width: 1200,
         height: 630,
         alt: "Ancient Tunisian olive groves at golden hour",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qalaa - Premium Tunisian Olive Oil",
-    description: "Guardians of the Olive, Keepers of the Gold",
-    images: ["/tunisian-olive-grove-hero.webp"],
+    title: "Qalaa | Chetoui from Sousse",
+    description: "Single-variety Chetoui from the hills of Sousse.",
+    images: ["/images/hero/hero-poster.webp"],
   },
 }
 

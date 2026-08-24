@@ -1,9 +1,7 @@
 "use client"
 
 import { useLanguage } from "./language-provider"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -14,32 +12,40 @@ import {
 
 const featuredProducts = [
   {
+    id: 3,
+    name: "Linfa 250 ml",
+    nameAr: "لينفا ٢٥٠ مل",
+    nameFr: "Linfa 250 ml",
+    price: 45,
+    volume: "250ml",
+    image: "/images/products/QALAA-LINFA-OVAL-250ml.png",
+    region: "Sousse",
+    regionAr: "سوسة",
+    regionFr: "Sousse",
+  },
+  {
     id: 1,
-    name: "Gold Reserve of Qalaa",
-    nameAr: "احتياطي قلعة الذهبي",
-    nameFr: "Réserve d'or de Qalaa",
+    name: "Linfa 500 ml",
+    nameAr: "لينفا ٥٠٠ مل",
+    nameFr: "Linfa 500 ml",
     price: 89.99,
     volume: "500ml",
-    rating: 4.9,
-    reviews: 127,
     image: "/QALAA%20LINFA.jpeg",
-    isPremium: true,
-    region: "Domaine Al Nagr",
-    regionFr: "Domaine Al Nagr",
+    region: "Sousse",
+    regionAr: "سوسة",
+    regionFr: "Sousse",
   },
   {
     id: 2,
-    name: "Sacred Grove of Al Nagr",
-    nameAr: "غابة النغر المباركة",
-    nameFr: "Bosquet sacré d'Al Nagr",
-    price: 125.99,
+    name: "Quadra 500 ml",
+    nameAr: "كوادرا ٥٠٠ مل",
+    nameFr: "Quadra 500 ml",
+    price: 89.99,
     volume: "500ml",
-    rating: 5.0,
-    reviews: 45,
     image: "/QALAA%20Natura%20Quadra.jpeg",
-    isPremium: true,
-    region: "Domaine Al Nagr",
-    regionFr: "Domaine Al Nagr",
+    region: "Sousse",
+    regionAr: "سوسة",
+    regionFr: "Sousse",
   },
 ]
 
@@ -87,19 +93,11 @@ export function FeaturedProducts() {
                         {title}
                       </h3>
                       <p className="min-h-[1.25rem] text-sm text-muted-foreground">
-                        <span>
-                          {language === "ar" && product.id === 1
-                            ? "دومين النقر"
-                            : language === "ar" && product.id === 2
-                              ? "دومين النغر"
-                              : language === "fr"
-                                ? product.regionFr
-                                : product.region}
-                        </span>{" "}
-                        •{" "}
-                        <span className="latin-numerals" lang="en" dir="ltr">
-                          {product.volume}
-                        </span>
+                        {language === "ar"
+                          ? product.regionAr
+                          : language === "fr"
+                            ? product.regionFr
+                            : product.region}
                       </p>
                     </AlignedCardTitleSlot>
 
@@ -116,19 +114,6 @@ export function FeaturedProducts() {
               </Link>
             )
           })}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link href="/products">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-[var(--antique-gold)] text-[var(--antique-gold)] hover:bg-[var(--antique-gold)]/10 bg-transparent"
-            >
-              {t("home.featured.cta-all")}
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

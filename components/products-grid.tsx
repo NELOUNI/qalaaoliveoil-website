@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import {
-  AlignedCardDescriptionSlot,
   AlignedCardTitleSlot,
   alignedCardShellClass,
   alignedProductMediaClass,
@@ -88,24 +87,14 @@ export function ProductsGrid({ products }: ProductsGridProps) {
                 </div>
 
                 <CardContent className="flex flex-1 flex-col p-6">
-                  <AlignedCardTitleSlot className="mb-3">
+                  <AlignedCardTitleSlot className="mb-4">
                     <h3 className="font-serif text-xl font-semibold text-foreground mb-1 line-clamp-2 leading-snug">
                       {productName}
                     </h3>
                     <p className="min-h-[1.25rem] text-sm text-muted-foreground">
-                      {pickLocalizedString(language, product.region_en, product.region_ar, product.region_fr)} •{" "}
-                      <span className="latin-numerals" lang="en" dir="ltr">
-                        {product.volume_ml}
-                      </span>
-                      ml
+                      {pickLocalizedString(language, product.region_en, product.region_ar, product.region_fr)}
                     </p>
                   </AlignedCardTitleSlot>
-
-                  <AlignedCardDescriptionSlot className="mb-4 min-h-[2.75rem]">
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {pickLocalizedString(language, product.description_en, product.description_ar, product.description_fr)}
-                    </p>
-                  </AlignedCardDescriptionSlot>
 
                   {tastingNotes.length > 0 && (
                     <div className="mb-4">

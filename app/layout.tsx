@@ -23,9 +23,8 @@ const crimsonText = Crimson_Text({
 })
 
 export const metadata: Metadata = {
-  title: "Qalaa - Premium Tunisian Olive Oil | Guardians of the Olive",
-  description:
-    "Discover Qalaa's fortress of flavor - premium extra virgin olive oils from Tunisia's ancient groves. Guardians of the Olive, Keepers of the Gold.",
+  title: "Qalaa | Chetoui from Sousse",
+  description: "Single-variety Chetoui. Three bottles. From the hills of Sousse, Tunisia.",
   keywords: "premium olive oil, Tunisian olive oil, extra virgin, Mediterranean, luxury food, artisanal, organic",
   authors: [{ name: "Qalaa" }],
   creator: "Qalaa",
@@ -41,9 +40,8 @@ export const metadata: Metadata = {
     apple: "/qalaa-logo.gold.svg",
   },
   openGraph: {
-    title: "Qalaa - Premium Tunisian Olive Oil",
-    description:
-      "Guardians of the Olive, Keepers of the Gold. Premium extra virgin olive oils from Tunisia's ancient groves.",
+    title: "Qalaa | Chetoui from Sousse",
+    description: "Single-variety Chetoui. Three bottles. From the hills of Sousse, Tunisia.",
     url: "https://qalaaoliveoil.com",
     siteName: "Qalaa",
     images: [
@@ -59,8 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qalaa - Premium Tunisian Olive Oil",
-    description: "Guardians of the Olive, Keepers of the Gold",
+    title: "Qalaa | Chetoui from Sousse",
+    description: "Single-variety Chetoui from the hills of Sousse.",
     images: ["/qalaa-logo.png"],
   },
   robots: {

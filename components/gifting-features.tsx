@@ -80,7 +80,7 @@ export function GiftingFeatures({ language }: { language: Lang }) {
             ],
           }
         : {
-        heading: "Why choose our gifting service",
+        heading: "Why Choose Our Gifting Service",
         subtitle: "We go further so your gift leaves a lasting impression",
         features: [
           {

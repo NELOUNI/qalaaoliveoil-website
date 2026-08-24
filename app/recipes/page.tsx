@@ -25,7 +25,7 @@ export default function RecipesPage() {
     {
       id: 1,
       title: "كارباتشيو التونة الأحمر بالزعتر البري",
-      description: "طبق راقٍ من التونة النيئة الفاخرة مع زيت احتياطي قلعة الذهبي",
+      description: "طبق راقٍ من التونة النيئة الفاخرة مع زيت «قلعة» الشتوي",
       image: RECIPE_IMAGES.tuna,
       prepTime: "25 دقيقة",
       cookTime: "0 دقيقة",
@@ -33,7 +33,7 @@ export default function RecipesPage() {
       difficulty: "متقدم",
       ingredients: [
         "400 غرام تونة حمراء فاخرة (درجة الساشيمي)",
-        "3 ملاعق كبيرة زيت احتياطي قلعة الذهبي",
+        "3 ملاعق كبيرة زيت «قلعة» الشتوي",
         "ملعقة كبيرة زعتر بري تونسي",
         "حبات رمان طازجة",
         "جرجير صغير للتزيين",
@@ -54,7 +54,7 @@ export default function RecipesPage() {
       difficulty: "متقدم",
       ingredients: [
         "12 حبة أسقلوب (محار كبير)",
-        "100 مل زيت غابة النغر المباركة",
+        "100 مل زيت «قلعة» الشتوي",
         "50 غرام زيتون أخضر منزوع النوى",
         "200 مل كريمة طبخ فاخرة",
         "ملعقة صغيرة عسل أبيض نقي",
@@ -75,7 +75,7 @@ export default function RecipesPage() {
       difficulty: "متوسط إلى متقدم",
       ingredients: [
         "8 حبات تين طازج فاخر",
-        "75 مل زيت احتياطي قلعة الذهبي",
+        "75 مل زيت «قلعة» الشتوي",
         "100 غرام عسل نحل طبيعي",
         "150 غرام جبن ماسكاربوني",
         "50 غرام لوز محمص مقشر",
@@ -91,7 +91,7 @@ export default function RecipesPage() {
     {
       id: 1,
       title: "Wild Thyme Bluefin Tuna Carpaccio",
-      description: "Exquisite raw tuna with Qalaa Gold Reserve and wild Tunisian thyme",
+      description: "Exquisite raw tuna with Qalaa Chetoui olive oil and wild Tunisian thyme",
       image: RECIPE_IMAGES.tuna,
       prepTime: "25 min",
       cookTime: "0 min",
@@ -99,7 +99,7 @@ export default function RecipesPage() {
       difficulty: "Advanced",
       ingredients: [
         "400g sashimi-grade bluefin tuna",
-        "3 tbsp Qalaa Gold Reserve olive oil",
+        "3 tbsp Qalaa Chetoui olive oil",
         "1 tbsp wild Tunisian thyme",
         "Fresh pomegranate seeds",
         "Baby arugula for garnish",
@@ -127,7 +127,7 @@ export default function RecipesPage() {
       difficulty: "Advanced",
       ingredients: [
         "12 large sea scallops (U-10)",
-        "100ml Qalaa Sacred Grove olive oil",
+        "100ml Qalaa Chetoui olive oil",
         "50g pitted green olives",
         "200ml heavy cream",
         "1 tsp white honey",
@@ -155,7 +155,7 @@ export default function RecipesPage() {
       difficulty: "Medium to Advanced",
       ingredients: [
         "8 premium fresh figs",
-        "75ml Qalaa Gold Reserve olive oil",
+        "75ml Qalaa Chetoui olive oil",
         "100g pure wildflower honey",
         "150g mascarpone cheese",
         "50g toasted blanched almonds",

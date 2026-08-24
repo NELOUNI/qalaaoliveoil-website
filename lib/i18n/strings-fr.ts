@@ -28,23 +28,21 @@ export const frStrings = {
   "common.contact-us": "Nous contacter",
 
   "brand.name": "Qalaa",
-  "brand.tagline": "Terroir, savoir-faire et or liquide dans chaque bouteille.",
+  "brand.tagline": "Huile d'olive vierge extra",
 
-  "home.hero.title": "La forteresse du terroir tunisien",
+  "home.hero.title": "Des collines de Sousse.",
   "home.hero.subtitle":
-    "Huiles d'olive vierges extra d'exception: récolte précoce, extraction à froid, acidité dans la zone de l'excellence. Explorez nos oliveraies, comprenez le geste du maître de chai, puis goûtez un or liquide digne de vos plus belles tables.",
-  "home.hero.cta": "Découvrir la collection",
-  "home.featured.title": "Créations signature — ultra-premium",
-  "home.featured.description":
-    "Chaque cuvée est une expression rare de nos oliveraies : olives cueillies au bon degré de maturité, extraction méticuleuse à froid, profils aromatiques pensés pour l'assaisonnement et la finale en bouche. Laissez-vous guider du verger à l'assiette — puis commandez l'huile qui raconte la Tunisie autrement.",
-  "home.featured.cta-all": "Voir toute la collection",
-  "home.story.title": "L'héritage de notre citadelle",
+    "Chetoui monovariétal — récolte précoce, extraction à froid, goûté avant de quitter le moulin. Une huile, trois flacons, à offrir.",
+  "home.hero.cta": "La collection",
+  "home.featured.title": "La collection",
+  "home.featured.description": "Une huile. Trois flacons.",
+  "home.featured.cta-all": "La collection",
+  "home.story.title": "Les oliveraies",
   "home.story.text":
-    "Depuis des générations, nous veillons sur des oliveraies où le temps ralentit — entre traditions séculaires et exigence moderne, pour une pureté et une complexité dignes des plus grands crus d'huile.",
+    "Chetoui des collines de Sousse — cueilli tôt, extrait à froid, goûté avant de quitter le moulin.",
 
-  "products.title": "Huiles d'olive ultra-premium",
-  "products.subtitle":
-    "Deux cuvées signature issues du terroir tunisien — pour les amateurs exigeants, les chefs et les moments qu'on veut prolonger.",
+  "products.title": "Huile d'olive vierge extra",
+  "products.subtitle": "Chetoui monovariétal, de Sousse. Trois flacons.",
   "products.filter.all": "Tous les produits",
   "products.filter.premium": "Premium",
   "products.filter.organic": "Bio",
@@ -54,22 +52,22 @@ export const frStrings = {
   "products.view-details": "Voir la fiche",
 
   "story.title": "Notre histoire",
-  "story.subtitle": "Une lignée d'excellence, de l'arbre à la bouteille",
+  "story.subtitle": "De l'arbre à la bouteille.",
   "story.heritage.title": "Un terroir vivant",
   "story.heritage.text":
-    "Nos oliveraies nourrissent plus de cinquante ans de mémoire familiale : chaque arbre est entretenu comme un héritage, chaque récolte comme une promesse de qualité absolue.",
+    "Les oliveraies sont dans la famille depuis plus de cinquante ans.",
   "story.tradition.title": "Gestes et modernité",
   "story.tradition.text":
-    "Nous honorons le pressage à froid et la rapidité entre récolte et moulin, tout en contrôlant chaque lot avec les outils d'aujourd'hui — pour une authenticité tunisienne et une constance de goût.",
+    "Extraction à froid, de la branche au moulin en quelques heures. Chaque lot est goûté.",
   "story.quality.title": "Qualité sans compromis",
   "story.quality.text":
-    "De la cueillette au bouchon, chaque étape est tracée et goûtée : nous visons l'acidité la plus basse possible et une palette aromatique nette, longue, mémorable.",
+    "De la cueillette au bouchon, chaque étape est tracée. Acidité inférieure à 0,2 %.",
   "story.journey.title": "Notre chemin dans le temps",
   "story.values.title": "Ce qui nous guide",
-  "story.image.alt": "Oliveraie ancienne au coucher du soleil",
+  "story.image.alt": "Qalaa dans les oliveraies de Sousse",
 
-  "recipes.title": "Inspirations culinaires",
-  "recipes.subtitle": "Recettes méditerranéennes pour révéler le caractère de nos huiles",
+  "recipes.title": "Recettes",
+  "recipes.subtitle": "Pour la table.",
   "recipes.prep-time": "Préparation",
   "recipes.cook-time": "Cuisson",
   "recipes.servings": "Portions",
@@ -98,13 +96,12 @@ export const frStrings = {
   "locations.enquire": "Nous écrire",
   "locations.book-tour": "Réserver une visite",
 
-  "faq.title": "Questions fréquentes",
-  "faq.subtitle": "Livraison, authenticité, conservation, et comment goûter Qalaa comme un professionnel.",
+  "faq.title": "Questions",
+  "faq.subtitle": "Livraison, conservation, dégustation.",
 
-  "gifting.title": "Coffrets et cadeaux d'exception",
-  "gifting.subtitle":
-    "Composez un présent inoubliable : nos huiles, votre message, une présentation digne des plus belles tables.",
-  "gifting.create-gift": "Créer votre cadeau",
+  "gifting.title": "Cadeaux",
+  "gifting.subtitle": "À offrir.",
+  "gifting.create-gift": "Composer un cadeau",
   "gifting.step.products": "Choisir les produits",
   "gifting.step.packaging": "Choisir le coffret",
   "gifting.step.message": "Ajouter un message",
@@ -129,16 +126,16 @@ export const frStrings = {
   "footer.privacy-policy": "Confidentialité",
   "footer.terms": "Conditions d'utilisation",
   "footer.cookies": "Cookies",
-  "footer.copyright": "Tous droits réservés. Fabriqué avec passion en Tunisie.",
+  "footer.copyright": "Tous droits réservés. Tunisie.",
   "footer.address.street": "Avenue 14 Janvier",
   "footer.address.city": "Sousse, Tunisie",
 
-  "story.preview.heading": "Plus d'un demi-siècle",
-  "story.preview.liquid-gold": "d'or liquide",
+  "story.preview.heading": "Les oliveraies,",
+  "story.preview.liquid-gold": "depuis 1972",
   "story.preview.intro":
-    "Notre récit commence dans les années 1970, quand les premiers oliviers prirent racine dans des sols généreux. Entre exigence du geste et respect du fruit, nous avons préservé un savoir-faire rare — celui qui transforme une récolte en émotion au nez et en bouche.",
+    "Les premiers oliviers ont pris racine dans un sol généreux. La récolte suit encore le fruit.",
   "story.preview.body":
-    "Chaque flacon Qalaa condense le climat méditerranéen, la patience des saisons et l'obsession du détail : une invitation à explorer, goûter, comparer — puis à faire entrer cette Tunisie-là dans votre cuisine.",
+    "Qalaa est un Chetoui de ces collines — chaque lot est goûté, puis offert.",
   "story.preview.stats.years": "Ans d'héritage",
   "story.preview.stats.regions": "Régions",
   "story.preview.stats.families": "Familles",
@@ -151,10 +148,13 @@ export const frStrings = {
   "product.volume": "Volume",
   "product.harvest-method": "Méthode de récolte",
   "product.region": "Région",
+  "product.sku": "Réf.",
   "product.per-bottle": "la bouteille",
   "product.extra-virgin": "Vierge extra",
   "product.cold-pressed": "Première pression à froid",
   "product.november-2025": "Novembre 2025",
+  "product.credentials":
+    "Récolte : novembre 2025 · Acidité < 0,2 % · Riche en polyphénols · Extraction à froid · Produit à Sousse, Tunisie",
 
   "product.acidity": "Acidité",
   "product.low-stock": "Stock limité",

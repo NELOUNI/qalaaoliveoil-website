@@ -32,15 +32,21 @@ interface GiftConfiguration {
 
 const availableProducts = [
   {
+    id: "3",
+    name: "Linfa 250 ml",
+    price: 45,
+    image: "/images/products/QALAA-LINFA-OVAL-250ml.png",
+  },
+  {
     id: "1",
-    name: "Gold Reserve of Qalaa",
+    name: "Linfa 500 ml",
     price: 89.99,
     image: "/QALAA%20LINFA.jpeg",
   },
   {
     id: "2",
-    name: "Sacred Grove of Al Nagr",
-    price: 125.99,
+    name: "Quadra 500 ml",
+    price: 89.99,
     image: "/QALAA%20Natura%20Quadra.jpeg",
   },
 ]
@@ -122,8 +128,8 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
 
   const text = isArabic
     ? {
-        heading: "نسّق هديتك المثالية",
-        subtitle: "اتبع خطوات بسيطة لتجهيز هدية شخصية تُسعد من تحب",
+        heading: "اختر زجاجة",
+        subtitle: "",
         stepLabel: "الخطوة",
         steps: ["اختيار المنتجات", "اختيار التغليف", "إضافة رسالة", "تفاصيل التسليم", "المراجعة والطلب"],
         selectOils: "اختر زيوت الزيتون",
@@ -152,8 +158,8 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
       }
     : isFrench
       ? {
-          heading: "Composez votre cadeau idéal",
-          subtitle: "Quelques étapes pour un présent sur-mesure qui fera sensation",
+          heading: "Choisir un flacon",
+          subtitle: "",
           stepLabel: "Étape",
           steps: ["Produits", "Coffret", "Message", "Livraison", "Vérification"],
           selectOils: "Choisissez vos huiles",
@@ -181,8 +187,8 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
           noProducts: "Aucun produit sélectionné",
         }
       : {
-        heading: "Configure Your Perfect Gift",
-        subtitle: "Follow our simple steps to create a personalized gift that will delight your recipient",
+        heading: "Select a Bottle",
+        subtitle: "",
         stepLabel: "Step",
         steps: ["Select Products", "Choose Packaging", "Add Message", "Delivery Details", "Review & Order"],
         selectOils: "Select Your Olive Oils",
@@ -213,14 +219,18 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
   const localizedProducts = availableProducts.map((product) => ({
     ...product,
     name:
-      isArabic && product.id === "1"
-        ? "احتياطي قلعة الذهبي"
+      isArabic && product.id === "3"
+        ? "لينفا ٢٥٠ مل"
+        : isArabic && product.id === "1"
+        ? "لينفا ٥٠٠ مل"
         : isArabic && product.id === "2"
-          ? "غابة النغر المباركة"
-          : isFrench && product.id === "1"
-            ? "Réserve d'or de Qalaa"
+          ? "كوادرا ٥٠٠ مل"
+          : isFrench && product.id === "3"
+            ? "Linfa 250 ml"
+            : isFrench && product.id === "1"
+            ? "Linfa 500 ml"
             : isFrench && product.id === "2"
-              ? "Bosquet sacré d'Al Nagr"
+              ? "Quadra 500 ml"
               : product.name,
   }))
 
@@ -256,10 +266,7 @@ export function GiftingConfigurator({ language }: { language: Lang }) {
     <section id="configurator" className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-foreground mb-4">{text.heading}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {text.subtitle}
-          </p>
+          <h2 className="text-3xl font-serif font-bold text-foreground">{text.heading}</h2>
         </div>
 
         {/* Progress Steps */}

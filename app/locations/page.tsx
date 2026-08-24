@@ -65,8 +65,7 @@ export default function LocationsPage() {
       address: "Domaine Al Nagr, Sousse, Tunisia",
       phone: "+216 58 737 106",
       hours: "Monday - Saturday: 8:00 AM - 5:00 PM",
-      description:
-        "Stroll ancient terraces where every drop of our ultra-premium oil is born — scent of leaf, soil, and sun before it ever reaches your table.",
+      description: "Where the fruit is picked.",
       image: "/olive-grove-story.png",
       mapUrl: "https://maps.app.goo.gl/hK9NeK1Soa9NpNtQ8?g_st=afm",
       features: [],
@@ -107,8 +106,7 @@ export default function LocationsPage() {
       address: "Domaine Al Nagr, Sousse, Tunisie",
       phone: "+216 58 737 106",
       hours: "Lundi - Samedi : 8h00 - 17h00",
-      description:
-        "Flânez entre des terrasses centenaires où naît chaque goutte de notre huile ultra-premium — feuille, terre et soleil avant même l'assiette.",
+      description: "Là où le fruit est cueilli.",
       image: "/olive-grove-story.png",
       mapUrl: "https://maps.app.goo.gl/hK9NeK1Soa9NpNtQ8?g_st=afm",
       features: [],

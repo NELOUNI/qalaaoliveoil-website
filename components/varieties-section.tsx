@@ -759,16 +759,16 @@ export function VarietiesSection() {
               style={{ color: T.creamDim, fontWeight: 400 }}
             >
               {language === "ar"
-                ? "عن مزيجنا:"
+                ? "عن زيتنا:"
                 : language === "fr"
-                  ? "À propos de notre assemblage :"
-                  : "About our blend:"}
+                  ? "Notre huile :"
+                  : "About our oil:"}
             </strong>{" "}
             {language === "ar"
-              ? "زيوت قلعة تُصنع بموازنة دقيقة بين قوة البوليفينول في الشتوي ونعومة الشملالي — فينتج زيت مركّب وسهل التقديم دون تنازل عن أي من الشخصيتين. كل موسم حصاد قد يغيّر التوازن قليلاً، يعكس تعبير الموسم."
+              ? "«قلعة» شتوي، من سوسة."
               : language === "fr"
-                ? "Les huiles Qalaa équilibrent avec précision l’intensité polyphénolique du Chetoui et la douceur raffinée du Chemlali — une huile à la fois complexe et accessible, sans renier aucune des deux personnalités. Chaque récolte peut faire varier légèrement cet équilibre, reflet de l’expression du millésime."
-                : "Qalaa oils are crafted by carefully balancing Chetoui's bold polyphenol intensity with Chemlali's refined softness — resulting in an oil that is both complex and approachable, without compromising on either character. Each harvest may shift the balance slightly, reflecting the season's expression."}
+                ? "Qalaa est un Chetoui, de Sousse."
+                : "Qalaa is Chetoui, from Sousse."}
           </p>
         </div>
       </div>

@@ -17,115 +17,97 @@ export function FAQClient() {
 
   const faqsAr = [
     {
-      question: "ما الذي يجعل زيت الزيتون لديكم بجودة ممتازة؟",
+      question: "ما الذي يميز زيتكم؟",
       answer:
-        "زيت الزيتون لدينا مصنوع من زيتون يُقطف يدويًا من أشجار يزيد عمرها عن 50 عامًا. نعتمد العصر على البارد خلال 24 ساعة من الحصاد للحفاظ على النكهة والقيمة الغذائية، ويتم اختبار كل دفعة وفق معايير صارمة للزيت البكر الممتاز.",
+        "شتوي يُقطف مبكراً ويُعصر على البارد خلال ساعات. الحموضة أقل من ٪٠٫٢. كل دفعة تُذاق.",
     },
     {
-      question: "كيف أحفظ زيت الزيتون؟",
-      answer:
-        "يُحفظ في مكان بارد ومظلم بعيدًا عن الحرارة والضوء. احكم إغلاق الزجاجة واستخدمها خلال 18 إلى 24 شهرًا من تاريخ الحصاد للحصول على أفضل نكهة.",
+      question: "كيف أحفظ الزيت؟",
+      answer: "بعيداً عن الحرارة والضوء، والزجاجة مغلقة. يُستحسن خلال ١٨ إلى ٢٤ شهراً من الحصاد.",
     },
     {
-      question: "ما الفرق بين أنواع زيت الزيتون لديكم؟",
-      answer:
-        "يأتي كل نوع من أصناف ومناطق مختلفة. احتياطي قلعة الذهبي مزيج فاخر من الشتوِي والشملالي بنكهة مركّبة، أما غابة النغر المباركة فهو شتوِي نقي بطابع عشبي وفلفلي قوي من دومين النغر.",
+      question: "ما الفرق بين الزجاجات؟",
+      answer: "الزيت واحد. ثلاث زجاجات: لينفا ٢٥٠ مل، لينفا ٥٠٠ مل، كوادرا ٥٠٠ مل.",
     },
     {
-      question: "هل يمكن زيارة بساتين الزيتون؟",
-      answer:
-        "نعم، نوفر جولات إرشادية تشمل مراحل الإنتاج وجلسات تذوق، ويمكن الحجز عبر صفحة المواقع.",
+      question: "هل يمكن زيارة البساتين؟",
+      answer: "نعم. الجولات عبر صفحة المواقع.",
     },
     {
       question: "ما هي سياسة الاسترجاع؟",
-      answer:
-        "نوفر ضمان رضا كامل. إذا لم تكن راضيًا، تواصل معنا خلال 30 يومًا للاسترجاع أو الاستبدال.",
+      answer: "خلال ٣٠ يوماً، للاسترجاع أو الاستبدال.",
     },
     {
       question: "هل تشحنون دوليًا؟",
-      answer:
-        "نعم، نشحن إلى مختلف الدول. تختلف تكلفة الشحن ومدة التسليم حسب الوجهة.",
+      answer: "نعم. تختلف التكلفة والمدة حسب الوجهة.",
     },
     {
-      question: "كيف أعرف أن زيت الزيتون فقد جودته؟",
-      answer:
-        "زيت الزيتون البكر الممتاز الطازج يتميز برائحة فاكهية وطعم فلفلي خفيف. من علامات تراجع الجودة الرائحة غير المستحبة أو الطعم الحامض.",
+      question: "كيف أعرف أن الزيت فقد جودته؟",
+      answer: "الزيت الطازج فاكهي، مع لمسة فلفلية. الرائحة العفنة أو الطعم الحامض علامتان على التلف.",
     },
   ]
 
   const faqsEn = [
     {
-      question: "What makes your olive oil premium quality?",
+      question: "What is in the bottle?",
       answer:
-        "Our olive oil is made from hand-picked olives from trees that are over 50 years old. We use traditional cold-pressing methods within 24 hours of harvest to ensure maximum flavor and nutritional value. Each batch is tested for acidity levels and meets strict extra virgin standards.",
+        "Early-harvest Chetoui, cold-extracted within hours. Acidity below 0.2%. Each batch is tasted.",
     },
     {
-      question: "How should I store my olive oil?",
-      answer:
-        "Store your olive oil in a cool, dark place away from heat and light. Keep the bottle tightly sealed and use within 18-24 months of the harvest date for optimal flavor. Avoid storing near the stove or in direct sunlight.",
+      question: "How should I store it?",
+      answer: "Cool, dark, tightly sealed. Best within 18–24 months of harvest.",
     },
     {
-      question: "What's the difference between your olive oil varieties?",
-      answer:
-        "Each cuvée is a different conversation with the fruit. Gold Reserve of Qalaa is our ultra-premium blend of Chetoui and Chemlali — layered fruit, cut grass, and a long peppery finish. Sacred Grove of Al Nagr is a monovarietal Chetoui from the same domaine for those who want intensity: bold grass, almond butter, and structured spice — ideal raw on simple plates.",
+      question: "How do the bottles differ?",
+      answer: "The oil does not. Three bottles: Linfa 250 ml, Linfa 500 ml, Quadra 500 ml.",
     },
     {
-      question: "Can I visit your olive groves?",
-      answer:
-        "We offer guided tours of our olive groves at Domaine Al Nagr, including the production process and oil tasting sessions. Tours are available Monday through Saturday and can be booked through our locations page or by calling directly.",
+      question: "Can I visit the groves?",
+      answer: "Yes. Tours can be arranged through our locations page.",
     },
     {
       question: "What is your return policy?",
-      answer:
-        "We offer a 100% satisfaction guarantee. If you're not completely satisfied with your purchase, contact us within 30 days for a full refund or exchange.",
+      answer: "Within 30 days, for a refund or exchange.",
     },
     {
       question: "Do you ship internationally?",
-      answer:
-        "Yes, we ship worldwide. Shipping costs and delivery times vary by destination. We use specialized packaging to ensure your olive oil arrives in perfect condition. Some countries may have import restrictions on food products.",
+      answer: "Yes. Cost and timing depend on destination.",
     },
     {
-      question: "How can I tell if olive oil has gone bad?",
-      answer:
-        "Fresh extra virgin olive oil should have a fruity aroma and slightly peppery taste. Signs of rancidity include a musty smell, bitter or sour taste, or cloudy appearance. Our oils include harvest dates to help you track freshness.",
+      question: "How can I tell if the oil has turned?",
+      answer: "Fresh oil smells of fruit and finishes with a light pepper. Mustiness or sourness means it has gone.",
     },
   ]
 
   const faqsFr = [
     {
-      question: "Qu'est-ce qui rend votre huile d'olive « ultra-premium » ?",
+      question: "Que contient la bouteille ?",
       answer:
-        "Des olives cueillies au bon moment, un passage au moulin rapide après la récolte, une extraction à froid maîtrisée, et une acidité maintenue dans la zone d'excellence. Chaque lot est goûté : nous cherchons une bouche nette, longue, mémorable — pas seulement une étiquette.",
+        "Un Chetoui de récolte précoce, extrait à froid dans les heures. Acidité inférieure à 0,2 %. Chaque lot est goûté.",
     },
     {
-      question: "Comment conserver mon huile ?",
-      answer:
-        "À l'abri de la lumière et de la chaleur, bouchon bien fermé. Idéalement dans les 18 à 24 mois suivant la récolte pour une palette aromatique au sommet. Évitez le plan de travail près de la cuisinière.",
+      question: "Comment la conserver ?",
+      answer: "À l'abri de la lumière et de la chaleur, bouchon fermé. Idéalement dans les 18 à 24 mois suivant la récolte.",
     },
     {
-      question: "Quelle différence entre vos deux cuvées ?",
-      answer:
-        "Réserve d'or de Qalaa : assemblage méticuleux Chetoui / Chemlali, fruité, herbe fraîche, finale poivrée longue. Bosquet sacré d'Al Nagr : Chetoui monovariétal du même domaine, plus affirmé — herbe intense, beurré d'amande, épice structurée ; pensé pour finir les plats à cru.",
+      question: "Quelle différence entre les flacons ?",
+      answer: "Aucune, dans l'huile. Trois flacons : Linfa 250 ml, Linfa 500 ml, Quadra 500 ml.",
     },
     {
       question: "Puis-je visiter l'oliveraie ?",
-      answer:
-        "Oui — visites guidées au Domaine Al Nagr, parcours de production et dégustation. Renseignements via notre page Lieux ou par téléphone.",
+      answer: "Oui. Les visites se préparent via notre page Lieux.",
     },
     {
       question: "Politique de retour ?",
-      answer:
-        "Satisfaction prioritaire : contactez-nous sous 30 jours en cas de problème pour remboursement ou échange, selon les conditions applicables.",
+      answer: "Sous 30 jours, remboursement ou échange.",
     },
     {
       question: "Livrez-vous à l'international ?",
-      answer:
-        "Oui, vers de nombreux pays. Délais et frais varient selon la destination ; emballages conçus pour protéger la bouteille. Certains pays restreignent l'importation de denrées.",
+      answer: "Oui. Délais et frais selon la destination.",
     },
     {
-      question: "Comment repérer une huile qui a tourné ?",
-      answer:
-        "Une bonne vierge extra sent le fruit et picote légèrement en gorge. Rancio : odeur de moisi, amertume ou acidité désagréable, aspect trouble. Nos bouteilles portent des repères de récolte pour suivre la fraîcheur.",
+      question: "Comment savoir si l'huile a tourné ?",
+      answer: "Une huile fraîche sent le fruit et picote légèrement. Moisi ou aigreur : elle a tourné.",
     },
   ]
 

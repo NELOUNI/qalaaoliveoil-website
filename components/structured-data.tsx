@@ -15,7 +15,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Qalaa",
-          "description": "Premium Tunisian olive oil company specializing in extra virgin olive oils from ancient groves",
+          "description": "Chetoui extra virgin olive oil from Sousse, Tunisia.",
           "url": SITE_ORIGIN,
           "logo": `${SITE_ORIGIN}/qalaa-logo.white.svg`,
           "foundingDate": "1800",

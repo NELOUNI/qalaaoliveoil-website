@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return { title: "Product Not Found | Qalaa" }
   return {
     ...canonicalForPath(`/products/${params.id}`),
-    title: `${product.name_en} | Qalaa Premium Olive Oil`,
-    description: `${product.description_en} — ${product.volume_ml}ml, harvested from ${product.region_en}, Tunisia. Extra Virgin, acidity ${product.acidity_level}.`,
+    title: `${product.name_en} | Qalaa`,
+    description: product.description_en,
     openGraph: {
       title: `${product.name_en} | Qalaa`,
       description: product.description_en,

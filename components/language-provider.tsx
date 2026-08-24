@@ -51,11 +51,11 @@ const translations = {
     "home.hero.title": "From the Hills of Sousse.",
     "home.hero.subtitle":
       "Single-variety Chetoui — early harvest, cold-extracted, tasted before it leaves the mill. One oil, in three bottles, made to be offered.",
-    "home.hero.cta": "The collection",
-    "home.featured.title": "The collection",
+    "home.hero.cta": "The Collection",
+    "home.featured.title": "The Collection",
     "home.featured.description": "One oil. Three bottles.",
-    "home.featured.cta-all": "The collection",
-    "home.story.title": "The groves",
+    "home.featured.cta-all": "The Collection",
+    "home.story.title": "The Groves",
     "home.story.text":
       "Chetoui from the hills of Sousse — picked early, cold-extracted, tasted before it leaves the mill.",
 
@@ -71,19 +71,19 @@ const translations = {
     "products.view-details": "View Details",
 
     // Story Page
-    "story.title": "Our story",
+    "story.title": "Our Story",
     "story.subtitle": "From the tree to the bottle.",
-    "story.heritage.title": "Living terroir",
+    "story.heritage.title": "Living Terroir",
     "story.heritage.text":
       "The groves have been in the family for more than fifty years.",
-    "story.tradition.title": "Gesture and modernity",
+    "story.tradition.title": "Gesture and Modernity",
     "story.tradition.text":
       "Cold extraction, from branch to mill within hours. Every lot is tasted.",
-    "story.quality.title": "Quality without compromise",
+    "story.quality.title": "Quality Without Compromise",
     "story.quality.text":
       "From picking to seal, each step is logged. Acidity is held below 0.2%.",
-    "story.journey.title": "Our journey through time",
-    "story.values.title": "What guides us",
+    "story.journey.title": "Our Journey Through Time",
+    "story.values.title": "What Guides Us",
     "story.image.alt": "Qalaa in the groves of Sousse",
 
     // Recipes Page
@@ -96,7 +96,7 @@ const translations = {
     "recipes.instructions": "Instructions",
 
     // Contact Page
-    "contact.title": "Get in touch",
+    "contact.title": "Get in Touch",
     "contact.subtitle": "Partnerships, tastings, orders — we read every note and reply with care.",
     "contact.form.name": "Full Name",
     "contact.form.email": "Email Address",
@@ -109,7 +109,7 @@ const translations = {
     "contact.info.hours": "Business Hours",
 
     // Locations Page
-    "locations.title": "Our locations",
+    "locations.title": "Our Locations",
     "locations.subtitle":
       "Walk the groves, taste in Tunis, or find us where the journey continues beyond Tunisia.",
     "locations.main-grove": "Main Olive Grove",
@@ -124,9 +124,9 @@ const translations = {
     "faq.subtitle": "Shipping, storage, tasting.",
 
     // Gifting
-    "gifting.title": "Gifts",
+    "gifting.title": "Luxury Olive Oil Gifts",
     "gifting.subtitle": "To be offered.",
-    "gifting.create-gift": "Compose a gift",
+    "gifting.create-gift": "Compose a Gift",
     "gifting.step.products": "Select Products",
     "gifting.step.packaging": "Choose Packaging",
     "gifting.step.message": "Add Message",
@@ -158,7 +158,7 @@ const translations = {
     "footer.address.city": "Sousse, Tunisia",
 
     // Story section
-    "story.preview.heading": "The groves,",
+    "story.preview.heading": "The Groves,",
     "story.preview.liquid-gold": "since 1972",
     "story.preview.intro":
       "The first trees took root in generous soil. The harvest still follows the fruit.",
@@ -170,7 +170,7 @@ const translations = {
     "story.preview.cta": "Step into our heritage",
 
     // Product detail
-    "product.origin-story": "Terroir story",
+    "product.origin-story": "Terroir Story",
     "product.harvest": "Harvest",
     "product.know-more": "Discover",
     "product.acidity-level": "Acidity Level",
